@@ -32,6 +32,8 @@ export const UPDATE_TRAINS = "UPDATE_TRAINS";
 export const ADD_TRAINS = "ADD_TRAINS";
 export const REMOVE_TRAINS = "REMOVE_TRAINS";
 export const REMOVE_TRAIN = "REMOVE_TRAIN";
+export const SELECT_TRAIN = "SELECT_TRAIN";
+export const DESELECT_TRAIN = "DESELECT_TRAIN";
 export const BUILD_WAY_POINTS = "BUILD_WAY_POINTS";
 
 export const routes = {
@@ -181,6 +183,15 @@ export const removeTrains = routeNum => ({
 export const removeTrain = id => ({
   type: REMOVE_TRAIN,
 
+  id
+});
+
+export const selectTrain = id => ({
+  type: SELECT_TRAIN,
+  id
+});
+export const deselectTrain = id => ({
+  type: DESELECT_TRAIN,
   id
 });
 export const buildWayPoints = routeNum => ({

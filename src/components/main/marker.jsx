@@ -12,6 +12,8 @@ import React, {
 } from "react";
 import L from "leaflet";
 import * as util from "leaflet-geometryutil";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTrain, deselectTrain } from "../../actions/station_actions";
 
 import { Marker, Polyline, Popup } from "react-leaflet";
 import { divIcon } from "leaflet";
@@ -67,6 +69,7 @@ const NewMarker = React.forwardRef((props, ref) => {
   console.log(props);
 
   let inits = { lat: 0, lng: 0 };
+  const dispatch = useDispatch();
   const initRef = React.useRef(inits);
 
   //const markerRef = React.useRef(inits);
@@ -170,7 +173,7 @@ const NewMarker = React.forwardRef((props, ref) => {
 
       setTimeout(() => {
         mapRef2.current.current.leafletElement.fitBounds(polyline.getBounds());
-      }, 3000 * props.index);
+      }, props.interval * props.index);
     }
 
     console.log(currentTime);
@@ -236,7 +239,7 @@ const NewMarker = React.forwardRef((props, ref) => {
             mapRef2.current.current.leafletElement.fitBounds(
               polyLineRef.current.getBounds()
             );
-          }, 3000 * props.index);
+          }, props.interval * props.index);
         }
       } else if (minutes !== "Leaving") {
         currentTime.current = minutes * 60 * 1000;
@@ -489,8 +492,10 @@ const NewMarker = React.forwardRef((props, ref) => {
       let newColor2 = newCol.darken(2).hex();
       console.log(newColor2);
       colorRef.current = newColor2;
+      dispatch(selectTrain(props.id));
     } else {
       colorRef.current = color;
+      dispatch(deselectTrain(props.id));
     }
     setSelected(!selected);
     markerRef.current.leafletElement.openPopup();

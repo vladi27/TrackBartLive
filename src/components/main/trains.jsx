@@ -144,7 +144,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
             minutes={train.minutes}
             lastTrain={train.lastTrain}
             destination={train.dest}
-            index={index}
+            index={train.index}
             removeTrain={props.removeTrain}
             id={train.id}
             totalTime={train.totalMinutes}
@@ -154,6 +154,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
             ref={ins => (refs.current[index] = ins)}
             getMap={props.getMap}
             zoom={zoomRef.current}
+            interval={train.interval}
           />
         );
       })}

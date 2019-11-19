@@ -8,10 +8,15 @@ import {
   UPDATE_TRAINS,
   ADD_TRAINS,
   REMOVE_TRAINS,
-  REMOVE_TRAIN
+  REMOVE_TRAIN,
+  SELECT_TRAIN,
+  DESELECT_TRAIN
 } from "../actions/station_actions";
+import routes2 from "../waypoints/routes.json";
 
 import findIndex from "lodash/findIndex";
+
+import stationsData from "../waypoints/stations.json";
 
 import find from "lodash/find";
 
@@ -492,6 +497,26 @@ const trainsReducer = (state = [], action) => {
       curTrains2.splice(index, 1);
 
       return curTrains2;
+    case SELECT_TRAIN:
+      const id2 = action.id;
+      const curTrains3 = [...state];
+      const train4 = find(curTrains3, function(o) {
+        return id2 === o.id;
+      });
+
+      train4["selected"] = true;
+
+      return curTrains3;
+    case DESELECT_TRAIN:
+      const id3 = action.id;
+      const curTrains4 = [...state];
+      const train5 = find(curTrains4, function(o) {
+        return id3 === o.id;
+      });
+
+      train5["selected"] = false;
+
+      return curTrains4;
 
     // curTrains = Object.assign({}, allUpdatedTrains);
 
@@ -502,7 +527,7 @@ const trainsReducer = (state = [], action) => {
       const curFirstTrains = currentTrains5.filter(train => train.firstTrain);
       const currentEtas2 = action.etas;
       const newTrain5 = [];
-      const currentRoutes = action.routes;
+      const currentRoutes = routes2;
       console.log(curFirstTrains);
 
       curFirstTrains.map((train, idx) => {
@@ -581,10 +606,18 @@ const trainsReducer = (state = [], action) => {
         }
       });
       console.log(newTrain5);
-      const uniques = uniqBy(newTrain5, "id2");
+
+      const newT6 = [...newTrain5, ...currentTrains5];
+
+      const df = newT6.map(train => {
+        let id2 = train.route + train.stationName;
+        train["id2"] = id2;
+        return train;
+      });
+
+      const uniques = uniqBy(df, "id2");
       console.log(uniques, currentTrains5);
 
-      const newT6 = [...uniques, ...currentTrains5];
       // const uniques = uniqWith(
       //   newT6,
       //   (trainA, trainB) =>
@@ -592,15 +625,15 @@ const trainsReducer = (state = [], action) => {
       //       trainA.stationName !== trainB.stationName) ||
       //     trainA.route !== trainB.route
       // );
-      return newT6;
+      return uniques;
 
     case UPDATE_TRAINS:
       const etas = action.etas;
 
       let allTrains = [...state];
 
-      let routes = action.routes;
-      const allStations = action.stations;
+      let routes = routes2;
+      const allStations = stationsData;
       // if (action.routeNum === "2") {
       //   stations = action.stations.slice(0, -3);
       // } else if (action.routeNum === "1") {
@@ -610,6 +643,8 @@ const trainsReducer = (state = [], action) => {
       // }
 
       const updatedTrains = [];
+      const selectedIDs = [];
+      let secs = 30000;
 
       allTrains.map((train, idx) => {
         console.log(train);
@@ -673,6 +708,10 @@ const trainsReducer = (state = [], action) => {
               mins = nextEst.minutes;
               let direc = nextEst.direction;
 
+              if (train.selected) {
+                selectedIDs.push(train.id);
+              }
+
               let lastTrain = false;
               if (train.stationIdx + 1 === stationLength) {
                 lastTrain = true;
@@ -700,17 +739,29 @@ const trainsReducer = (state = [], action) => {
               let updatedTrain = Object.assign({}, train, newObj);
               return updatedTrains.push(updatedTrain);
             } else if (
-              (currentMinutes === "Leaving" &&
-                lastMinutes !== "Leaving" &&
-                !train.lastTrain) ||
-              Number(currentMinutes) < Number(lastMinutes)
+              currentMinutes === "Leaving" &&
+              lastMinutes !== "Leaving" &&
+              !train.lastTrain
             ) {
+              if (train.selected) {
+                selectedIDs.push(train.id);
+              }
+
               let updObj = {
                 minutes: currentMinutes,
                 initialPosition: false
                 //departures: currentStationEstimates[index].estimate[0]
               };
 
+              let updatedTrain = Object.assign({}, train, updObj);
+              console.log(updatedTrain);
+              return updatedTrains.push(updatedTrain);
+            } else if (Number(currentMinutes) < Number(lastMinutes)) {
+              let updObj = {
+                minutes: currentMinutes,
+                initialPosition: false
+                //departures: currentStationEstimates[index].estimate[0]
+              };
               let updatedTrain = Object.assign({}, train, updObj);
               console.log(updatedTrain);
               return updatedTrains.push(updatedTrain);
@@ -854,9 +905,22 @@ const trainsReducer = (state = [], action) => {
       // const newObj = Object.assign({}, { [action.routeNum]: abc });
 
       console.log(updatedTrains);
-      const uniques2 = uniqBy(updatedTrains, "id2");
+      //const uniques2 = uniqBy(updatedTrains, "id2");
+      const interval = Math.round(secs / selectedIDs.length);
+      const newTrains2 = updatedTrains.map(train => {
+        let id = train.id;
 
-      return updatedTrains;
+        if (selectedIDs.includes(id)) {
+          let idx = selectedIDs.indexOf(id);
+          train["interval"] = interval;
+          train["index"] = idx;
+          return train;
+        } else {
+          return train;
+        }
+      });
+
+      return newTrains2;
 
     default:
       return state;

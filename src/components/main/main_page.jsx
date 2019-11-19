@@ -7,7 +7,9 @@ import L from "leaflet";
 // import { DropdownMultiple, Dropdown } from "reactjs-dropdown-component";
 import Select from "react-select";
 import jsonObject from "../../waypoints/all_shapes.json";
-
+import routes2 from "../../waypoints/routes.json";
+import stations2 from "../../waypoints/stations.json";
+import allWayPoints from "../../waypoints/all_waypoints.json";
 import { throws } from "assert";
 import WindowedSelect from "react-windowed-select";
 
@@ -230,25 +232,25 @@ class MainPage extends Component {
     // then(response =>
     //   this.setState({ space_station: response.space_station })
     // );
-    this.props
-      .fetchRoutes()
+    // this.props
+    //   .fetchRoutes()
 
-      .then(() => {
-        routeIds.map(ele => {
-          this.props.fetchRouteStations(ele);
-          // this.props.fetchRouteSchedules(ele);
-        });
-      });
+    //   .then(() => {
+    //     routeIds.map(ele => {
+    //       this.props.fetchRouteStations(ele);
+    //       // this.props.fetchRouteSchedules(ele);
+    //     });
+    //   });
 
-    console.count();
-    routeIds.map(id => this.props.fetchRouteStations(id));
+    // console.count();
+    // routeIds.map(id => this.props.fetchRouteStations(id));
     this.props.getCurrentEtas();
-    this.props.fetchStations();
+    // this.props.fetchStations();
     //   .then(response => this.setState({ etas: this.props.etas }));
 
     // this.props.fetchRouteSchedules(1);
 
-    this.props.receiveWayPoints(jsonObject);
+    //this.props.receiveWayPoints(jsonObject);
     setTimeout(() => {
       this.handleTimer();
     }, 15000);
@@ -518,9 +520,9 @@ class MainPage extends Component {
   handleSelect(value) {
     let difference = [];
 
-    const routes = this.props.routes;
+    const routes = routes2;
     const etas = this.props.etas;
-    const stations = this.props.stations;
+    const stations = stations2;
 
     // difference = this.state.currentSelections
     //   .slice()
@@ -703,7 +705,7 @@ class MainPage extends Component {
   // }
 
   render() {
-    const allRoutes = this.props.routes;
+    const allRoutes = routes;
     const customFilter = createFilter({ ignoreAccents: false });
 
     const currentSelections = this.state.currentSelections;
@@ -718,7 +720,7 @@ class MainPage extends Component {
     // }
 
     const trains = this.props.trains || [];
-    const routes = this.props.routes;
+    const routes = routes2;
     const hexcolors = this.state.hexcolors || [];
     const uniques = uniq(hexcolors);
     const update = String(this.state.update);
@@ -743,17 +745,18 @@ class MainPage extends Component {
 
     // console.log(this.props);
     // const customMarker = L.icon({ iconUrl: require('../../assets/images/iss.png')})
-    if (!loading) {
-      return (
-        <MoonLoader
-          css={override}
-          sizeUnit={"px"}
-          size={150}
-          color={"#123abc"}
-          loading={this.state.loading}
-        />
-      );
-    } else {
+    // if (!loading) {
+    //   return (
+    //     <MoonLoader
+    //       css={override}
+    //       sizeUnit={"px"}
+    //       size={150}
+    //       color={"#123abc"}
+    //       loading={this.state.loading}
+    //     />
+    //   );
+    // } else
+    {
       //this.mapRef.current.leafletElement.setMaxBounds
       return (
         <div id="all">
@@ -815,7 +818,7 @@ class MainPage extends Component {
                   <Polylines
                     currentRoutes={currentSelections}
                     routes={routes}
-                    waypoints={this.props.waypoints}
+                    waypoints={allWayPoints}
                   />
                   <Trains
                     trains={trains}
