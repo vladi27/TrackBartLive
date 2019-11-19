@@ -29,15 +29,15 @@ const persistenceMiddleware = store => dispatch => action => {
   const result = dispatch(action);
 
   if (persistenceActionTypes.includes(action.type)) {
-    if (action.type === "RECEIVE_ROUTE_STATIONS") {
-      let newState = store.getState();
-      handleWaypoints(action, store, newState);
-    }
-    if (action.type === "RECEIVE_STATIONS") {
-      console.log("sta");
-      let newState = store.getState();
-      handleStations(action, store, newState);
-    }
+    // if (action.type === "RECEIVE_ROUTE_STATIONS") {
+    //   let newState = store.getState();
+    //   handleWaypoints(action, store, newState);
+    // }
+    // if (action.type === "RECEIVE_STATIONS") {
+    //   console.log("sta");
+    //   let newState = store.getState();
+    //   handleStations(action, store, newState);
+    // }
 
     if (action.type === "RECEIVE_CURRENT_ETAS") {
       //   console.count();
@@ -85,23 +85,21 @@ const handleStations = (action, store, newState) => {
 
 const handleUpdate = (action, store, newState) => {
   // const routeTrains = store.getState().trains[action.route.number];
-  const routes = store.getState().routes;
-  const stations = store.getState().stations;
+
   const allEtas2 = store.getState().etas;
   const allTrains2 = store.getState().trains;
   console.log(allTrains2);
   //let num = action.route.number;
   //console.log(num);
   if (allTrains2.length > 0) {
-    store.dispatch(updateTrains(routes, allEtas2, stations));
+    store.dispatch(updateTrains(allEtas2));
   }
 };
 
 const handleTrains = (action, store, newState) => {
-  const routes3 = store.getState().routes;
   const allEtas3 = store.getState().etas;
 
-  store.dispatch(addTrains(routes3, allEtas3));
+  store.dispatch(addTrains(allEtas3));
 
   // } else if (action.routes === "update") {
   //   let stations = allRoutes[action.route].stations;

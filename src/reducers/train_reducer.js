@@ -110,7 +110,7 @@ const trainsReducer = (state = [], action) => {
       const routeHexcolor = route.hexcolor;
       let routeStations = route.stations;
       let currentTrains = [];
-      const allStat = action.stations;
+      const allStat = stationsData;
 
       let sub = action.sub;
 

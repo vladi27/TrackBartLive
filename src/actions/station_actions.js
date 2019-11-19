@@ -165,14 +165,14 @@ const receiveRouteSchedules = (schedules, id) => ({
   id
 });
 
-export const addTrains = (routes, etas) => ({
+export const addTrains = etas => ({
   type: ADD_TRAINS,
   meta: {
     debounce: {
       time: 300
     }
   },
-  routes,
+
   etas
 });
 export const removeTrains = routeNum => ({
@@ -200,24 +200,22 @@ export const buildWayPoints = routeNum => ({
   routeNum
 });
 
-export const updateTrains = (routes, etas, stations) => ({
+export const updateTrains = etas => ({
   type: UPDATE_TRAINS,
-  routes,
+
   meta: {
     debounce: {
       time: 400
     }
   },
-  etas,
-  stations
+  etas
 });
 
-export const createTrains = (route, etas, stations) => ({
+export const createTrains = (route, etas) => ({
   type: CREATE_TRAINS,
   route,
   etas,
 
-  stations
 });
 
 export const receiveWayPoints = jsonObj => ({
