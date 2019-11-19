@@ -1,0 +1,168 @@
+.dd-wrapper {
+  font-size: 1.6rem;
+  user-select: none;
+  position: relative;
+  width: 20px;
+}
+
+.test {
+  color: red;
+  position: relative;
+  margin-bottom: 200px;
+}
+
+.body {
+  font: inherit;
+}
+
+#all {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.react-select__menu {
+  /* //position: absolute; */
+  /* // margin-bottom: 50px; */
+  margin-right: -10px;
+  /* margin-left: 2px;  */
+  /* //margin: auto; */
+  width: 99%;
+  position: absolute;
+  /* //height: fit-content; */
+}
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 60px;
+  /* //position: relative; */
+}
+
+.custom-div-iconffff33 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #ffff33;
+}
+
+.custom-div-icon929c00 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #929c00;
+}
+.custom-div-icon903e00 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #903e00;
+}
+.custom-div-icon003d00 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #003d00;
+}
+
+.custom-div-iconff9933 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #ff9933;
+}
+.custom-div-icon890000 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #890000;
+}
+.custom-div-icon339933 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #339933;
+}
+.custom-div-iconff0000 i {
+  position: absolute;
+  width: 22px;
+  font-size: 22px;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  text-align: center;
+  background: #ff0000;
+}
+
+.custom-div-icon i.awesome {
+  margin: 12px auto;
+  font-size: 17px;
+}
+
+.tffff33 {
+  background: "#ffff33";
+}
+.tff9933 {
+  background: "#ff9933";
+}
+
+.leaflet-marker-icon {
+  background: transparent;
+}
+
+.t339933 {
+  background: "#339933";
+}
+
+.tff0000 {
+  background: "#ff0000";
+}
+
+.marker {
+  -webkit-transition: all 7s ease-in-out;
+  -moz-transition: all 7s ease-in-out;
+  -o-transition: all 7s ease-in-out;
+  transition: all 7s ease-in-out;
+
+  border-radius: 15px;
+  border: 1px solid #fff;
+  display: inline-block;
+  /* width: auto !important;
+ // height: auto !important; */
+  width: 30px !important;
+  text-align: center;
+  height: 30px !important;
+  line-height: 30px;
+  color: #fff;
+  font-weight: bold;
+}
