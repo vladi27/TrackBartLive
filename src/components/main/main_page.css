@@ -1,0 +1,12 @@
+.Main_page .leaflet-container {
+  height: 1000px;
+  width: 1000px;
+  margin: 0;
+  padding: 20px;
+}
+
+.Main_page .leaflet-container {
+  overflow: hidden;
+  height: 800px;
+  width: 100%;
+}
