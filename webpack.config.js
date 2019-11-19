@@ -1,12 +1,13 @@
+const webpack = require("webpack");
 var path = require("path");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: __dirname + "/dist",
+    path: path.join(__dirname, "dist"),
     publicPath: "/",
     filename: "bundle.js"
   },
-  devServer: { contentBase: "./dist" },
+  // devServer: { contentBase: "./dist" },
   module: {
     rules: [
       {
@@ -34,7 +35,7 @@ module.exports = {
       }
     ]
   },
-  devtool: "source-map",
+  // devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", "*"]
   }
