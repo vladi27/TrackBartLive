@@ -7,7 +7,7 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js"
   },
-  // devServer: { contentBase: "./dist" },
+  devServer: { contentBase: "./" },
   module: {
     rules: [
       {
@@ -35,7 +35,7 @@ module.exports = {
       }
     ]
   },
-  // devtool: "source-map",
+  //devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", "*"]
   }
