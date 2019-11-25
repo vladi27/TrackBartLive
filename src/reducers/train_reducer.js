@@ -674,7 +674,9 @@ const trainsReducer = (state = [], action) => {
           let currentEst = find(currentDepartures.estimate, function(o) {
             return o.hexcolor === hexcolor && o.direction === trainDirection;
           });
+          console.log(currentEst, train);
           if (currentEst) {
+            console.log(currentEst, train);
             let currentMinutes = currentEst.minutes;
             let currentDirection = currentEst.direction;
             let currentHexcolor = currentEst.hexcolor;
