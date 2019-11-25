@@ -4,10 +4,11 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "dist"),
+    // publicPath: "/dist",
     publicPath: "/",
     filename: "bundle.js"
   },
-  //devServer: { contentBase: "./" },
+  //devServer: { contentBase: "dist" },
   module: {
     rules: [
       {

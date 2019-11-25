@@ -713,6 +713,11 @@ const trainsReducer = (state = [], action) => {
               let nextEst = find(nextDepartures.estimate, function(o) {
                 return o.hexcolor === hexcolor && o.direction === dir2;
               });
+              if (!nextEst) {
+                nextEst = find(nextDepartures.estimate, function(o) {
+                  return o.hexcolor === hexcolor;
+                });
+              }
               console.log(nextEst);
               mins = nextEst.minutes;
               let direc = nextEst.direction;
