@@ -49,6 +49,7 @@ const NewMarker = React.forwardRef((props, ref) => {
   const currentTime = React.useRef();
   const stationRef = React.useRef(null);
   const colorRef = React.useRef(props.color);
+  const intervalRef = React.useRef(null);
   // const minutes = props.minutes;
   // const lastTrain = props.lastTrain;
   // const id = props.id;
@@ -131,7 +132,7 @@ const NewMarker = React.forwardRef((props, ref) => {
     // if (!props.initialPos) {
     //   animated.current = null;
     // }
-    if (stationRef.current == null || stationRef.current === station) {
+    if (stationRef.current == null || stationRef.current === props.station) {
       return;
     }
     console.log(props);
@@ -146,6 +147,11 @@ const NewMarker = React.forwardRef((props, ref) => {
     polyline.addLatLng(point);
 
     console.log(polyline);
+    let interval = props.interval * props.index;
+
+    if (interval < 3000) {
+      interval = 3000;
+    }
 
     const currentPosition = markerRef.current.leafletElement.getLatLng();
     const ratio = util.locateOnLine(
@@ -170,10 +176,14 @@ const NewMarker = React.forwardRef((props, ref) => {
 
     if (mapRef2.current && !props.zoom && selected) {
       console.log(mapRef2);
+      if (intervalRef.current !== null) {
+        clearTimeout(intervalRef.current);
+        intervalRef.current = null;
+      }
 
-      setTimeout(() => {
+      intervalRef.current = setTimeout(() => {
         mapRef2.current.current.leafletElement.fitBounds(polyline.getBounds());
-      }, props.interval * props.index);
+      }, interval);
     }
 
     console.log(currentTime);
@@ -190,7 +200,7 @@ const NewMarker = React.forwardRef((props, ref) => {
   }, [props.station]);
 
   useLayoutEffect(() => {
-    if (minutes === minutesRef.current || minutesRef.current == null) {
+    if (props.minutes === minutesRef.current || minutesRef.current == null) {
       return;
     }
     // if (animated.current)
@@ -212,6 +222,10 @@ const NewMarker = React.forwardRef((props, ref) => {
         props.minutes,
         waypoints2[0][waypoints2.length - 1]
       );
+      let interval = props.interval * props.index + 2000;
+      if (interval < 3000) {
+        interval = 3000;
+      }
       const pos = waypoints2[waypoints2.length - 1];
       const pos2 = [parseFloat(pos[0]), parseFloat(pos[1])];
       const pos3 = L.latLng(pos2[0], pos2[1]);
@@ -235,11 +249,15 @@ const NewMarker = React.forwardRef((props, ref) => {
       if (minutes === "Leaving") {
         currentTime.current = 20000;
         if (!props.zoom && selected) {
-          setTimeout(() => {
+          if (intervalRef.current !== null) {
+            clearTimeout(intervalRef.current);
+            intervalRef.current = null;
+          }
+          intervalRef.current = setTimeout(() => {
             mapRef2.current.current.leafletElement.fitBounds(
               polyLineRef.current.getBounds()
             );
-          }, props.interval * props.index);
+          }, interval);
         }
       } else if (minutes !== "Leaving") {
         currentTime.current = minutes * 60 * 1000;

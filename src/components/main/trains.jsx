@@ -71,7 +71,8 @@ const Trains = React.forwardRef(function Trains(props, ref) {
     // //window.cancelAnimationFrame(frameId);
     // console.log(zoom);
     // console.log(refs);
-    if (!zoomRef.current) {
+    // if (!zoomRef.current)
+    {
       // console.log(timeStep);
       //cancelAnimationFrame(frameId);
       // frameId = L.Util.requestAnimFrame(t => {

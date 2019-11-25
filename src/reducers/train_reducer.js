@@ -691,9 +691,16 @@ const trainsReducer = (state = [], action) => {
               let northRoutes = nextInfo.north_routes.route;
               let southRoutes = nextInfo.south_routes.route;
               console.log(northRoutes, southRoutes);
-              if (northRoutes.includes(placeholder)) {
+
+              if (northRoutes && southRoutes) {
+                if (northRoutes.includes(placeholder)) {
+                  dir2 = "North";
+                } else if (southRoutes.includes(placeholder)) {
+                  dir2 = "South";
+                }
+              } else if (northRoutes && !southRoutes) {
                 dir2 = "North";
-              } else if (southRoutes.includes(placeholder)) {
+              } else if (!northRoutes && southRoutes) {
                 dir2 = "South";
               }
 

@@ -407,9 +407,11 @@ class MainPage extends Component {
   // }
 
   shouldComponentUpdate(nextState, nextProps) {
+    const current = this.props.trains;
+    const next = nextProps.trains;
     return (
-      // !isEqual(this.props.trains, nextProps.trains) ||
-      this.props.trains !== nextProps.trains
+      !isEqual(current, next) ||
+      this.state.currentSelections !== nextState.currentSelections
     );
   }
 
@@ -719,7 +721,7 @@ class MainPage extends Component {
     //   trains = this.props.trains;
     // }
 
-    const trains = this.props.trains || [];
+    const trains = this.props.trains;
     const routes = routes2;
     const hexcolors = this.state.hexcolors || [];
     const uniques = uniq(hexcolors);
@@ -800,16 +802,16 @@ class MainPage extends Component {
             closePopupOnClick={false}
             onzoomstart={this.handleZoomStart.bind(this)}
             onzoomend={this.handleZoomEnd.bind(this)}
-            markerZoomAnimation={false}
+            markerZoomAnimation={true}
             //maxZoom={13}
-            minZoom={11}
+            //minZoom={11}
             style={{ width: "100%", height: "100%", marginTop: "60px" }}
             //maxBounds={bounds}
 
             preferCanvas={true}
             ref={this.mapRef}
           >
-            {currentSelections && trains.length > 0 ? (
+            {currentSelections && currentSelections.length > 0 ? (
               <React.Fragment>
                 <React.Fragment>
                   <RouteStations
