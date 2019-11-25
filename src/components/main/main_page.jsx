@@ -802,7 +802,7 @@ class MainPage extends Component {
             closePopupOnClick={false}
             onzoomstart={this.handleZoomStart.bind(this)}
             onzoomend={this.handleZoomEnd.bind(this)}
-            markerZoomAnimation={false}
+            markerZoomAnimation={true}
             //maxZoom={13}
             //minZoom={11}
             style={{ width: "100%", height: "100%", marginTop: "60px" }}
