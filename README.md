@@ -294,9 +294,9 @@ useImperativeHandle(ref, () => ({
 
 ## Features
 
-- Users can select a line or multiple BART lines they want to track
-- The app dynamically adds new trains for the selected routes and removes trains that reach their destinations so users see the accurate number of trains on the map without refreshing the page.
-- Users can click on any train on the map to start tracking it and every time the train arrives at the station or leaves the station, the map would dynamically change its view.
+- Users can select a single or multiple BART lines they want to track.
+- The app dynamically adds new trains for the selected routes and removes trains that reach their destinations so users see the accurate number of trains on the map without having to refresh the page.
+- Users can click on any train on the map to start tracking it and every time the train arrives at the station or leaves it, the map would dynamically change its view.
 
 ## Future plans
 
