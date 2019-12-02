@@ -208,6 +208,7 @@ const NewMarker = React.forwardRef((props, ref) => {
     {
       const routeStations2 = props.routeStations;
       const waypoints2 = routeStations2[props.stationIndex - 1].slice;
+      const dest2 = routeStations2[props.stationIndex].location;
       console.log(props.minutes);
       animated.current = null;
       minutesRef.current = minutes;
@@ -254,9 +255,21 @@ const NewMarker = React.forwardRef((props, ref) => {
             intervalRef.current = null;
           }
           intervalRef.current = setTimeout(() => {
-            mapRef2.current.current.leafletElement.fitBounds(
-              polyLineRef.current.getBounds()
-            );
+            const poly2 = polyLineRef.current;
+            const latlng = poly2.getLatLngs();
+            console.log(latlng, "hello");
+            if (latlng && latlng.length && latlng.length > 3) {
+              mapRef2.current.current.leafletElement.fitBounds(
+                polyLineRef.current.getBounds()
+              );
+            } else {
+              const waypoints3 = routeStations2[props.stationIndex].slice;
+              const poly3 = L.polyline(waypoints3);
+
+              mapRef2.current.current.leafletElement.fitBounds(
+                poly3.getBounds()
+              );
+            }
           }, interval);
         }
       } else if (minutes !== "Leaving") {
@@ -525,7 +538,7 @@ const NewMarker = React.forwardRef((props, ref) => {
       icon={iconTrain}
       // autoPan={false}
       position={initRef.current}
-      key={props.id}
+      key={id}
       onClick={handleTrainUpdate}
       ref={markerRef}
     >
@@ -540,6 +553,8 @@ const NewMarker = React.forwardRef((props, ref) => {
           Station: <strong>{props.station}</strong> <br />
           Minutes: <strong>{props.minutes}</strong> <br />
           Destination: <strong>{destination}</strong>
+          <br />
+          Cars: <strong>{props.cars}</strong>
         </span>
       </Popup>
     </Marker>

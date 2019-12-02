@@ -190,6 +190,7 @@ const trainsReducer = (state = [], action) => {
                 let minutes = currentEstimate.minutes;
                 let hexcolor = currentEstimate.hexcolor;
                 let direction = currentEstimate.direction;
+                let cars = currentEstimate.length;
                 //let platfrom = currentEstimate.plarf;
                 if (minutes === "Leaving" && idx !== routeStations.length - 1) {
                   let id = uuidv4();
@@ -199,6 +200,7 @@ const trainsReducer = (state = [], action) => {
                     //platform: platform,
                     direction: direction,
                     minutes,
+                    cars,
                     stationName,
                     route: route.number,
                     lastTrain: false,
@@ -327,6 +329,7 @@ const trainsReducer = (state = [], action) => {
                             hexcolor,
                             direction,
                             minutes,
+                            cars,
                             // segments,
                             totalMinutes: Number(minutes),
                             stationName,
@@ -571,6 +574,7 @@ const trainsReducer = (state = [], action) => {
                   let minutes = currentEstimate.minutes;
                   let hexcolor = currentEstimate.hexcolor;
                   let direction = currentEstimate.direction;
+                  let cars = currentEstimate.length;
                   if (minutes === "Leaving") {
                     let id = uuidv4();
                     let id2 = `${num + stationName2}`;
@@ -579,6 +583,7 @@ const trainsReducer = (state = [], action) => {
                       hexcolor,
                       direction: direction,
                       minutes,
+                      cars,
                       stationName: stationName2,
                       route: num,
                       lastTrain: false,
