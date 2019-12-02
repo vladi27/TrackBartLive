@@ -258,6 +258,7 @@ const NewMarker = React.forwardRef((props, ref) => {
             const poly2 = polyLineRef.current;
             const latlng = poly2.getLatLngs();
             console.log(latlng, "hello");
+
             if (latlng && latlng.length && latlng.length > 3) {
               mapRef2.current.current.leafletElement.fitBounds(
                 polyLineRef.current.getBounds()
@@ -531,6 +532,16 @@ const NewMarker = React.forwardRef((props, ref) => {
     setSelected(!selected);
     markerRef.current.leafletElement.openPopup();
   };
+
+  const stopTracking = useMemo(() => {
+    if (props.tracking) {
+      clearTimeout(intervalRef.current);
+      intervalRef.current = null;
+      setSelected(false);
+      markerRef.current.leafletElement.closePopup();
+      colorRef.current = color;
+    }
+  }, [props.tracking]);
 
   return (
     // <Polyline positions={waypoints} ref={polyLineRef}>

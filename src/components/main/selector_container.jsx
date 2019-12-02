@@ -50,6 +50,7 @@ const SelectorContainer = React.memo(
       }
     ];
     function handleChange(value) {
+      console.log(value);
       handleSelect(value);
     }
     console.log(options);
@@ -93,6 +94,11 @@ const SelectorContainer = React.memo(
       multiValueLabel: (styles, { data }) => ({
         ...styles,
         color: data.hexcolor
+      }),
+      placeholder: (styles, { data }) => ({
+        ...styles,
+        color: "silver",
+        fontFamily: "Roboto,Arial,sans-serif"
       }),
       multiValueRemove: (styles, { data }) => ({
         ...styles,
@@ -141,7 +147,7 @@ const SelectorContainer = React.memo(
             // Fixes the overlapping problem of the component
             customStyles
           }
-          placeholder={"Select BART lines to track"}
+          placeholder={"Select a single or multiple BART lines to track"}
           className="basic-multi-select"
           classNamePrefix="select"
           //filterOption={customFilter}

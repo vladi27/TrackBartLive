@@ -35,6 +35,8 @@ export const REMOVE_TRAIN = "REMOVE_TRAIN";
 export const SELECT_TRAIN = "SELECT_TRAIN";
 export const DESELECT_TRAIN = "DESELECT_TRAIN";
 export const BUILD_WAY_POINTS = "BUILD_WAY_POINTS";
+export const REMOVE_TRACKING = "REMOVE_TRACKING";
+export const REMOVE_ALL_TRAINS = "REMOVE_ALL_TRAINS";
 
 export const routes = {
   1: {
@@ -180,6 +182,9 @@ export const removeTrains = routeNum => ({
 
   routeNum
 });
+export const removeAllTrains = () => ({
+  type: REMOVE_ALL_TRAINS
+});
 export const removeTrain = id => ({
   type: REMOVE_TRAIN,
 
@@ -214,8 +219,10 @@ export const updateTrains = etas => ({
 export const createTrains = (route, etas) => ({
   type: CREATE_TRAINS,
   route,
-  etas,
-
+  etas
+});
+export const removeTracking = () => ({
+  type: REMOVE_TRACKING
 });
 
 export const receiveWayPoints = jsonObj => ({

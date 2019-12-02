@@ -10,7 +10,9 @@ import {
   REMOVE_TRAINS,
   REMOVE_TRAIN,
   SELECT_TRAIN,
-  DESELECT_TRAIN
+  DESELECT_TRAIN,
+  REMOVE_TRACKING,
+  REMOVE_ALL_TRAINS
 } from "../actions/station_actions";
 import routes2 from "../waypoints/routes.json";
 
@@ -500,6 +502,8 @@ const trainsReducer = (state = [], action) => {
       curTrains2.splice(index, 1);
 
       return curTrains2;
+    case REMOVE_ALL_TRAINS:
+      return [];
     case SELECT_TRAIN:
       const id2 = action.id;
       const curTrains3 = [...state];
@@ -521,6 +525,15 @@ const trainsReducer = (state = [], action) => {
 
       return curTrains4;
 
+    case REMOVE_TRACKING:
+      const trs2 = [...state];
+      const trs3 = trs2.map(tra => {
+        if (tra["selected"]) {
+          tra["selected"] = false;
+        }
+        return tra;
+      });
+      return trs3;
     // curTrains = Object.assign({}, allUpdatedTrains);
 
     // const newTrainsforRoute = { [routeNum4]: curTrains };

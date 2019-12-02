@@ -40,6 +40,11 @@
   margin-top: 60px;
   /* //position: relative; */
 }
+.button {
+  background-color: tomato;
+  cursor: pointer;
+  padding: 10px;
+}
 
 .custom-div-iconffff33 i {
   position: absolute;

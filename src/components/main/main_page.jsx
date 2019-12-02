@@ -12,13 +12,13 @@ import stations2 from "../../waypoints/stations.json";
 import allWayPoints from "../../waypoints/all_waypoints.json";
 import { throws } from "assert";
 import WindowedSelect from "react-windowed-select";
-
+import find from "lodash/find";
 import uniq from "lodash/uniq";
 import Station from "./stations";
 import { components, createFilter } from "react-windowed-select";
 import findIndex from "lodash/findIndex";
 import Loader from "react-loader-spinner";
-
+import Control from "react-leaflet-control";
 import { css } from "@emotion/core";
 import { MoonLoader } from "react-spinners";
 import NewMarker from "./marker";
@@ -206,7 +206,8 @@ class MainPage extends Component {
       hexcolors: [],
       update: 0,
       trains: [],
-      zoom: 11
+      zoom: 11,
+      stopTracking: false
     };
     this.timer = 0;
     //this.renderStops = this.renderStops.bind(this);
@@ -411,15 +412,18 @@ class MainPage extends Component {
     const next = nextProps.trains;
     return (
       !isEqual(current, next) ||
-      this.state.currentSelections !== nextState.currentSelections
+      this.state.currentSelections !== nextState.currentSelections ||
+      this.state.stopTracking !== nextState.stopTracking
     );
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.trains !== this.state.trains) {
-  //     this.setState({ trains: this.props.trains });
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.stopTracking) {
+      setTimeout(() => {
+        this.setState({ stopTracking: false });
+      }, 100);
+    }
+  }
 
   handleTimer() {
     const routes = this.props.routes;
@@ -559,7 +563,11 @@ class MainPage extends Component {
         let route = routes[num];
         this.props.createTrains(route, etas, stations);
         return { currentSelections: value, hexcolors: newColor };
-      } else if (value && value.length < prev.currentSelections.length) {
+      } else if (
+        value &&
+        value.length < prev.currentSelections.length &&
+        value.length > 1
+      ) {
         let difference = this.state.currentSelections
           .slice()
           .filter(x => !value.includes(x));
@@ -572,9 +580,12 @@ class MainPage extends Component {
         //  let route = routes[num];
         this.props.removeTrains(num);
         return { currentSelections: value, hexcolors };
-      } else if (prev.currentSelections.length === 1 && !value) {
-        let num = prev.currentSelections[0].value;
-        this.props.removeTrains(num);
+      } else if (
+        (prev.currentSelections.length > 0 && !value) ||
+        (prev.currentSelections.length > 0 && value.length === 0)
+      ) {
+        console.log(value);
+        this.props.removeAllTrains();
         {
           //this.stopTimer();
           return { currentSelections: value, seconds: 0, hexcolors: [] };
@@ -604,107 +615,11 @@ class MainPage extends Component {
     this.zoom = null;
     this.setState({ zoom: e.target._zoom });
   }
-  // handleChange(value) {
-  //   let difference = [];
+  handleTracking() {
+    this.props.removeTracking();
 
-  //   const routes = this.props.routes;
-  //   const etas = this.state.etas;
-
-  //   // difference = this.state.currentSelections
-  //   //   .slice()
-  //   //   .filter(x => !value.includes(x)); // calculates diff
-  //   // console.log("Removed: ", difference);
-
-  //   console.log(value);
-
-  //   this.setState(prev => {
-  //     console.log(prev);
-  //     if (!prev.currentSelections || prev.currentSelections.length === 0) {
-  //       this.props.getCurrentEtas().then(etas2 => {
-  //         let num = value[0].value;
-  //         let route = routes[num];
-  //         let color = route.hexcolor;
-  //         console.log(color);
-  //         // let newColor = prev.hexcolors.concat([color]);
-  //         // console.log(newColor);
-  //         this.props.createTrains(route, etas2);
-  //       });
-  //       this.handleTimer();
-  //       let num = value[0].value;
-  //       let route = routes[num];
-  //       let color = route.hexcolor;
-  //       return { currentSelections: value, hexcolors: [color] };
-
-  //       // this.handleTimer();
-  //       // let num = value[0].value;
-  //       // let route = routes[num];
-  //       // this.props.createTrains(route, etas);
-  //       // return { currentSelections: value };
-  //     } else if (value && value.length > prev.currentSelections.length) {
-  //       let difference = value
-  //         .slice()
-  //         .filter(x => !prev.currentSelections.includes(x));
-  //       console.log(difference);
-  //       let num = difference[0].value;
-  //       let color = ROUTES4[num].hexcolor;
-  //       let newColor = [...prev.hexcolors, color];
-
-  //       let route = routes[num];
-  //       this.props.createTrains(route, etas);
-  //       return { currentSelections: value, hexcolors: newColor };
-  //     } else if (value && value.length < prev.currentSelections.length) {
-  //       let difference = this.state.currentSelections
-  //         .slice()
-  //         .filter(x => !value.includes(x));
-  //       // let colorToRemove = console.log(difference);
-  //       let num = difference[0].value;
-  //       let hexcolors = prev.hexcolors;
-  //       let colorToRemove = ROUTES4[num].hexcolor;
-  //       let index = hexcolors.indexOf(colorToRemove);
-  //       hexcolors.splice(index, 1);
-  //       //  let route = routes[num];
-  //       this.props.removeTrains(num);
-  //       return { currentSelections: value, hexcolors };
-  //     } else if (prev.currentSelections.length === 1 && !value) {
-  //       let num = prev.currentSelections[0].value;
-  //       this.props.removeTrains(num);
-  //       {
-  //         this.stopTimer();
-  //         return { currentSelections: value, seconds: 0, hexcolors: [] };
-  //       }
-  //     }
-
-  //     console.count();
-  //     //return { currentSelections: value };
-  //   });
-
-  //   console.log(this.state);
-  //   // if (!this.state.currentSelections) {
-  //   //   return this.setState({ fetchData: false });
-  //   // }
-  // }
-
-  // customFilter() {
-  //   createFilter({ ignoreAccents: false });
-  // }
-
-  // checkState() {
-  //   this.setInterval(() => {
-  //   this.state.routes.map(route => (
-  //       if (route.selected === true) {
-
-  //       }
-  //     ))
-  //   }, 500);
-  // }
-  // shouldComponentUpdate(nextState) {
-  //   if (this.state.currentSelections && nextState.currentSelections) {
-  //     return (
-  //       nextState.currentSelections.length ===
-  //       this.state.currentSelections.length
-  //     );
-  //   }
-  // }
+    this.setState({ zoom: 11, stopTracking: true });
+  }
 
   render() {
     const allRoutes = routes;
@@ -722,6 +637,7 @@ class MainPage extends Component {
     // }
 
     const trains = this.props.trains;
+    const selected = find(trains, ["selected", true]);
     const routes = routes2;
     const hexcolors = this.state.hexcolors || [];
     const uniques = uniq(hexcolors);
@@ -797,13 +713,13 @@ class MainPage extends Component {
             //enableHighAccuracy={true}
             center={position}
             // wheelDebounceTime={10}
-            // animate={true}
+            zoomAnimationThreshold={1}
             zoom={this.state.zoom}
             closePopupOnClick={false}
             onzoomstart={this.handleZoomStart.bind(this)}
             onzoomend={this.handleZoomEnd.bind(this)}
             markerZoomAnimation={true}
-            //maxZoom={13}
+            maxZoom={16}
             //minZoom={11}
             style={{ width: "100%", height: "100%", marginTop: "60px" }}
             //maxBounds={bounds}
@@ -827,50 +743,24 @@ class MainPage extends Component {
                     trains={trains}
                     update={update}
                     ref={this.trainsRef}
+                    tracking={this.state.stopTracking}
                     removeTrain={this.props.removeTrain}
                     getMap={this.getMap.bind(this)}
                     routes={routes}
+                    //zoom={this.state.zoom}
                     //zoom={this.zoom}
                   />
                 </React.Fragment>
-                {/* {trains.map((train, idx) => {
-                    console.log(train);
-                    let minutes = train.minutes;
-                    let color = train.color;
-                    let id = train.id;
-                    let stations = routes[Number(train.route)].stations;
-
-                    return (
-                      <NewMarker
-                        //   markers={slice}
-                        // seconds={this.props.seconds}
-                        color={train.hexcolor}
-                        station={train.stationName}
-                        minutes={minutes}
-                        id={id}
-                        // waypoints={train.waypoints}
-                        // stationSlice={train.stationSlice}
-                        //   ratio={train.ratio}
-                        key={id}
-                        routeStations={stations}
-                        index={train.stationIdx}
-                        routeNumber={train.route}
-                        train={train}
-                        //  interval={train.interval}
-                        // initialCoordinates={train.initialCoordinates}
-                        // initialPosition={train.initialPosition}
-                        // ref={this.ref}
-                        //references={this.references}
-                        //getOrCreateRef={this.getOrCreateRef}
-                        // initialSlice={train.initialSlice}
-                        // removeTrain={this.props.removeTrain}
-                        //lastLocation={this.state[id]}
-                        //handleChange={this.handleChange}
-                        // lastLocation={lastLocation}
-                        // nextStationId={nextStationId}
-                      ></NewMarker>
-                    );
-                  })} */}
+                {selected ? (
+                  <Control position="topright">
+                    <button
+                      className="button"
+                      onClick={this.handleTracking.bind(this)}
+                    >
+                      Stop Train Tracking
+                    </button>
+                  </Control>
+                ) : null}
               </React.Fragment>
             ) : null}
             {/* {currentSelections ? (
