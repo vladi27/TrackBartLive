@@ -754,7 +754,7 @@ class MainPage extends Component {
                 {selected ? (
                   <Control position="topright">
                     <button
-                      className="button"
+                      className="button2"
                       onClick={this.handleTracking.bind(this)}
                     >
                       Stop Train Tracking
