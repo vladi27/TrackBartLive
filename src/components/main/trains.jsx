@@ -13,6 +13,7 @@ import React, {
 } from "react";
 
 import L from "leaflet";
+import uniqBy from "lodash/uniqBy";
 import NewMarker from "./marker";
 
 const Trains = React.forwardRef(function Trains(props, ref) {
@@ -23,6 +24,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
   const zoomRef = useRef(false);
   const [zoom, setZoom] = useState(null);
   const [trains2, setTrains2] = useState([]);
+  const trainRef = useRef([]);
   //const trains = props.trains;
 
   // useEffect(() => {
@@ -95,6 +97,20 @@ const Trains = React.forwardRef(function Trains(props, ref) {
     };
   }, []);
 
+  const uniqueTrains = useMemo(() => {
+    let trains = props.trains.slice();
+    let newTrains = trains.map(train => {
+      let id3 = `${train.minutes + train.stationName + train.route}`;
+      train["id3"] = id3;
+      return train;
+    });
+    let uniques = uniqBy(newTrains, "id3");
+    {
+      trainRef.current = uniques;
+      return uniques;
+    }
+  }, [props.trains]);
+
   // useLayoutEffect(() => {
   //   // if (!refs) {
   //   //   return;
@@ -132,7 +148,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
 
   return (
     <>
-      {props.trains.map((train, index) => {
+      {uniqueTrains.map((train, index) => {
         let num = train.route;
         let routeStations = props.routes[num].stations;
         return (

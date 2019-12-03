@@ -34,7 +34,7 @@ const recentEtasReducer = (state = {}, action) => {
         //   results[ele.abbr] = ele5;
         // });
       });
-      return merge({}, state, results);
+      return results;
 
     case UPDATE_CURRENT_ETAS:
       const receivedETAS = action.etas.slice();
