@@ -537,9 +537,11 @@ const NewMarker = React.forwardRef((props, ref) => {
     if (props.tracking) {
       clearTimeout(intervalRef.current);
       intervalRef.current = null;
-      setSelected(false);
-      markerRef.current.leafletElement.closePopup();
+      if (markerRef.current && markerRef.current.leafletElement) {
+        markerRef.current.leafletElement.closePopup();
+      }
       colorRef.current = color;
+      setSelected(false);
     }
   }, [props.tracking]);
 
