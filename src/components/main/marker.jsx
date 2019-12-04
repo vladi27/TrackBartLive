@@ -503,7 +503,7 @@ const NewMarker = React.forwardRef((props, ref) => {
         const currentPoly = polyLineRef.current.getLatLngs();
         console.log(currentPoly, ratio, mapRef2.current);
 
-        if (ratio >= 0.95 && lastTrain && minutes === "1") {
+        if (ratio >= 0.99 && lastTrain) {
           props.removeTrain(id);
           animated.current = null;
         }
