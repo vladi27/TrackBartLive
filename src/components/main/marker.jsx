@@ -80,6 +80,7 @@ const NewMarker = React.forwardRef((props, ref) => {
     //   return;
     // }
     if (renderRef.current !== 1) {
+      renderRef.current = 1;
       let mref = props.getMap();
       mapRef2.current = mref;
       console.log(mref);
@@ -119,11 +120,9 @@ const NewMarker = React.forwardRef((props, ref) => {
       }
       //markerRef.current.leafletElement.openPopup();
 
-      renderRef.current = 1;
-
       //setMapRef(mref);
     }
-  }, []);
+  }, [props.id]);
 
   // const routeStations = props.routeStations;
   // const waypoints = routeStations[props.stationIndex - 1].slice;
@@ -132,7 +131,11 @@ const NewMarker = React.forwardRef((props, ref) => {
     // if (!props.initialPos) {
     //   animated.current = null;
     // }
-    if (stationRef.current == null || stationRef.current === props.station) {
+    if (
+      stationRef.current == null ||
+      stationRef.current === props.station ||
+      minutesRef.current === null
+    ) {
       return;
     }
     if (props.minutes === "Leaving") {
@@ -282,29 +285,31 @@ const NewMarker = React.forwardRef((props, ref) => {
       const pos2 = [parseFloat(pos[0]), parseFloat(pos[1])];
       const pos3 = L.latLng(pos2[0], pos2[1]);
       // const test = polyLineRef.current.getLatLngs();
-      console.log(props.station, props.minutes, currentPosition, currentPoly);
+      console.log(props.station, props.minutes, currentPoly);
       const currentPosition2 = markerRef.current.leafletElement.getLatLng();
       const latlngs = currentPoly.getLatLngs();
-      const currentPosition = util.closest(
-        mapRef2.current.current.leafletElement,
-        latlngs,
-        currentPosition2
-      );
-      const ratio = util.locateOnLine(
-        mapRef2.current.current.leafletElement,
-        currentPoly,
-        currentPosition
-      );
-      const newPolyline = util.extract(
-        mapRef2.current.current.leafletElement,
-        currentPoly,
-        ratio,
-        1
-      );
-      console.log(newPolyline);
-      // const han = newPolyline.getLatLngs();
-      currentPoly.setLatLngs(newPolyline);
-      startTime.current = 0;
+      if (latlngs && latlngs.length > 1) {
+        const currentPosition = util.closest(
+          mapRef2.current.current.leafletElement,
+          latlngs,
+          currentPosition2
+        );
+        const ratio = util.locateOnLine(
+          mapRef2.current.current.leafletElement,
+          currentPoly,
+          currentPosition
+        );
+        const newPolyline = util.extract(
+          mapRef2.current.current.leafletElement,
+          currentPoly,
+          ratio,
+          1
+        );
+        console.log(newPolyline);
+        // const han = newPolyline.getLatLngs();
+        currentPoly.setLatLngs(newPolyline);
+        startTime.current = 0;
+      }
       if (minutes === "Leaving") {
         currentTime.current = 14000;
         if (!props.zoom && selected) {
@@ -318,14 +323,14 @@ const NewMarker = React.forwardRef((props, ref) => {
             console.log(latlng, "hello");
 
             if (latlng && latlng.length && latlng.length > 3) {
-              mapRef2.current.current.leafletElement.fitBounds(
+              return mapRef2.current.current.leafletElement.fitBounds(
                 polyLineRef.current.getBounds()
               );
             } else {
               const waypoints3 = routeStations2[props.stationIndex].slice;
               const poly3 = L.polyline(waypoints3);
 
-              mapRef2.current.current.leafletElement.fitBounds(
+              return mapRef2.current.current.leafletElement.fitBounds(
                 poly3.getBounds()
               );
             }
@@ -503,9 +508,10 @@ const NewMarker = React.forwardRef((props, ref) => {
         const currentPoly = polyLineRef.current.getLatLngs();
         console.log(currentPoly, ratio, mapRef2.current);
 
-        if (ratio >= 0.99 && lastTrain) {
+        if (ratio >= 0.97 && lastTrain) {
           props.removeTrain(id);
           animated.current = null;
+          return;
         }
 
         if (

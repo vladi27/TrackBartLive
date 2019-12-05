@@ -22,10 +22,11 @@ const Trains = React.forwardRef(function Trains(props, ref) {
   const STEPS = 60 * 1000;
   const refs = useRef([]);
   const zoomRef = useRef(false);
+  //const trains = props.trains;
   const [zoom, setZoom] = useState(null);
   const [trains2, setTrains2] = useState([]);
   const trainRef = useRef([]);
-  //const trains = props.trains;
+  const trains = props.trains;
 
   // useEffect(() => {
   //   // if (!refs) {
@@ -37,7 +38,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
   console.log(trains);
   let startTime = 0;
   //let frameId = null;
-  const trains = props.trains;
+
   const str = JSON.stringify(props.trains);
   useLayoutEffect(() => {
     // if (!refs) {
@@ -97,19 +98,19 @@ const Trains = React.forwardRef(function Trains(props, ref) {
     };
   }, []);
 
-  const uniqueTrains = useMemo(() => {
-    let trains = props.trains.slice();
-    let newTrains = trains.map(train => {
-      let id3 = `${train.minutes + train.stationName + train.route}`;
-      train["id3"] = id3;
-      return train;
-    });
-    let uniques = uniqBy(newTrains, "id3");
-    {
-      trainRef.current = uniques;
-      return uniques;
-    }
-  }, [props.trains]);
+  // const uniqueTrains = useMemo(() => {
+  //   let trains = props.trains.slice();
+  //   let newTrains = trains.map(train => {
+  //     let id3 = `${train.minutes + train.stationName + train.route}`;
+  //     train["id3"] = id3;
+  //     return train;
+  //   });
+  //   let uniques = uniqBy(newTrains, "id3");
+  //   {
+  //     trainRef.current = uniques;
+  //     return uniques;
+  //   }
+  // }, [props.trains]);
 
   // useLayoutEffect(() => {
   //   // if (!refs) {
@@ -148,7 +149,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
 
   return (
     <>
-      {uniqueTrains.map((train, index) => {
+      {props.trains.map((train, index) => {
         let num = train.route;
         let routeStations = props.routes[num].stations;
         return (

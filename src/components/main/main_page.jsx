@@ -713,7 +713,7 @@ class MainPage extends Component {
             //enableHighAccuracy={true}
             center={position}
             // wheelDebounceTime={10}
-            zoomAnimationThreshold={1}
+            //zoomAnimationThreshold={1}
             zoom={this.state.zoom}
             closePopupOnClick={false}
             onzoomstart={this.handleZoomStart.bind(this)}
