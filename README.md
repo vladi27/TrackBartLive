@@ -35,18 +35,6 @@ As BART API does not provide any data about train locations, this app uses Redux
 ```javascript
 
 case CREATE_TRAINS:
-      const route = action.route;
-      const currentEtas = action.etas;
-      const curr = [...state];
-      const newTrains = [];
-      const routeDestination = ROUTES[route.number].abbreviation;
-      const routeDirection = ROUTES[route.number].direction;
-      const routeHexcolor = route.hexcolor;
-      let routeStations = route.stations;
-      let currentTrains = [];
-      const allStat = stationsData;
-      let sub = action.sub;
-
       routeStations.map((station, idx) => {
         let stationName = station.stationName;
         let order = station.order;
@@ -55,19 +43,15 @@ case CREATE_TRAINS:
         if (stationETAs) {
           stationETAs.etd.map(departure => {
             let dest = departure.abbreviation;
-
             if (routeDestination.includes(dest)) {
               let estimates = departure.estimate;
-
               let currentEstimate = find(estimates, function(o) {
                 return o.hexcolor === routeHexcolor;
               });
-
               if (currentEstimate) {
                 let minutes = currentEstimate.minutes;
                 let hexcolor = currentEstimate.hexcolor;
                 let direction = currentEstimate.direction;
-
                 if (minutes === "Leaving" && idx !== routeStations.length - 1) {
                   let id = uuidv4();
                   let train = {
@@ -85,123 +69,8 @@ case CREATE_TRAINS:
                     initialPosition: true
                   };
                   return newTrains.push(train);
-                } else if (minutes !== "Leaving" && prevStation) {
-                  let count = 0;
-                  estimates.forEach(ele => {
-                    if (
-                      ele.hexcolor === routeHexcolor &&
-                      ele.direction === routeDirection
-                    ) {
-                      count++;
-                    }
-                  });
-                  let prevName = prevStation.stationName;
 
-                  let prevETAs = currentEtas[prevName];
-
-                  if (prevETAs && prevETAs.etd) {
-                    let prevDepartures = prevETAs.etd;
-                    let prevEstimates = find(prevDepartures, function(o) {
-                      return o.abbreviation === dest;
-                    });
-
-                    if (prevEstimates) {
-                      let prevTimes = prevEstimates.estimate;
-                      let nextInfo = allStat[prevName];
-                      let num = route.number;
-                      let placeholder = "ROUTE" + " " + num;
-
-                      let dir2;
-                      let prevCurrentTime = null;
-
-                      let northRoutes = nextInfo.north_routes.route;
-                      let southRoutes = nextInfo.south_routes.route;
-                      if (!northRoutes && !southRoutes) {
-                        prevCurrentTime = find(prevTimes, function(o) {
-                          return o.hexcolor === routeHexcolor;
-                        });
-                      } else if (northRoutes && !southRoutes) {
-                        dir2 = "North";
-                        prevCurrentTime = find(prevTimes, function(o) {
-                          return (
-                            o.hexcolor === routeHexcolor && o.direction === dir2
-                          );
-                        });
-                      } else if (!northRoutes && southRoutes) {
-                        dir2 = "South";
-                        prevCurrentTime = find(prevTimes, function(o) {
-                          return (
-                            o.hexcolor === routeHexcolor && o.direction === dir2
-                          );
-                        });
-                      } else if (northRoutes && southRoutes) {
-                        console.log(northRoutes, southRoutes);
-                        if (northRoutes.includes(placeholder)) {
-                          dir2 = "North";
-                        } else if (southRoutes.includes(placeholder)) {
-                          dir2 = "South";
-                        }
-                        prevCurrentTime = find(prevTimes, function(o) {
-                          return (
-                            o.hexcolor === routeHexcolor && o.direction === dir2
-                          );
-                        });
-                      }
-
-
-                      if (prevCurrentTime) {
-                        let count2 = 0;
-                        prevTimes.forEach(ele => {
-                          if (
-                            ele.hexcolor === routeHexcolor &&
-                            ele.direction === routeDirection
-                          ) {
-                            count2++;
-                          }
-                        });
-
-                        let prevMinutes = prevCurrentTime.minutes;
-
-
-                        let diff = Number(minutes) - Number(prevMinutes);
-                        if (diff < 0) {
-                          let id2 = uuidv4();
-                          let lastTrain = false;
-
-
-                          if (idx === routeStations.length - 1) {
-                            lastTrain = true;
-                          }
-                          let train = {
-                            dest,
-                            hexcolor,
-                            direction,
-                            minutes,
-
-                            totalMinutes: Number(minutes),
-                            stationName,
-                            route: route.number,
-                            lastTrain,
-                            initCoords: prevStation.location,
-
-                            stationIdx: idx,
-                            initialPosition: true,
-                            id: id2,
-                            pos: station.location
-                          };
-                          return newTrains.push(train);
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-
-            }
-          });
-        }
-      });
-
+             //...
 ```
 
 The trains are being passed as props to the React functional component where this app utilizes useLayoutEffect hook to synchronously update DOM elements before they re-render as well as requestAnimationFrame function to control train speeds and limit CPU usage for train animations.
