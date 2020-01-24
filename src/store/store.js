@@ -56,22 +56,22 @@ const persistenceMiddleware = store => dispatch => action => {
   return result;
 };
 
-const handleWaypoints = (action, store, newState) => {
-  console.log(action);
-  const routeNum2 = store.getState().routes[action.stations.number];
-  const num3 = routeNum2.number;
-  store.dispatch(buildWayPoints(num3));
-};
-const handleStations = (action, store, newState) => {
-  console.log(action);
-  const stations = store.getState().stations;
-  const arr = Object.keys(stations);
-  console.log(arr);
-  arr.forEach(ele => {
-    console.log(ele);
-    APIUtil.getStation(ele).then(res => store.dispatch(receiveStation(res)));
-  });
-};
+// const handleWaypoints = (action, store, newState) => {
+//   console.log(action);
+//   const routeNum2 = store.getState().routes[action.stations.number];
+//   const num3 = routeNum2.number;
+//   store.dispatch(buildWayPoints(num3));
+// };
+// const handleStations = (action, store, newState) => {
+//   console.log(action);
+//   const stations = store.getState().stations;
+//   const arr = Object.keys(stations);
+//   console.log(arr);
+//   arr.forEach(ele => {
+//     console.log(ele);
+//     APIUtil.getStation(ele).then(res => store.dispatch(receiveStation(res)));
+//   });
+// };
 // const handleNewTrains = (action, store, newState) => {
 //   console.log(action);
 //   const routeNum3 = store.getState().routes[action.routeNum];

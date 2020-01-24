@@ -245,6 +245,7 @@ class MainPage extends Component {
 
     // console.count();
     // routeIds.map(id => this.props.fetchRouteStations(id));
+    console.log("hello");
     this.props.getCurrentEtas();
     // this.props.fetchStations();
     //   .then(response => this.setState({ etas: this.props.etas }));
@@ -637,6 +638,7 @@ class MainPage extends Component {
     // }
 
     const trains = this.props.trains;
+    const etas = this.props.etas;
     const selected = find(trains, ["selected", true]);
     const routes = routes2;
     const hexcolors = this.state.hexcolors || [];
@@ -663,18 +665,17 @@ class MainPage extends Component {
 
     // console.log(this.props);
     // const customMarker = L.icon({ iconUrl: require('../../assets/images/iss.png')})
-    // if (!loading) {
-    //   return (
-    //     <MoonLoader
-    //       css={override}
-    //       sizeUnit={"px"}
-    //       size={150}
-    //       color={"#123abc"}
-    //       loading={this.state.loading}
-    //     />
-    //   );
-    // } else
-    {
+    if (Object.values(etas).length === 0) {
+      return (
+        <MoonLoader
+          css={override}
+          sizeUnit={"px"}
+          size={150}
+          color={"#123abc"}
+          loading={this.state.loading}
+        />
+      );
+    } else {
       //this.mapRef.current.leafletElement.setMaxBounds
       return (
         <div id="all">
@@ -727,7 +728,7 @@ class MainPage extends Component {
             preferCanvas={true}
             ref={this.mapRef}
           >
-            {currentSelections && currentSelections.length > 0 ? (
+            {currentSelections && currentSelections.length ? (
               <React.Fragment>
                 <React.Fragment>
                   <RouteStations
@@ -739,6 +740,7 @@ class MainPage extends Component {
                     routes={routes}
                     waypoints={allWayPoints}
                   />
+
                   <Trains
                     trains={trains}
                     update={update}

@@ -1,6 +1,6 @@
 import {
   getStations,
-  getRouteInfo,
+  //getRouteInfo,
   getInitialStationDataSouth,
   getInitialStationDataNorth,
   getRoutes,
@@ -318,7 +318,7 @@ export const fetchStation = abbr => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const fetchRouteInfo = () => dispatch =>
-  getRouteInfo()
-    .then(info => dispatch(receiveRouteInfo(info)))
-    .catch(err => console.log(err));
+// export const fetchRouteInfo = () => dispatch =>
+//   getRouteInfo()
+//     .then(info => dispatch(receiveRouteInfo(info)))
+//     .catch(err => console.log(err));
