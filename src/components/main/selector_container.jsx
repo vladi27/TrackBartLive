@@ -1,6 +1,6 @@
-import WindowedSelect from "react-windowed-select";
+//import WindowedSelect from "react-windowed-select";
 import React, { Component, PureComponent } from "react";
-import { components, createFilter } from "react-windowed-select";
+//import { components, createFilter } from "react-windowed-select";
 import Select from "react-select";
 import { css } from "@emotion/core";
 import { throws } from "assert";
@@ -137,7 +137,7 @@ const SelectorContainer = React.memo(
 
     return (
       <div className="react-select__menu">
-        <WindowedSelect
+        <Select
           options={options}
           isMulti
           autosize={true}
@@ -151,7 +151,7 @@ const SelectorContainer = React.memo(
           className="basic-multi-select"
           classNamePrefix="select"
           //filterOption={customFilter}
-          onChange={handleChange}
+          onChange={val => handleChange(val)}
         />
       </div>
     );

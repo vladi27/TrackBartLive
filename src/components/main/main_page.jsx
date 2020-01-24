@@ -536,7 +536,7 @@ class MainPage extends Component {
     //   .filter(x => !value.includes(x)); // calculates diff
     // console.log("Removed: ", difference);
 
-    console.log(value);
+    console.log(value, "vlad");
 
     this.setState(prev => {
       console.log(prev);
@@ -567,11 +567,13 @@ class MainPage extends Component {
       } else if (
         value &&
         value.length < prev.currentSelections.length &&
-        value.length > 1
+        value.length >= 1
       ) {
         let difference = this.state.currentSelections
           .slice()
           .filter(x => !value.includes(x));
+        console.log(difference);
+        console.log("vlad");
         // let colorToRemove = console.log(difference);
         let num = difference[0].value;
         let hexcolors = prev.hexcolors;
