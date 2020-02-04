@@ -19,6 +19,8 @@ BART provides their passengers with the information about trains' estimated depa
 - Redux
 - React Leaflet
 - Leaflet
+- Babel
+- React Select
 - Axios
 - Leaflet Geometry Util
 - Webpack
