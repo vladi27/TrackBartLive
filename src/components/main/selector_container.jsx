@@ -11,43 +11,43 @@ const SelectorContainer = React.memo(
       {
         hexcolor: "#ff0000",
         value: "8",
-        label: "Millbrae/Daly City - Richmond"
+        label: "Millbrae/Daly City - Richmond",
       },
       {
         hexcolor: "#ff0000",
         value: "7",
-        label: "Richmond - Daly City/Millbrae"
+        label: "Richmond - Daly City/Millbrae",
       },
       {
         hexcolor: "#339933",
         value: "6",
-        label: "Daly City - Warm Springs/South Fremont"
+        label: "Daly City - Berryessa/North San Jose",
       },
       {
         hexcolor: "#339933",
         value: "5",
-        label: "Warm Springs/South Fremont - Daly City"
+        label: "Berryessa/North San Jose - Daly City",
       },
       {
         hexcolor: "#ff9933",
         value: "4",
-        label: "Richmond - Warm Springs/South Fremont"
+        label: "Richmond - Berryessa/North San Jose",
       },
       {
         hexcolor: "#ff9933",
         value: "3",
-        label: "Warm Springs/South Fremont - Richmond"
+        label: "Berryessa/North San Jose - Richmond",
       },
       {
         hexcolor: "#ffd500",
         value: "2",
-        label: "Millbrae/SFIA - Antioch"
+        label: "Millbrae/SFIA - Antioch",
       },
       {
         value: "1",
         label: "Antioch - SFIA/Millbrae",
-        hexcolor: "#ffd500"
-      }
+        hexcolor: "#ffd500",
+      },
     ];
     function handleChange(value) {
       console.log(value);
@@ -55,7 +55,7 @@ const SelectorContainer = React.memo(
     }
     console.log(options);
     const customStyles = {
-      control: styles => ({ ...styles, backgroundColor: "black" }),
+      control: (styles) => ({ ...styles, backgroundColor: "black" }),
       option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         const color = chroma(data.hexcolor);
         return {
@@ -80,33 +80,33 @@ const SelectorContainer = React.memo(
             ...styles[":active"],
             backgroundColor:
               !isDisabled &&
-              (isSelected ? data.hexcolor : color.alpha(0.3).css())
-          }
+              (isSelected ? data.hexcolor : color.alpha(0.3).css()),
+          },
         };
       },
       multiValue: (styles, { data }) => {
         const color = chroma(data.hexcolor);
         return {
           ...styles,
-          backgroundColor: color.alpha(0.1).css()
+          backgroundColor: color.alpha(0.1).css(),
         };
       },
       multiValueLabel: (styles, { data }) => ({
         ...styles,
-        color: data.hexcolor
+        color: data.hexcolor,
       }),
       placeholder: (styles, { data }) => ({
         ...styles,
         color: "silver",
-        fontFamily: "Roboto,Arial,sans-serif"
+        fontFamily: "Roboto,Arial,sans-serif",
       }),
       multiValueRemove: (styles, { data }) => ({
         ...styles,
         color: data.hexcolor,
         ":hover": {
           backgroundColor: data.hexcolor,
-          color: "white"
-        }
+          color: "white",
+        },
       }),
       // option: (provided, state) => ({
       //   ...provided,
@@ -118,11 +118,11 @@ const SelectorContainer = React.memo(
       //   // none of react-select's styles are passed to <Control />
       //   width: 200
       // }),
-      menu: provided => ({
+      menu: (provided) => ({
         ...provided,
         zIndex: 9999,
-        backgroundColor: "black"
-      })
+        backgroundColor: "black",
+      }),
       // singleValue: (provided, state) => {
       //   const opacity = state.isDisabled ? 0.5 : 1;
       //   const transition = "opacity 300ms";
@@ -147,11 +147,11 @@ const SelectorContainer = React.memo(
             // Fixes the overlapping problem of the component
             customStyles
           }
-          placeholder={"Select a single or multiple BART lines to track"}
+          placeholder={"Select a single or multiple BART lines"}
           className="basic-multi-select"
           classNamePrefix="select"
           //filterOption={customFilter}
-          onChange={val => handleChange(val)}
+          onChange={(val) => handleChange(val)}
         />
       </div>
     );

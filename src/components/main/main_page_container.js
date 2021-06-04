@@ -16,36 +16,36 @@ import {
   fetchStations,
   removeTrain,
   removeTracking,
-  removeAllTrains
+  removeAllTrains,
 } from "../../actions/station_actions";
 import getCombinedState from "../../selectors/loading_selectors";
 import debounceRender from "react-debounce-render";
 
 import MainPage from "./main_page";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     // trains: createInitialPosition(state),
     trains: state.trains,
-
-    etas: state.etas
+    waypoints: state.waypoints,
+    etas: state.etas,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getCurrentEtas: (routes, route) => dispatch(getCurrentEtas(routes, route)),
 
-    removeTrains: routeNum => dispatch(removeTrains(routeNum)),
-    removeTrain: id => dispatch(removeTrain(id)),
+    removeTrains: (routeNum) => dispatch(removeTrains(routeNum)),
+    removeTrain: (id) => dispatch(removeTrain(id)),
     removeTracking: () => dispatch(removeTracking()),
     removeAllTrains: () => dispatch(removeAllTrains()),
-
+    receiveWayPoints: (data) => dispatch(receiveWayPoints(data)),
     createTrains: (route, etas, stations) =>
       dispatch(createTrains(route, etas, stations)),
     updateTrains: (routeNum, etas, stations) =>
       dispatch(updateTrains(routeNum, etas, stations)),
-    addTrains: route => dispatch(addTrains(route))
+    addTrains: (route) => dispatch(addTrains(route)),
   };
 };
 

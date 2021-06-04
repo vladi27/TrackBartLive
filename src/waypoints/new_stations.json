@@ -1,0 +1,2080 @@
+{
+  "12TH": {
+    "name": "12th St. Oakland City Center",
+    "abbr": "12TH",
+    "gtfs_latitude": "37.803768",
+    "gtfs_longitude": "-122.271450",
+    "address": "1245 Broadway",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94612",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1", "3"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "12th St. Oakland City Center Station is in the heart of Downtown Oakland, near historic Old Oakland and Oakland's Chinatown. BART's Lost and Found is located at this station. Due to COVID-19, several entrances at 12th St. Oakland City Center Station are closed. Only 12th and 13th Street entrances on the south side of Broadway are open.  Please click here to see the station map."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: 12th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1245 Broadway Oakland, CA 94602\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1245 Broadway Oakland, CA 94602\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1245 Broadway Oakland, CA 94602\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/12TH"
+    }
+  },
+  "16TH": {
+    "name": "16th St. Mission",
+    "abbr": "16TH",
+    "gtfs_latitude": "37.765062",
+    "gtfs_longitude": "-122.419694",
+    "address": "2000 Mission Street",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94110",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "\"The Mission\" refers to the San Francisco de Asis Mission, also known as Mission Dolores, which was founded 1776. Today the neighborhood is host to an eclectic mix of restaurants, markets, performance spaces, shops, and nightspots."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: 16th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=2000 Mission Street, San Francisco, CA 94110\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=2000 Mission Street, San Francisco, CA 94110\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=2000 Mission Street, San Francisco, CA 94110\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/16TH"
+    }
+  },
+  "19TH": {
+    "name": "19th St. Oakland",
+    "abbr": "19TH",
+    "gtfs_latitude": "37.808350",
+    "gtfs_longitude": "-122.268602",
+    "address": "1900 Broadway",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94612",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1", "3"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "19th Street Station is in the heart of Uptown Oakland near the historic Paramount Theater on Broadway. Due to COVID-19, several entrances at 19th St. Station are closed. Only the 17th and 20th Street entrances on the north side of Broadway are open.  Please click here to see the station map."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: 19th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1900 Broadway Oakland, CA 94602\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1900 Broadway Oakland, CA 94602\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1900 Broadway Oakland, CA 94602\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/19TH"
+    }
+  },
+  "24TH": {
+    "name": "24th St. Mission",
+    "abbr": "24TH",
+    "gtfs_latitude": "37.752470",
+    "gtfs_longitude": "-122.418143",
+    "address": "2800 Mission Street",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94110",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "\"The Mission\" refers to the San Francisco de Asis Mission, also known as Mission Dolores, which was founded 1776. Today the neighborhood is host to an eclectic mix of restaurants, markets, performance spaces, shops, and nightspots."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: 24th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=2800 Mission Street San Francisco, CA 94110\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=2800 Mission Street San Francisco, CA 94110\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=2800 Mission Street San Francisco, CA 94110\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/24TH"
+    }
+  },
+  "ANTC": {
+    "name": "Antioch",
+    "abbr": "ANTC",
+    "gtfs_latitude": "37.995388",
+    "gtfs_longitude": "-121.780420",
+    "address": "1600 Slatten Ranch Road",
+    "city": "Antioch",
+    "county": "Contra Costa",
+    "state": "CA",
+    "zipcode": "94509",
+    "north_routes": "",
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": "",
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Trains arriving at this end of line station may subsequently return to service. Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Antioch is a terminal station on the yellow line serving northern and eastern Contra Costa County. It is part of a new rail system that connects to BART's Pittsburg/Bay Point station using state-of-the art Diesel Multiple Unit (DMU) vehicles. Ticket vending machines only dispense Clipper cards. There is a one-time $3 acquisition fee. Magstripe paper tickets are not sold at the station, but you can use paper tickets purchased elsewhere in the system to enter or exit.  There is a Transfer Platform between Pittsburg/Bay Point and Pittsburg Center where riders walk from one train to another. The Transfer Platform is only reachable by train. Learn more about BART to Antioch service."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Hillcrest Avenue"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"https://www.yelp.com/search?find_desc=Restaurant&find_loc=1600+Slatten+Ranch+Rd,+Antioch,+CA+94509\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1600+Slatten+Ranch+Rd,+Antioch,+CA+94509\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1600+Slatten+Ranch+Rd,+Antioch,+CA+94509\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/ANTC"
+    }
+  },
+  "ASHB": {
+    "name": "Ashby",
+    "abbr": "ASHB",
+    "gtfs_latitude": "37.852803",
+    "gtfs_longitude": "-122.270062",
+    "address": "3100 Adeline Street",
+    "city": "Berkeley",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94703",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Ashby Station is located on Ashby Avenue and Adeline Street in the southern part of Berkeley. On weekends, the City of Berkeley sponsors a popular flea market in the parking lot."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Fairview St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=3100 Adeline Street Berkeley, CA 94703\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=3100 Adeline Street Berkeley, CA 94703\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=3100 Adeline Street Berkeley, CA 94703\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/ASHB"
+    }
+  },
+  "BALB": {
+    "name": "Balboa Park",
+    "abbr": "BALB",
+    "gtfs_latitude": "37.721585",
+    "gtfs_longitude": "-122.447506",
+    "address": "401 Geneva Avenue",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94112",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Balboa Park is the name of both a San Francisco neighborhood and a public park between Mission Street and I-280 north of Geneva Avenue. The park features a public swimming pool, children's playground, baseball diamonds and tennis courts."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: San Jose Ave."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=401 Geneva Avenue San Francisco, CA 94112\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=401 Geneva Avenue San Francisco, CA 94112\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=401 Geneva Avenue San Francisco, CA 94112\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/BALB"
+    }
+  },
+  "BAYF": {
+    "name": "Bay Fair",
+    "abbr": "BAYF",
+    "gtfs_latitude": "37.696924",
+    "gtfs_longitude": "-122.126514",
+    "address": "15242 Hesperian Blvd.",
+    "city": "San Leandro",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94578",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5", "ROUTE 11"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6", "ROUTE 12"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Bay Fair Station provides easy access to Bayfair Center in San Leandro, one of the first shopping centers built in the East Bay."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Olive St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=15242 Hesperian Blvd. San Leandro, CA 94578\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=15242 Hesperian Blvd. San Leandro, CA 94578\">yelp.com</a> and <a href=\"http://bayfair.mallfinder.com/\">Bayfair Center</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=15242 Hesperian Blvd. San Leandro, CA 94578\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/BAYF"
+    }
+  },
+  "BERY": {
+    "name": "Berryessa/North San José",
+    "abbr": "BERY",
+    "gtfs_latitude": "37.368473",
+    "gtfs_longitude": "-121.874681",
+    "address": "1620 Berryessa Road",
+    "city": "San Jose",
+    "county": "Santa Clara",
+    "state": "CA",
+    "zipcode": "95133",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5"]
+    },
+    "south_routes": "",
+    "north_platforms": {
+      "platform": ["1", "2"]
+    },
+    "south_platforms": "",
+    "platform_info": "Trains arriving at this end of line station may subsequently return to service. Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Opening June 13, 2020. The Schedule will be loaded on June 13th. The Berryessa/North San José station is the southernmost station in Santa Clara County. The BART station is located within VTA\"s Berryessa Transit Center with frequent connections to VTA buses, including rapid service into Downtown San Jose and Diridon Station. Read the FAQ (link to our opening announcement)."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Mabury Rd"
+    },
+    "food": {
+      "#cdata-section": ""
+    },
+    "shopping": {
+      "#cdata-section": ""
+    },
+    "attraction": {
+      "#cdata-section": ""
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/BERY"
+    }
+  },
+  "CAST": {
+    "name": "Castro Valley",
+    "abbr": "CAST",
+    "gtfs_latitude": "37.690746",
+    "gtfs_longitude": "-122.075602",
+    "address": "3301 Norbridge Dr.",
+    "city": "Castro Valley",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94546",
+    "north_routes": {
+      "route": ["ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Once known for its chicken ranches, Castro Valley was named after Don Guillermo Castro, a local rancher and magistrate in the mid-1800s."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Redwood Rd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=3301 Norbridge Dr. Castro Valley, CA 94546\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=3301 Norbridge Dr. Castro Valley, CA 94546\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=3301 Norbridge Dr. Castro Valley, CA 94546\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/CAST"
+    }
+  },
+  "CIVC": {
+    "name": "Civic Center/UN Plaza",
+    "abbr": "CIVC",
+    "gtfs_latitude": "37.779732",
+    "gtfs_longitude": "-122.414123",
+    "address": "1150 Market Street",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94102",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Civic Center/UN Plaza Station is nearby some notable San Francisco destinations including including City Hall, War Memorial Opera House, Asian Art Museum, Louise M. Davies Symphony Hall, and the Main Branch of the San Francisco Public Library. Due to COVID-19, several entrances at Civic Center Station are closed. Entrances are only open on the north side of Civic Center.  Please click here to see the station map."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: 7th & 8th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1150 Market Street San Francisco, CA 94102\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1150 Market Street San Francisco, CA 94102\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1150 Market Street San Francisco, CA 94102\">yelp.com</a> and <a href=\"http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2007/05/17/NSGKNPL00L16.DTL\">sfgate.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/CIVC"
+    }
+  },
+  "COLS": {
+    "name": "Coliseum",
+    "abbr": "COLS",
+    "gtfs_latitude": "37.753661",
+    "gtfs_longitude": "-122.196869",
+    "address": "7200 San Leandro St.",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94621",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5", "ROUTE 11"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6", "ROUTE 12", "ROUTE 20"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1", "3"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Coliseum is the transfer Station that connects BART to the Oakland International Airport Station (OAK). The station is also connected by a pedestrian bridge to the O.co Coliseum and Oracle Arena."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Hegenberger Rd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=7200 San Leandro St. Oakland, CA 94621\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=7200 San Leandro St. Oakland, CA 94621\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=7200 San Leandro St. Oakland, CA 94621\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/COLS"
+    }
+  },
+  "COLM": {
+    "name": "Colma",
+    "abbr": "COLM",
+    "gtfs_latitude": "37.684638",
+    "gtfs_longitude": "-122.466233",
+    "address": "365 D Street",
+    "city": "Colma",
+    "county": "sanmateo",
+    "state": "CA",
+    "zipcode": "94014",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The Town of Colma is a diverse community on the San Francisco peninsula that maintains that \"small town\" feel despite being so close to major cities. The Colma BART Station is close to residential neighborhoods and shopping areas. Colma is perhaps best known for its 17 cemeteries, which comprise approximately 73% of the town's land area. The town incorporated in 1924 primarily to protect this land use. Colma's cemeteries represent numerous religious beliefs and nationalities, and include structures and districts which are historically significant on local, state and national levels."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Clark Ave."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=365 D Street Colma, CA 94014\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=365 D Street Colma, CA 94014\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=365 D Street Colma, CA 94014\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/COLM"
+    }
+  },
+  "CONC": {
+    "name": "Concord",
+    "abbr": "CONC",
+    "gtfs_latitude": "37.973737",
+    "gtfs_longitude": "-122.029095",
+    "address": "1451 Oakland Avenue",
+    "city": "Concord",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94520",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Concord is the largest city in Contra Costa County. The Concord BART Station was the \"end of the line\" until 1995 when the line was extended to Pittsburg/Bay Point."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Colfax St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1451 Oakland Avenue Concord, CA 94520\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1451 Oakland Avenue Concord, CA 94520\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1451 Oakland Avenue Concord, CA 94520\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/CONC"
+    }
+  },
+  "DALY": {
+    "name": "Daly City",
+    "abbr": "DALY",
+    "gtfs_latitude": "37.706121",
+    "gtfs_longitude": "-122.469081",
+    "address": "500 John Daly Blvd.",
+    "city": "Daly City",
+    "county": "sanmateo",
+    "state": "CA",
+    "zipcode": "94014",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["1", "2"]
+    },
+    "south_platforms": {
+      "platform": ["3"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Daly City, located at the northernmost edge of San Mateo County, is often called the \"Gateway to the Peninsula.\""
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Delong St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=500 John Daly Blvd. Daly City, CA 94014\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=500 John Daly Blvd. Daly City, CA 94014\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=500 John Daly Blvd. Daly City, CA 94014\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/DALY"
+    }
+  },
+  "DBRK": {
+    "name": "Downtown Berkeley",
+    "abbr": "DBRK",
+    "gtfs_latitude": "37.870104",
+    "gtfs_longitude": "-122.268133",
+    "address": "2160 Shattuck Avenue",
+    "city": "Berkeley",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94704",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The Downtown Berkeley BART Station is located on Shattuck Avenue between Allston Way and Addison Street. It is conveniently located close to the University of California campus and to many shops, restaurants, theaters and other attractions, and has valet bike parking."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: Center St. & Allston Way"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=2160 Shattuck Avenue Berkeley, CA 94704\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=2160 Shattuck Avenue Berkeley, CA 94704\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=2160 Shattuck Avenue Berkeley, CA 94704\">yelp.com</a> and <a href=\"http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2008/03/13/NSENVEA1M.DTL&type=travel\">sfgate.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/DBRK"
+    }
+  },
+  "DUBL": {
+    "name": "Dublin/Pleasanton",
+    "abbr": "DUBL",
+    "gtfs_latitude": "37.701687",
+    "gtfs_longitude": "-121.899179",
+    "address": "5801 Owens Dr.",
+    "city": "Pleasanton",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94588",
+    "north_routes": {
+      "route": ["ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 11"]
+    },
+    "north_platforms": "",
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Trains arriving at this end of line station may subsequently return to service. Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "This unique station straddles the border of Dublin and Pleasanton on Interstate 580. The station features a number of local and regional bus connections."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Hacienda Dr."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=5801 Owens Dr. Pleasanton, CA 94588\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=5801 Owens Dr. Pleasanton, CA 94588\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=5801 Owens Dr. Pleasanton, CA 94588\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/DUBL"
+    }
+  },
+  "DELN": {
+    "name": "El Cerrito del Norte",
+    "abbr": "DELN",
+    "gtfs_latitude": "37.925086",
+    "gtfs_longitude": "-122.316794",
+    "address": "6400 Cutting Blvd.",
+    "city": "El Cerrito",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94530",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Sometimes called simply \"del Norte,\" as the name suggests this station serves the northern part of the City of El Cerrito."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Key Blvd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=6400 Cutting Blvd. El Cerrito, CA 94804\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=6400 Cutting Blvd. El Cerrito, CA 94804\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=6400 Cutting Blvd. El Cerrito, CA 94804\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/DELN"
+    }
+  },
+  "PLZA": {
+    "name": "El Cerrito Plaza",
+    "abbr": "PLZA",
+    "gtfs_latitude": "37.902632",
+    "gtfs_longitude": "-122.298904",
+    "address": "6699 Fairmount Avenue",
+    "city": "El Cerrito",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94530",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "El Cerrito Plaza is one of two BART stations in the City of El Cerrito. It serves southern El Cerrito, northern Albany, Kensington and nearby areas of Berkeley and Richmond."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: San Pablo Ave."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=6699 Fairmount Avenue, El Cerrito, CA 94530\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=6699 Fairmount Avenue, El Cerrito, CA 94530\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=6699 Fairmount Avenue, El Cerrito, CA 94530\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/PLZA"
+    }
+  },
+  "EMBR": {
+    "name": "Embarcadero",
+    "abbr": "EMBR",
+    "gtfs_latitude": "37.792874",
+    "gtfs_longitude": "-122.397020",
+    "address": "298 Market Street",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94111",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Located in San Francisco's Financial District at the foot of Market Street, Embarcadero Station is close to the Ferry Building, Embarcadero Center, Transbay Terminal and the California Street cable car.  "
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Beale St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=298 Market Street, San Francisco, CA 94105\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=298 Market Street, San Francisco, CA 94105\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=298 Market Street, San Francisco, CA 94105\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/EMBR"
+    }
+  },
+  "FRMT": {
+    "name": "Fremont",
+    "abbr": "FRMT",
+    "gtfs_latitude": "37.557465",
+    "gtfs_longitude": "-121.976608",
+    "address": "2000 BART Way",
+    "city": "Fremont",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94536",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Fremont Station is located in central Fremont.  The city, and the station, are named for American explorer John Charles Frémont."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Civic Center Dr."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=2000 BART Way, Fremont, CA 94536\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=2000 BART Way, Fremont, CA 94536\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=2000 BART Way, Fremont, CA 94536\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/FRMT"
+    }
+  },
+  "FTVL": {
+    "name": "Fruitvale",
+    "abbr": "FTVL",
+    "gtfs_latitude": "37.774836",
+    "gtfs_longitude": "-122.224175",
+    "address": "3401 East 12th Street",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94601",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5", "ROUTE 11"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6", "ROUTE 12"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Originally called \"Fruit Vale,\" the neighborhood around Fruitvale BART Station was mostly apricot and cherry orchards in the late 1800s. Today, it's a vibrant neighborhood and one of Oakland's main commercial areas."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Fruitvale Ave."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=3401 East 12th Street, Oakland, CA 94601\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=3401 East 12th Street, Oakland, CA 94601\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=3401 East 12th Street, Oakland, CA 94601\">yelp.com</a> and <a href=\"http://www.eastbayexpress.com/bestof/best_beignets/BestOfAward?oid=776922\">East Bay Express</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/FTVL"
+    }
+  },
+  "GLEN": {
+    "name": "Glen Park",
+    "abbr": "GLEN",
+    "gtfs_latitude": "37.733064",
+    "gtfs_longitude": "-122.433817",
+    "address": "2901 Diamond Street",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94131",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The Glen Park neighborhood in San Francisco is nestled in a small valley below Diamond Heights, and BART is at the center of the neighborhood on the corner of Diamond and Bosworth Streets."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Bosworth St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=2901 Diamond Street, San Francisco, CA 94131\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=2901 Diamond Street, San Francisco, CA 94131\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=2901 Diamond Street, San Francisco, CA 94131\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/GLEN"
+    }
+  },
+  "HAYW": {
+    "name": "Hayward",
+    "abbr": "HAYW",
+    "gtfs_latitude": "37.669723",
+    "gtfs_longitude": "-122.087018",
+    "address": "699 'B' Street",
+    "city": "Hayward",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94541",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The City of Hayward is known as the \"Heart of the Bay\" for its central and convenient location in Alameda County. Hayward BART Station is near a pedestrian-friendly downtown with a mix of housing, shops, offices and restaurants."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Montgomery St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=699 'B' Street Hayward, CA 94541\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=699 'B' Street Hayward, CA 94541\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=699 'B' Street Hayward, CA 94541\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/HAYW"
+    }
+  },
+  "LAFY": {
+    "name": "Lafayette",
+    "abbr": "LAFY",
+    "gtfs_latitude": "37.893176",
+    "gtfs_longitude": "-122.124630",
+    "address": "3601 Deer Hill Road",
+    "city": "Lafayette",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94549",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Centrally located in the East Bay hills, Lafayette exudes a quiet rural atmosphere and features a distinctive downtown."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: Laurel Dr. & Sierra Vista Way"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=3601 Deer Hill Road, Lafayette, CA 94549\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=3601 Deer Hill Road, Lafayette, CA 94549\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=3601 Deer Hill Road, Lafayette, CA 94549\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/LAFY"
+    }
+  },
+  "LAKE": {
+    "name": "Lake Merritt",
+    "abbr": "LAKE",
+    "gtfs_latitude": "37.797027",
+    "gtfs_longitude": "-122.265180",
+    "address": "800 Madison Street",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94607",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5", "ROUTE 11"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6", "ROUTE 12"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Lake Merritt Station is ideally located near Oakland Chinatown, Laney College and the Oakland Museum."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: 8th & 9th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=800 Madison Street, Oakland, CA 94607\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=800 Madison Street, Oakland, CA 94607\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=800 Madison Street, Oakland, CA 94607\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/LAKE"
+    }
+  },
+  "MCAR": {
+    "name": "MacArthur",
+    "abbr": "MCAR",
+    "gtfs_latitude": "37.829065",
+    "gtfs_longitude": "-122.267040",
+    "address": "555 40th Street",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94609",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1", "3"]
+    },
+    "south_platforms": {
+      "platform": ["2", "4"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "MacArthur Station is a major BART transfer point near the commercial heart of Temescal, one of north Oakland's oldest neighborhoods."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Telegraph Ave."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=555 40th Street, Oakland, CA 94609\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=555 40th Street, Oakland, CA 94609\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=555 40th Street, Oakland, CA 94609\">yelp.com</a> and <a href=\"http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2007/01/18/NSGFNNHRF11.DTL\">sfgate.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/MCAR"
+    }
+  },
+  "MLBR": {
+    "name": "Millbrae",
+    "abbr": "MLBR",
+    "gtfs_latitude": "37.600271",
+    "gtfs_longitude": "-122.386702",
+    "address": "200 North Rollins Road",
+    "city": "Millbrae",
+    "county": "sanmateo",
+    "state": "CA",
+    "zipcode": "94030",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 8", "ROUTE 13"]
+    },
+    "south_routes": "",
+    "north_platforms": {
+      "platform": ["1", "2", "3"]
+    },
+    "south_platforms": "",
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Situated on an estate formerly owned by Darius Ogden Mills, this city's name derives from \"Mills\" and the Scottish word \"brae\" or \"rolling hills.\" The Millbrae BART Station features a cross-platform connection to Caltrain. For real-time information on the Transit-Oriented Development project at Millbrae Station, please visit https://gatewayatmillbraestation.com/ or call 1-888-354-0464."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Millbrae Ave."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=200 North Rollins Road, Millbrae, CA 94030\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=200 North Rollins Road, Millbrae, CA 94030\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=200 North Rollins Road, Millbrae, CA 94030\">yelp.com</a> and <a href=\"http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2007/07/05/NSGNKQN2QV1.DTL\">sfgate.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/MLBR"
+    }
+  },
+  "MLPT": {
+    "name": "Milpitas",
+    "abbr": "MLPT",
+    "gtfs_latitude": "37.410277",
+    "gtfs_longitude": "-121.891081",
+    "address": "1755 S. Milpitas Blvd.",
+    "city": "Milpitas",
+    "county": "Santa Clara",
+    "state": "CA",
+    "zipcode": "94566",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The Milpitas Station is located within Santa Clara Valley Transportation Authority\"s Milpitas Transit Center.  It is the northernmost BART station in Santa Clara County. Read the FAQ here."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: E. Capitol Ave"
+    },
+    "food": {
+      "#cdata-section": ""
+    },
+    "shopping": {
+      "#cdata-section": ""
+    },
+    "attraction": {
+      "#cdata-section": ""
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/MLPT"
+    }
+  },
+  "MONT": {
+    "name": "Montgomery St.",
+    "abbr": "MONT",
+    "gtfs_latitude": "37.789405",
+    "gtfs_longitude": "-122.401066",
+    "address": "598 Market Street",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94104",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Located in the heart of San Francisco's Financial District on Market Street, Montgomery Station features excellent access to San Francisco Muni and destinations throughout the city."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: Montgomery & 2nd St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=598 Market Street, San Francisco, CA 94105\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=598 Market Street, San Francisco, CA 94105\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=598 Market Street, San Francisco, CA 94105\">yelp.com</a> and <a href=\"http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2007/06/21/NSG47QG76H1.DTL\">sfgate.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/MONT"
+    }
+  },
+  "NBRK": {
+    "name": "North Berkeley",
+    "abbr": "NBRK",
+    "gtfs_latitude": "37.873967",
+    "gtfs_longitude": "-122.283440",
+    "address": "1750 Sacramento Street",
+    "city": "Berkeley",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94702",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "North Berkeley Station features a unique circular building and offers easy access to the Ohlone Greenway, an East Bay pedestrian and bicycle path."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: Delaware St. & Virginia St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1750 Sacramento Street, Berkeley, CA 94702\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1750 Sacramento Street, Berkeley, CA 94702\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1750 Sacramento Street, Berkeley, CA 94702\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/NBRK"
+    }
+  },
+  "NCON": {
+    "name": "North Concord/Martinez",
+    "abbr": "NCON",
+    "gtfs_latitude": "38.003193",
+    "gtfs_longitude": "-122.024653",
+    "address": "3700 Port Chicago Highway",
+    "city": "Concord",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94520",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The North Concord/Martinez station opened December 16, 1995 and briefly served as \"end of the line\" until BART completed the Pittsburg/Bay Point extension over Willow Pass in 1996."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Panoramic Dr."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=3700 Port Chicago Highway, Concord, CA 94520\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=3700 Port Chicago Highway, Concord, CA 94520\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=3700 Port Chicago Highway, Concord, CA 94520\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/NCON"
+    }
+  },
+  "OAKL": {
+    "name": "Oakland International Airport",
+    "abbr": "OAKL",
+    "gtfs_latitude": "37.713238",
+    "gtfs_longitude": "-122.212191",
+    "address": "4 Airport Drive",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94621",
+    "north_routes": {
+      "route": ["ROUTE 19"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 20"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": "",
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The Oakland International Airport Station is located just across from the Terminal 1 baggage claim area and a short walk from Terminal 2.  "
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Ron Conwan Pkwy"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=food&find_loc=oakland+international+airport\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=shopping&find_loc=oakland+international+airport\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/biz/oakland-international-airport-oakland\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/OAKL"
+    }
+  },
+  "ORIN": {
+    "name": "Orinda",
+    "abbr": "ORIN",
+    "gtfs_latitude": "37.878361",
+    "gtfs_longitude": "-122.183791",
+    "address": "11 Camino Pablo",
+    "city": "Orinda",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94563",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Originally a rural area known for ranching and summer cabins, today Orinda is primarily a residential community with a rich history that is depicted on a mural and map in the station."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Highway 24"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=11 Camino Pablo, Orinda, CA 94563\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=11 Camino Pablo, Orinda, CA 94563\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=11 Camino Pablo, Orinda, CA 94563\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/ORIN"
+    }
+  },
+  "PITT": {
+    "name": "Pittsburg/Bay Point",
+    "abbr": "PITT",
+    "gtfs_latitude": "38.018914",
+    "gtfs_longitude": "-121.945154",
+    "address": "1700 West Leland Road",
+    "city": "Pittsburg",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94565",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Trains arriving at this end of line station may subsequently return to service. Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Pittsburg/Bay Point is part of the yellow line serving northern and eastern Contra Costa County.  A transfer platform located just outside the station connects riders to the BART to Antioch trains."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Bailey Rd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1700 West Leland Avenue, Pittsburg, CA 94565\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1700 West Leland Avenue, Pittsburg, CA 94565\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1700 West Leland Avenue, Pittsburg, CA 94565\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/PITT"
+    }
+  },
+  "PCTR": {
+    "name": "Pittsburg Center",
+    "abbr": "PCTR",
+    "gtfs_latitude": "38.016941",
+    "gtfs_longitude": "-121.889457",
+    "address": "2099 Railroad Avenue",
+    "city": "Pittsburg",
+    "county": "Contra Costa",
+    "state": "CA",
+    "zipcode": "94565",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Pittsburg Center is on the yellow line serving northern and eastern Contra Costa County. It is part of a new rail system that connects BART's Pittsburg/Bay Point and Antioch stations using state-of-the art Diesel Multiple Unit (DMU) vehicles.  Ticket vending machines only dispense Clipper cards. There is a one-time $3 acquisition fee. Magstripe paper tickets are not sold at the station, but you can use paper tickets purchased elsewhere in the system to enter or exit.  There is a Transfer Platform between Pittsburg/Bay Point and Pittsburg Center where riders walk from one train to another. The Transfer Platform is only reachable by train.  Learn more about this station and BART to Antioch service.  "
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: California Ave."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"https://www.yelp.com/search?find_desc=Restaurant&find_loc=2099+Railroad+Ave,+Pittsburg,+CA+94565\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=2099+Railroad+Ave,+Pittsburg,+CA+94565\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=2099+Railroad+Ave,+Pittsburg,+CA+94565\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/PCTR"
+    }
+  },
+  "PHIL": {
+    "name": "Pleasant Hill/Contra Costa Centre",
+    "abbr": "PHIL",
+    "gtfs_latitude": "37.928468",
+    "gtfs_longitude": "-122.056012",
+    "address": "1365 Treat Blvd.",
+    "city": "Walnut Creek",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94597",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "BART, buses, Highway 680 and the Iron Horse pedestrian and bicycle trail all converge to make this one of BART's most easily accessed stations."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Oak Rd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1365 Treat Blvd., Walnut Creek, CA 94597\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1365 Treat Blvd., Walnut Creek, CA 94597\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1365 Treat Blvd., Walnut Creek, CA 94597\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/PHIL"
+    }
+  },
+  "POWL": {
+    "name": "Powell St.",
+    "abbr": "POWL",
+    "gtfs_latitude": "37.784471",
+    "gtfs_longitude": "-122.407974",
+    "address": "899 Market Street",
+    "city": "San Francisco",
+    "county": "sanfrancisco",
+    "state": "CA",
+    "zipcode": "94102",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Located at Powell and Market Streets, this station is centrally located near San Francisco's most popular attractions including the cable cars, Union Square, Yerba Buena Gardens, the Moscone Convention Center and the City's Theatre District. Due to COVID-19, several entrances at Powell St. Station are closed. Entrances are open on the north side of Powell except at 4th & Market where the north side entrance is closed (near Ellis St) and the south side has been opened. Please click here for the revised map."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: 4th & 5th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=899 Market Street, San Francisco, CA 94105\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=899 Market Street, San Francisco, CA 94105\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=899 Market Street, San Francisco, CA 94105\">yelp.com</a> and <a href=\"http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2007/08/29/NS9ARQ828.DTL\">sfgate.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/POWL"
+    }
+  },
+  "RICH": {
+    "name": "Richmond",
+    "abbr": "RICH",
+    "gtfs_latitude": "37.936853",
+    "gtfs_longitude": "-122.353099",
+    "address": "1700 Nevin Avenue",
+    "city": "Richmond",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94801",
+    "north_routes": "",
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 7"]
+    },
+    "north_platforms": "",
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Trains arriving at this end of line station may subsequently return to service. Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Three major railroad tracks, including BART's, help to outline the \"Iron Triangle\" in Richmond: a largely residential area that also includes the downtown Richmond business district along Macdonald Avenue."
+    },
+    "cross_street": {
+      "#cdata-section": "Between: 19th & 20th St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1700 Nevin Avenue, Richmond, CA 94801\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1700 Nevin Avenue, Richmond, CA 94801\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1700 Nevin Avenue, Richmond, CA 94801\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/RICH"
+    }
+  },
+  "ROCK": {
+    "name": "Rockridge",
+    "abbr": "ROCK",
+    "gtfs_latitude": "37.844702",
+    "gtfs_longitude": "-122.251371",
+    "address": "5660 College Avenue",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94618",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Named for local rock outcroppings formed by the Hayward Fault, the Rockridge neighborhood is a vibrant residential neighborhood, retail and commercial district in Oakland."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Ocean View Dr."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=5660 College Avenue, Oakland, CA 94618\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=5660 College Avenue, Oakland, CA 94618\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=5660 College Avenue, Oakland, CA 94618\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/ROCK"
+    }
+  },
+  "SBRN": {
+    "name": "San Bruno",
+    "abbr": "SBRN",
+    "gtfs_latitude": "37.637761",
+    "gtfs_longitude": "-122.416287",
+    "address": "1151 Huntington Avenue",
+    "city": "San Bruno",
+    "county": "sanmateo",
+    "state": "CA",
+    "zipcode": "94066",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "San Bruno Station is next to the city's Tanforan shopping mall and business area. Before becoming a mall, Tanforan was a racetrack, airfield, military center and, during World War II, a Japanese American assembly center."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Sneath Ln."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1151 Huntington Avenue, San Bruno, CA 94066\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1151 Huntington Avenue, San Bruno, CA 94066\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1151 Huntington Avenue, San Bruno, CA 94066\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/SBRN"
+    }
+  },
+  "SFIA": {
+    "name": "San Francisco International Airport",
+    "abbr": "SFIA",
+    "gtfs_latitude": "37.615966",
+    "gtfs_longitude": "-122.392409",
+    "address": "International Terminal, Level 3",
+    "city": "San Francisco Int'l Airport",
+    "county": "sanmateo",
+    "state": "CA",
+    "zipcode": "94128",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 14"]
+    },
+    "north_platforms": {
+      "platform": ["1", "3"]
+    },
+    "south_platforms": {
+      "platform": ["1", "2", "3"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "This station is located in the International Terminal at SFO. It's a short walk to United Airlines in Terminal 3, but all domestic terminals (1, 2 & 3) are one to three minutes away on AirTrain."
+    },
+    "cross_street": {
+      "#cdata-section": "None"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/c/sf/restaurants#l:SFO%2C+San+Francisco%2C+CA\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/c/sf/shopping#l:SFO%2C+San+Francisco%2C+CA\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/biz/san-francisco-international-airport-san-francisco\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/SFIA"
+    }
+  },
+  "SANL": {
+    "name": "San Leandro",
+    "abbr": "SANL",
+    "gtfs_latitude": "37.721947",
+    "gtfs_longitude": "-122.160844",
+    "address": "1401 San Leandro Blvd.",
+    "city": "San Leandro",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94577",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5", "ROUTE 11"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6", "ROUTE 12"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Agriculture was an important part of San Leandro's history and cherries were one of the City's most well-known crops. The city's first Cherry Festival was held in 1909 and the tradition still continues today."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Davis St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1401 San Leandro Blvd., San Leandro, CA 94577\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1401 San Leandro Blvd., San Leandro, CA 94577\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1401 San Leandro Blvd., San Leandro, CA 94577\">yelp.com</a> and <a href=\"http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2008/10/23/NS5V13HLOI.DTL&hw=street+date&sn=014&sc=357\">sfgate.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/SANL"
+    }
+  },
+  "SHAY": {
+    "name": "South Hayward",
+    "abbr": "SHAY",
+    "gtfs_latitude": "37.634375",
+    "gtfs_longitude": "-122.057189",
+    "address": "28601 Dixon Street",
+    "city": "Hayward",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94544",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Hayward, originally known as 'Haywards', is named for William Hayward, a New England shoe factory worker who came to California during the Gold Rush."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Tennyson Rd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=28601 Dixon Street, Hayward, CA 94544\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=28601 Dixon Street, Hayward, CA 94544\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "<a href=\"http://www.bart.gov/sites/default/files/docs/BART_Parking_SouthHayward_0.pdf\">BART_Parking_SouthHayward.pdf</a>More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=28601 Dixon Street, Hayward, CA 94544\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/SHAY"
+    }
+  },
+  "SSAN": {
+    "name": "South San Francisco",
+    "abbr": "SSAN",
+    "gtfs_latitude": "37.664245",
+    "gtfs_longitude": "-122.443960",
+    "address": "1333 Mission Road",
+    "city": "South San Francisco",
+    "county": "sanmateo",
+    "state": "CA",
+    "zipcode": "94080",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 8"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 7"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Emerging from a portion of old Rancho Buri Buri, South San Francisco occupies the basin and portions of the sides of a broad valley formed by the San Bruno Mountains on the north and the Coast Range on the west."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Evergreen Dr."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1333 Mission Road, South San Francisco, CA 94080\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1333 Mission Road, South San Francisco, CA 94080\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1333 Mission Road, South San Francisco, CA 94080\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/SSAN"
+    }
+  },
+  "UCTY": {
+    "name": "Union City",
+    "abbr": "UCTY",
+    "gtfs_latitude": "37.590630",
+    "gtfs_longitude": "-122.017388",
+    "address": "10 Union Square",
+    "city": "Union City",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94587",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 5"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 6"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Incorporated in 1959, Union City combined the communities of Alvarado, Decoto, and New Haven. Alvarado was the original county seat of Alameda County, and the site of the first county courthouse is a California Historical Landmark."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Alvarado Niles Rd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=10 Union Square, Union City, CA 94587\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=10 Union Square, Union City, CA 94587\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=10 Union Square, Union City, CA 94587\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/UCTY"
+    }
+  },
+  "WCRK": {
+    "name": "Walnut Creek",
+    "abbr": "WCRK",
+    "gtfs_latitude": "37.905522",
+    "gtfs_longitude": "-122.067527",
+    "address": "200 Ygnacio Valley Road",
+    "city": "Walnut Creek",
+    "county": "contracosta",
+    "state": "CA",
+    "zipcode": "94596",
+    "north_routes": {
+      "route": ["ROUTE 2"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The Walnut Creek BART Station is a key piece of infrastructure for a thriving community that can also be characterized as the business and arts center for Contra Costa County."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: N. California Blvd."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=200 Ygnacio Valley Blvd., Walnut Creek, CA 94596\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=200 Ygnacio Valley Blvd., Walnut Creek, CA 94596\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=200 Ygnacio Valley Blvd., Walnut Creek, CA 94596\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/WCRK"
+    }
+  },
+  "WARM": {
+    "name": "Warm Springs/South Fremont",
+    "abbr": "WARM",
+    "gtfs_latitude": "37.502171",
+    "gtfs_longitude": "-121.939313",
+    "address": "45193 Warm Springs Blvd",
+    "city": "Fremont",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94539",
+    "north_routes": {
+      "route": ["ROUTE 3", "ROUTE 6"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 4", "ROUTE 5"]
+    },
+    "north_platforms": {
+      "platform": ["1", "2"]
+    },
+    "south_platforms": "",
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "Warm Springs/South Fremont Station is the southernmost station in Alameda County and in the heart of Fremont\"s Warm Springs Innovation District. "
+    },
+    "cross_street": {
+      "#cdata-section": "Between: S Grimmer Blvd & Reliance Way"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=45193 Warm Springs Blvd, Fremont, CA 94539\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=45193 Warm Springs Blvd, Fremont, CA 94539\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=45193 Warm Springs Blvd, Fremont, CA 94539\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/WARM"
+    }
+  },
+  "WDUB": {
+    "name": "West Dublin/Pleasanton",
+    "abbr": "WDUB",
+    "gtfs_latitude": "37.699756",
+    "gtfs_longitude": "-121.928240",
+    "address": "6501 Golden Gate Drive",
+    "city": "Dublin",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94568",
+    "north_routes": {
+      "route": ["ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["1"]
+    },
+    "south_platforms": {
+      "platform": ["2"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "This station straddles the border of Dublin and Pleasanton on Interstate 580 and is near the Stoneridge Shopping Center. It is BART's 44th station."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: St. Patrick Way"
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant&ns=1&find_loc=6200+Stoneridge+Mall+Drive+Pleasanton+CA+94568\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?rpp=10&find_loc=6200+Stoneridge+Mall+Drive+Pleasanton+CA+94568&find_desc=Shopping\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?rpp=10&find_loc=6200+Stoneridge+Mall+Drive+Pleasanton+CA+94568&find_desc=\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/WDUB"
+    }
+  },
+  "WOAK": {
+    "name": "West Oakland",
+    "abbr": "WOAK",
+    "gtfs_latitude": "37.804872",
+    "gtfs_longitude": "-122.295140",
+    "address": "1451 7th Street",
+    "city": "Oakland",
+    "county": "alameda",
+    "state": "CA",
+    "zipcode": "94607",
+    "north_routes": {
+      "route": ["ROUTE 2", "ROUTE 6", "ROUTE 8", "ROUTE 12"]
+    },
+    "south_routes": {
+      "route": ["ROUTE 1", "ROUTE 5", "ROUTE 7", "ROUTE 11"]
+    },
+    "north_platforms": {
+      "platform": ["2"]
+    },
+    "south_platforms": {
+      "platform": ["1"]
+    },
+    "platform_info": "Always check destination signs and listen for departure announcements.",
+    "intro": {
+      "#cdata-section": "The West Oakland BART Station is located in the West Oakland residential and industrial community. The station serves both local residents and riders from throughout the region with its excellent freeway access and short ride to downtown San Francisco."
+    },
+    "cross_street": {
+      "#cdata-section": "Nearby Cross: Cypress St."
+    },
+    "food": {
+      "#cdata-section": "Nearby restaurant reviews from <a href=\"http://www.yelp.com/search?find_desc=Restaurant+&ns=1&rpp=10&find_loc=1451 7th Street, Oakland, CA 94607\">yelp.com</a>"
+    },
+    "shopping": {
+      "#cdata-section": "Local shopping from <a href=\"http://www.yelp.com/search?find_desc=Shopping+&ns=1&rpp=10&find_loc=1451 7th Street, Oakland, CA 94607\">yelp.com</a>"
+    },
+    "attraction": {
+      "#cdata-section": "More station area attractions from <a href=\"http://www.yelp.com/search?find_desc=+&ns=1&rpp=10&find_loc=1451 7th Street, Oakland, CA 94607\">yelp.com</a>"
+    },
+    "link": {
+      "#cdata-section": "http://www.bart.gov/stations/WOAK"
+    }
+  }
+}

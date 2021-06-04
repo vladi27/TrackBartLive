@@ -4,9 +4,9 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "dist"),
-    //publicPath: "/dist",
-    publicPath: "/",
-    filename: "bundle.js"
+    publicPath: "/dist",
+    // publicPath: "/",
+    filename: "bundle.js",
   },
   //devServer: { contentBase: "dist" },
   module: {
@@ -14,13 +14,13 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ["babel-loader"],
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           {
             loader: "css-loader",
@@ -29,15 +29,15 @@ module.exports = {
               importLoaders: 1,
               localIdentName: "[name]_[local]_[hash:base64]",
               sourceMap: true,
-              minimize: true
-            }
-          }
-        ]
-      }
-    ]
+              minimize: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   //devtool: "source-map",
   resolve: {
-    extensions: [".js", ".jsx", "*"]
-  }
+    extensions: [".js", ".jsx", "*"],
+  },
 };

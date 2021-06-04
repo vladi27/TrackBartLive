@@ -9,7 +9,7 @@ import React, {
   useRef,
   useReducer,
   useCallback,
-  useImperativeHandle
+  useImperativeHandle,
 } from "react";
 
 import L from "leaflet";
@@ -50,10 +50,10 @@ const Trains = React.forwardRef(function Trains(props, ref) {
     //   window.cancelAnimationFrame(frameId);
     // }
     //window.cancelAnimationFrame(frameId);
-    const animate = timestamp => {
+    const animate = (timestamp) => {
       // const runtime = timestamp - startTime;
       // const timeStep = Math.round(runtime);
-      refs.current.map(child => {
+      refs.current.map((child) => {
         if (child && !zoomRef.current) {
           console.log(child, zoom);
           child.update(timestamp);
@@ -83,7 +83,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
       //   //startTime = t;
       //   animate(t);
       // });
-      frameId = window.requestAnimationFrame(t => {
+      frameId = window.requestAnimationFrame((t) => {
         console.log(zoom);
         //startTime = t;
         animate(t);
@@ -144,7 +144,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
       // console.log(bool);
       zoomRef.current = arg;
       //setZoom(!bool);
-    }
+    },
   }));
 
   return (
@@ -152,6 +152,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
       {props.trains.map((train, index) => {
         let num = train.route;
         let routeStations = props.routes[num].stations;
+        console.log(routeStations);
         return (
           <NewMarker
             key={train.id}
@@ -172,7 +173,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
             initialPos={train.initialPosition}
             initCoords={train.initCoords}
             currentSlice={train.currentSlice}
-            ref={ins => (refs.current[index] = ins)}
+            ref={(ins) => (refs.current[index] = ins)}
             getMap={props.getMap}
             zoom={zoomRef.current}
             interval={train.interval}

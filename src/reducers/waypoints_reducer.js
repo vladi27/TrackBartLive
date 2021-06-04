@@ -7,6 +7,7 @@ const wayPointsreducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_WAYPOINTS:
       let received = action.waypoints;
+      console.log(received);
       let all_waypoints = {};
 
       return merge({}, state, received);

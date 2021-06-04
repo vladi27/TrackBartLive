@@ -7,9 +7,9 @@ import L from "leaflet";
 // import { DropdownMultiple, Dropdown } from "reactjs-dropdown-component";
 import Select from "react-select";
 import jsonObject from "../../waypoints/all_shapes.json";
-import routes2 from "../../waypoints/routes.json";
-import stations2 from "../../waypoints/stations.json";
-import allWayPoints from "../../waypoints/all_waypoints.json";
+import routes2 from "../../waypoints/new_routes.json";
+import stations2 from "../../waypoints/new_stations.json";
+import allWayPoints from "../../waypoints/new_all_waypoints.json";
 import { throws } from "assert";
 import WindowedSelect from "react-windowed-select";
 import find from "lodash/find";
@@ -41,7 +41,7 @@ const ROUTES4 = {
     destination: "Millbrae",
     abbreviation: ["MLBR", "SFIA"],
     direction: "South",
-    color: "Yellow"
+    color: "Yellow",
   },
 
   2: {
@@ -49,7 +49,7 @@ const ROUTES4 = {
     abbreviation: ["ANTC"],
     destination: "Antioch",
     direction: "North",
-    color: "Yellow"
+    color: "Yellow",
   },
 
   3: {
@@ -57,7 +57,7 @@ const ROUTES4 = {
     abbreviation: ["RICH"],
     destination: "Richmond",
     direction: "North",
-    color: "Orange"
+    color: "Orange",
   },
 
   4: {
@@ -65,7 +65,7 @@ const ROUTES4 = {
     destination: ["Warm Springs"],
     abbreviation: ["WARM"],
     direction: "South",
-    color: "Orange"
+    color: "Orange",
   },
 
   5: {
@@ -73,7 +73,7 @@ const ROUTES4 = {
     hexcolor: "#339933",
     destination: "Daly City",
     direction: "North",
-    abbreviation: ["DALY"]
+    abbreviation: ["DALY"],
   },
 
   6: {
@@ -82,7 +82,7 @@ const ROUTES4 = {
     destination: "Warm Springs",
     abbreviation: ["WARM"],
 
-    direction: "South"
+    direction: "South",
   },
 
   7: {
@@ -91,7 +91,7 @@ const ROUTES4 = {
 
     destination: "Daly City",
     direction: "South",
-    abbreviation: ["DALY", "MLBR"]
+    abbreviation: ["DALY", "MLBR"],
   },
 
   8: {
@@ -101,21 +101,21 @@ const ROUTES4 = {
     direction: "North",
 
     destination: "Richmond",
-    abbreviation: ["RICH"]
-  }
+    abbreviation: ["RICH"],
+  },
 };
 
 const RouteColors = {
   Yellow: 1,
   Orange: 3,
   Green: 5,
-  Red: 7
+  Red: 7,
 };
 const RouteColors2 = {
   "#ffff33": 1,
   "#ff9933": 3,
   "#339933": 5,
-  "#ff0000": 7
+  "#ff0000": 7,
 };
 console.log(RouteColors2[ROUTES4[8].hexcolor]);
 
@@ -154,36 +154,36 @@ const options = [
   // },
   {
     value: "8",
-    label: "Millbrae/Daly City - Richmond"
+    label: "Millbrae/Daly City - Richmond",
   },
   {
     value: "7",
-    label: "Richmond - Daly City/Millbrae"
+    label: "Richmond - Daly City/Millbrae",
   },
   {
     value: "6",
-    label: "Daly City - Warm Springs/South Fremont"
+    label: "Daly City - Berryessa/North San Jose",
   },
   {
     value: "5",
-    label: "Warm Springs/South Fremont - Daly City"
+    label: "Berryessa/North San Jose - Daly City",
   },
   {
     value: "4",
-    label: "Richmond - Warm Springs/South Fremont"
+    label: "Richmond - Berryessa/North San Jose",
   },
   {
     value: "3",
-    label: "Warm Springs/South Fremont - Richmond"
+    label: "Berryessa/North San Jose - Richmond",
   },
   {
     value: "2",
-    label: "Millbrae/SFIA - Antioch"
+    label: "Millbrae/SFIA - Antioch",
   },
   {
     value: "1",
-    label: "Antioch - SFIA/Millbrae"
-  }
+    label: "Antioch - SFIA/Millbrae",
+  },
 ];
 
 class MainPage extends Component {
@@ -207,7 +207,7 @@ class MainPage extends Component {
       update: 0,
       trains: [],
       zoom: 11,
-      stopTracking: false
+      stopTracking: false,
     };
     this.timer = 0;
     //this.renderStops = this.renderStops.bind(this);
@@ -252,7 +252,8 @@ class MainPage extends Component {
 
     // this.props.fetchRouteSchedules(1);
 
-    //this.props.receiveWayPoints(jsonObject);
+    this.props.receiveWayPoints(jsonObject);
+
     setTimeout(() => {
       this.handleTimer();
     }, 15000);
@@ -370,7 +371,7 @@ class MainPage extends Component {
   }
 
   handleRefs(refs) {
-    this.setState(prev => {
+    this.setState((prev) => {
       let currentRefs = prev.refs;
 
       let newRefs = [...currentRefs, refs];
@@ -538,11 +539,12 @@ class MainPage extends Component {
 
     console.log(value, "vlad");
 
-    this.setState(prev => {
+    this.setState((prev) => {
       console.log(prev);
       if (!prev.currentSelections || prev.currentSelections.length === 0) {
         let num = value[0].value;
         let route = routes[num];
+        console.log(route);
         let color = route.hexcolor;
         this.props.createTrains(route, etas, stations);
         return { currentSelections: value, hexcolors: [color] };
@@ -555,7 +557,7 @@ class MainPage extends Component {
       } else if (value && value.length > prev.currentSelections.length) {
         let difference = value
           .slice()
-          .filter(x => !prev.currentSelections.includes(x));
+          .filter((x) => !prev.currentSelections.includes(x));
         console.log(difference);
         let num = difference[0].value;
         let color = ROUTES4[num].hexcolor;
@@ -571,7 +573,7 @@ class MainPage extends Component {
       ) {
         let difference = this.state.currentSelections
           .slice()
-          .filter(x => !value.includes(x));
+          .filter((x) => !value.includes(x));
         console.log(difference);
         console.log("vlad");
         // let colorToRemove = console.log(difference);
@@ -774,7 +776,6 @@ class MainPage extends Component {
               </div>
             ) : null} */}
             <TileLayer url="https://mt1.google.com/vt/lyrs=m@121,transit|vm:1&hl=en&opts=r&x={x}&y={y}&z={z}" />
-            />
           </Map>
         </div>
       );
