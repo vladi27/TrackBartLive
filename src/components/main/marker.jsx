@@ -8,7 +8,7 @@ import React, {
   useMemo,
   useReducer,
   useCallback,
-  useImperativeHandle
+  useImperativeHandle,
 } from "react";
 import L from "leaflet";
 import * as util from "leaflet-geometryutil";
@@ -63,7 +63,7 @@ const NewMarker = React.forwardRef((props, ref) => {
     stationIndex,
     routeStations,
     zoom,
-    color
+    color,
   } = props;
   //const mapRef = props.getMap();
   console.log(mapRef);
@@ -95,6 +95,8 @@ const NewMarker = React.forwardRef((props, ref) => {
         initRef.current = point;
         markerRef.current.leafletElement.setLatLng(point);
       } else {
+        const station = routeStations[props.stationIndex - 1];
+        console.log(station);
         const waypoints = routeStations[props.stationIndex - 1].slice;
         // const dest2 = routeStations[props.stationIndex - 1].location;
         // waypoints.unshift(dest2);
@@ -177,6 +179,8 @@ const NewMarker = React.forwardRef((props, ref) => {
       polyLineRef.current = polyline2;
     } else {
       console.log(props);
+      const station = routeStations[props.stationIndex - 1];
+      console.log(station);
       const waypoints = props.routeStations[props.stationIndex - 1].slice;
       // const dest2 = routeStations[props.stationIndex - 1].location;
       // waypoints.unshift(dest2);
@@ -433,7 +437,7 @@ const NewMarker = React.forwardRef((props, ref) => {
       html: `<div style="${styles}"></div><i class="fas fa-subway"></i>`,
       iconSize: [30, 42],
       iconAnchor: [15, 42],
-      popupAnchor: [0, -30]
+      popupAnchor: [0, -30],
     });
   }, [colorRef.current]);
   //const stationSlice = routeStations[index - 1].slice;
@@ -576,7 +580,7 @@ const NewMarker = React.forwardRef((props, ref) => {
         //   //console.log(newPosition, startTime, arc, lon, lag, station);
         //   markerRef.current.leafletElement.setLatLng([lag, lon]);
         // }
-      }
+      },
     })
     //[animated.current]
   );

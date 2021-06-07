@@ -5,7 +5,7 @@ const RouteColors2 = {
   "#ffff33": 1,
   "#ff9933": 3,
   "#339933": 5,
-  "#ff0000": 7
+  "#ff0000": 7,
 };
 const ROUTES4 = {
   1: {
@@ -13,7 +13,7 @@ const ROUTES4 = {
     destination: "Millbrae",
     abbreviation: ["MLBR", "SFIA"],
     direction: "South",
-    color: "Yellow"
+    color: "Yellow",
   },
 
   2: {
@@ -21,7 +21,7 @@ const ROUTES4 = {
     abbreviation: ["ANTC"],
     destination: "Antioch",
     direction: "North",
-    color: "Yellow"
+    color: "Yellow",
   },
 
   3: {
@@ -29,7 +29,7 @@ const ROUTES4 = {
     abbreviation: ["RICH"],
     destination: "Richmond",
     direction: "North",
-    color: "Orange"
+    color: "Orange",
   },
 
   4: {
@@ -37,7 +37,7 @@ const ROUTES4 = {
     destination: ["Warm Springs"],
     abbreviation: ["WARM"],
     direction: "South",
-    color: "Orange"
+    color: "Orange",
   },
 
   5: {
@@ -45,7 +45,7 @@ const ROUTES4 = {
     hexcolor: "#339933",
     destination: "Daly City",
     direction: "South",
-    abbreviation: ["DALY"]
+    abbreviation: ["DALY"],
   },
 
   6: {
@@ -54,7 +54,7 @@ const ROUTES4 = {
     destination: ["Warm Springs"],
     abbreviation: "WARM",
 
-    direction: "North"
+    direction: "North",
   },
 
   7: {
@@ -63,7 +63,7 @@ const ROUTES4 = {
 
     destination: "Daly City",
     direction: "South",
-    abbreviation: ["DALY", "MLBR"]
+    abbreviation: ["DALY", "MLBR"],
   },
 
   8: {
@@ -73,11 +73,12 @@ const ROUTES4 = {
     direction: "North",
 
     destination: "Richmond",
-    abbreviation: ["RICH"]
-  }
+    abbreviation: ["RICH"],
+  },
 };
 const RouteStations = React.memo(({ currentRoutes, routes }) => {
-  const colors = currentRoutes.map(ele => {
+  console.log(routes);
+  const colors = currentRoutes.map((ele) => {
     return ROUTES4[ele.value].hexcolor;
   });
   console.log(colors);
@@ -85,12 +86,12 @@ const RouteStations = React.memo(({ currentRoutes, routes }) => {
   const uniques = uniq(colors);
   console.log(uniques);
 
-  const routes2 = uniques.map(ele => routes[RouteColors2[ele]]);
+  const routes2 = uniques.map((ele) => routes[RouteColors2[ele]]);
   console.log(routes2);
 
-  return routes2.map(route => {
+  return routes2.map((route) => {
     let hexcolor = route.hexcolor;
-    return route.stations.map(ele2 => {
+    return route.allStations.map((ele2) => {
       console.log(ele2);
       let station = ele2.location;
       console.log(station);

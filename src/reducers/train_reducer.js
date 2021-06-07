@@ -245,6 +245,7 @@ const trainsReducer = (state = [], action) => {
                           if (idx === routeStations.length - 1) {
                             lastTrain = true;
                           }
+                          console.log(prevStation);
                           let train = {
                             dest,
                             hexcolor,

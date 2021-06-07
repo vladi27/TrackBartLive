@@ -23,6 +23,7 @@ import { css } from "@emotion/core";
 import { MoonLoader } from "react-spinners";
 import NewMarker from "./marker";
 import Polylines from "./Polylines";
+import WelcomeModal from "./modal";
 import SelectorContainer from "./selector_container";
 import RouteStations from "./route_stations";
 import { convertSpeed } from "geolib";
@@ -228,6 +229,8 @@ class MainPage extends Component {
     const routeIds = ["1", "2", "3", "4", "5", "6", "7", "8"];
     const routes = this.props.routes;
 
+    console.log(routes2);
+
     // this.props.receiveWayPoints(jsonObject);
     // this.props.fetchSpaceStation();
     // then(response =>
@@ -251,8 +254,6 @@ class MainPage extends Component {
     //   .then(response => this.setState({ etas: this.props.etas }));
 
     // this.props.fetchRouteSchedules(1);
-
-    this.props.receiveWayPoints(jsonObject);
 
     setTimeout(() => {
       this.handleTimer();
@@ -671,18 +672,22 @@ class MainPage extends Component {
     // const customMarker = L.icon({ iconUrl: require('../../assets/images/iss.png')})
     if (Object.values(etas).length === 0) {
       return (
-        <MoonLoader
-          css={override}
-          sizeUnit={"px"}
-          size={150}
-          color={"#123abc"}
-          loading={this.state.loading}
-        />
+        <div>
+          <WelcomeModal></WelcomeModal>
+          <MoonLoader
+            css={override}
+            sizeUnit={"px"}
+            size={150}
+            color={"#123abc"}
+            loading={this.state.loading}
+          />
+        </div>
       );
     } else {
       //this.mapRef.current.leafletElement.setMaxBounds
       return (
         <div id="all">
+          <WelcomeModal></WelcomeModal>
           {/* <div className="react-select__menu">
             <WindowedSelect
               options={options}

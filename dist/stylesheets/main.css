@@ -23,14 +23,24 @@
   display: flex;
   flex-flow: column wrap;
 }
+.my-modal {
+  height: 1500px !important;
+  color: #0064a8;
+}
+.custom-modal-style {
+  background-color: white !important;
+  justify-content: center !important;
+  height: 400px !important;
+}
 
 .react-select__menu {
   /* //position: absolute; */
   /* // margin-bottom: 50px; */
   margin-right: -10px;
-  /* margin-left: 2px;  */
+  margin-left: 2px;
   /* //margin: auto; */
   width: 99%;
+  margin-top: 10px;
   position: absolute;
   /* //height: fit-content; */
 }
