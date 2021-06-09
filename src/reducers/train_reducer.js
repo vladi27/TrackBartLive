@@ -261,65 +261,61 @@ const trainsReducer = (state = [], action) => {
       const newState = [...curr, ...finalTrains];
       return newState;
     }
-    case REMOVE_TRAINS:
-      const routeNum4 = action.routeNum;
-      const allUpdatedTrains = [];
+    case REMOVE_TRAINS: {
+      const routeNum = action.routeNum;
       const curTrains = [...state];
 
       const updTrains = curTrains.filter((ele) => {
-        return ele.route !== routeNum4;
+        return ele.route !== routeNum;
       });
-      // curTrains = Object.assign({}, allUpdatedTrains);
-
-      // const newTrainsforRoute = { [routeNum4]: curTrains };
 
       return updTrains;
-    case REMOVE_TRAIN:
-      const routeNum5 = action.routeNum;
+    }
+    case REMOVE_TRAIN: {
+      const routeNum = action.routeNum;
       const id = action.id;
-      const curTrains2 = [...state];
-      const index = findIndex(curTrains2, function (o) {
+      const curTrains = [...state];
+      const index = findIndex(curTrains, function (o) {
         return id === o.id;
       });
 
-      curTrains2.splice(index, 1);
+      curTrains.splice(index, 1);
 
-      return curTrains2;
+      return curTrains;
+    }
     case REMOVE_ALL_TRAINS:
       return [];
-    case SELECT_TRAIN:
-      const id2 = action.id;
-      const curTrains3 = [...state];
-      const train4 = find(curTrains3, function (o) {
-        return id2 === o.id;
+    case SELECT_TRAIN: {
+      const id = action.id;
+      const curTrains = [...state];
+      const train = find(curTrains, function (o) {
+        return id === o.id;
       });
 
-      train4["selected"] = true;
-
-      return curTrains3;
-    case DESELECT_TRAIN:
-      const id3 = action.id;
-      const curTrains4 = [...state];
-      const train5 = find(curTrains4, function (o) {
-        return id3 === o.id;
+      train["selected"] = true;
+      return curTrains;
+    }
+    case DESELECT_TRAIN: {
+      const id = action.id;
+      const curTrains = [...state];
+      const train = find(curTrains, function (o) {
+        return id === o.id;
       });
 
-      train5["selected"] = false;
+      train["selected"] = false;
+      return curTrains;
+    }
 
-      return curTrains4;
-
-    case REMOVE_TRACKING:
-      const trs2 = [...state];
-      const trs3 = trs2.map((tra) => {
+    case REMOVE_TRACKING: {
+      const trains = [...state];
+      const unselectedTrains = trains.map((tra) => {
         if (tra["selected"]) {
           tra["selected"] = false;
         }
         return tra;
       });
-      return trs3;
-    // curTrains = Object.assign({}, allUpdatedTrains);
-
-    // const newTrainsforRoute = { [routeNum4]: curTrains };
+      return unselectedTrains;
+    }
 
     case ADD_TRAINS:
       const currentTrains = [...state];

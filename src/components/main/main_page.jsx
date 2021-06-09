@@ -1,35 +1,20 @@
 import React, { Component, PureComponent } from "react";
-//import "leaflet/dist/leaflet.css";
-//import "leaflet/dist/leaflet.css";
-
 import { Map, TileLayer, CircleMarker, Polyline } from "react-leaflet";
-import L from "leaflet";
-// import { DropdownMultiple, Dropdown } from "reactjs-dropdown-component";
-import Select from "react-select";
-import jsonObject from "../../waypoints/all_shapes.json";
 import routes2 from "../../waypoints/new_routes.json";
 import oldRoutes from "../../waypoints/routes.json";
 import stations2 from "../../waypoints/new_stations.json";
 import allWayPoints from "../../waypoints/new_all_waypoints.json";
-import { throws } from "assert";
-import WindowedSelect from "react-windowed-select";
 import find from "lodash/find";
 import uniq from "lodash/uniq";
-import Station from "./stations";
-import { components, createFilter } from "react-windowed-select";
-import findIndex from "lodash/findIndex";
-import Loader from "react-loader-spinner";
+import { createFilter } from "react-windowed-select";
 import Control from "react-leaflet-control";
 import { css } from "@emotion/core";
 import { MoonLoader } from "react-spinners";
-import NewMarker from "./marker";
 import Polylines from "./Polylines";
 import WelcomeModal from "./modal";
 import SelectorContainer from "./selector_container";
 import RouteStations from "./route_stations";
-import { convertSpeed } from "geolib";
 import Trains from "./trains";
-// const data = require("json!./../../src/waypoints/all_shapes");
 const isEqual = require("react-fast-compare");
 
 const override = css`
@@ -119,41 +104,8 @@ const RouteColors2 = {
   "#339933": 5,
   "#ff0000": 7,
 };
-console.log(RouteColors2[ROUTES4[8].hexcolor]);
 
 const options = [
-  // {
-  //   value: "20",
-  //   label: "Oakland Int'l Airport - Coliseum"
-  // },
-  // {
-  //   value: "19",
-  //   label: "Coliseum - Oakland Int'l Airport"
-  // },
-  // {
-  //   value: "14",
-  //   label: "SFO - Millbrae"
-  // },
-  // {
-  //   value: "13",
-  //   label: "Millbrae - SFO"
-  // },
-  // {
-  //   value: "12",
-  //   label: "Daly City - Dublin/Pleasanton"
-  // },
-  // {
-  //   value: "11",
-  //   label: "Dublin/Pleasanton - Daly City"
-  // },
-  // {
-  //   value: "10",
-  //   label: "MacArthur - Dublin/Pleasanton"
-  // },
-  // {
-  //   value: "9",
-  //   label: "Dublin/Pleasanton - MacArthur"
-  // },
   {
     value: "8",
     label: "Millbrae/Daly City - Richmond",
@@ -192,14 +144,6 @@ class MainPage extends Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   routes: this.props.routes
-    //   // stations: [{longitude: "-43.7833", latitude: "-5.3823"}],
-    //   // space_station: {longitude: "-43.7833", latitude: "-5.3823"},
-    //   // map : this.mymap,
-    //   // marker: this.circleMarker
-    // };
-
     this.state = {
       currentSelections: [],
       etas: {},
@@ -212,157 +156,22 @@ class MainPage extends Component {
       stopTracking: false,
     };
     this.timer = 0;
-    //this.renderStops = this.renderStops.bind(this);
-    // this.drawPolyline = this.drawPolyline.bind(this);
     this.interval = null;
     this.handleRefs = this.handleRefs.bind(this);
-    //this.getMap = this.getMap.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.mapRef = React.createRef();
     this.bounds = null;
     this.zoom = null;
     this.trainsRef = React.createRef();
-
-    //this.customFilter = this.customFilter.bind(this);
   }
 
   componentDidMount() {
-    const routeIds = ["1", "2", "3", "4", "5", "6", "7", "8"];
-    const routes = this.props.routes;
-
-    console.log(routes2);
-    console.log(oldRoutes);
-
-    // this.props.receiveWayPoints(jsonObject);
-    // this.props.fetchSpaceStation();
-    // then(response =>
-    //   this.setState({ space_station: response.space_station })
-    // );
-    // this.props
-    //   .fetchRoutes()
-
-    //   .then(() => {
-    //     routeIds.map(ele => {
-    //       this.props.fetchRouteStations(ele);
-    //       // this.props.fetchRouteSchedules(ele);
-    //     });
-    //   });
-
-    // console.count();
-    // routeIds.map(id => this.props.fetchRouteStations(id));
-    console.log("hello");
     this.props.getCurrentEtas();
-    const r = this.props.fetchRoutes();
-    console.log(r);
-
-    // this.props.fetchStations();
-    //   .then(response => this.setState({ etas: this.props.etas }));
-
-    // this.props.fetchRouteSchedules(1);
 
     setTimeout(() => {
       this.handleTimer();
     }, 15000);
-    // setTimeout(() => {
-    //   this.props.getCurrentEtas("create");
-    //   //.then(result => {
-    //   //   console.log(result);
-    //   //   routeIds.map(id => {
-    //   //     let route = this.props.routes[id];
-    //   //     let etas = this.props.etas;
-    //   //     console.log(route);
-    //   //     console.log(etas);
-    //   //     this.props.createTrains(route, etas);
-    //   //   });
-    //   // });
-    // }, 3000);
-
-    // this.setState({
-    //   seconds: 0,
-    //   fetchData: false,
-    //   currentSelections: [],
-    //   trains: this.props.trains
-    // });
-
-    // this.mapRef.current.leafletElement.locate({
-    //   watch: true,
-    //   setView: true,
-    //   maxZoom: 13,
-    //   enableHighAccuracy: true
-    // });
-
-    // this.interval2 = setInterval(() => {
-    //   let current = this.state.currentSelections;
-
-    //   // if (current && current.length > 0) {
-    //   //   current.map(ele => {
-    //   //     console.log(ele);
-    //   //     let route = ele.value;
-    //   //     let routes = "update";
-    //   //     console.log(route);
-    //   //     this.props.getCurrentEtas(routes, route).then(value => {
-    //   //       current.map(ele => {
-    //   //         return this.props.updateTrains(
-    //   //           ele.value,
-    //   //           value,
-    //   //           this.props.routes[ele.value].stations
-    //   //         );
-    //   //       });
-    //   //     });
-    //   //   });
-    //   this.props.getCurrentEtas();
-
-    //   // } else {
-    //   //   routeIds.map(id => {
-    //   //     let index = findIndex(current, function(o) {
-    //   //       return o.value == id;
-    //   //     });
-    //   //     if (index === -1) {
-    //   //       this.props.getCurrentEtas("create", id);
-    //   //     }
-    //   //   });
-    //   //   this.props.getCurrentEtas("create");
-    //   // }
-    // }, 20000);
-
-    // this.interval2 = setInterval(() => {
-    //   this.props.getCurrentEtas("update");
-    // }, 20000);
-    // this.interval3 = setInterval(() => {
-    //   if (!current || current.length === 0) {
-    //     this.props.getCurrentEtas("create");
-    //   }
-    // }, 60000);
-    // this.interval = setInterval(() => {
-    //   let current = this.state.currentSelections;
-
-    //   if (!current || current.length === 0) {
-    //     this.props.getCurrentEtas("create");
-    //   }
-    // }, 60000);
-
-    //   .then(response => this.setState({ stations: response.stations }));
-    // this.props
-    //   .fetchRouteInfo()
-    //   .then(response => this.setState({ route_info: response.route_info }));
-    // this.props.fetchInitialStationDataSouth();
-    // this.props.fetchInitialStationDataNorth();
   }
-
-  // componentDidMount() {
-  //   // this.interval = setInterval(() => this.props.fetchSpaceStation(), 10000);
-  //   // this.props.receiveWayPoints(jsonObject);
-  // }
-
-  // componentDidUpdate(prevState) {
-  //   // if (this.state.etas !== this.props.etas) {
-  //   //   this.setState({ etas: this.props.etas });
-  //   // }
-
-  //   if (this.state.refs !== prevState.refs && this.state.refs.length > 0) {
-  //     this.animate(this.update);
-  //   }
-  // }
 
   componentWillUnmount() {
     this.stopTimer();
@@ -371,9 +180,6 @@ class MainPage extends Component {
 
   tick() {
     this.timer += 1;
-    // this.setState(prevState => ({
-    //   seconds: prevState.seconds + 1
-    // }));
   }
 
   handleRefs(refs) {
@@ -384,36 +190,6 @@ class MainPage extends Component {
       return { refs: newRefs };
     });
   }
-
-  // renderStops() {
-  //   const currentRoutes = this.state.currentSelections;
-  //   const routes = this.props.routes;
-  //   const allStations = this.props.allStations;
-
-  //   const colors = currentRoutes.map(ele => {
-  //     return ROUTES4[ele.value].color;
-  //   });
-  //   console.log(colors);
-
-  //   const uniques = uniq(colors);
-  //   console.log(uniques);
-
-  //   const routes2 = uniques.map(ele => routes[RouteColors[ele]]);
-  //   console.log(routes2);
-
-  //   return routes2.map(route => {
-  //     let hexcolor = route.hexcolor;
-  //     return route.stations.map(ele2 => {
-  //       console.log(ele2);
-  //       let station = allStations[ele2.stationName];
-  //       console.log(station);
-  //       let abbr = station.abbr;
-  //       return (
-  //         <Station station={station} hexcolor={hexcolor} key={abbr}></Station>
-  //       );
-  //     });
-  //   });
-  // }
 
   shouldComponentUpdate(nextState, nextProps) {
     const current = this.props.trains;
@@ -435,37 +211,10 @@ class MainPage extends Component {
 
   handleTimer() {
     const routes = this.props.routes;
-    // this.props.getCurrentEtas().then(value => {
-    //   this.setState({ etas: value });
-    // });
+
     this.interval = setInterval(() => {
-      console.count();
-      //this.tick();
       {
         this.props.getCurrentEtas();
-        // this.props.getCurrentEtas().then(value => {
-        //   this.setState(prev => {
-        //     if (prev.etas !== value) {
-        //       let currentSelections = prev.currentSelections;
-        //       if (currentSelections.length > 0) {
-        //         currentSelections.forEach((el, i) => {
-        //           setTimeout(() => {
-        //             let stations = routes[currentSelections[i].value].stations;
-        //             // each loop, call passed in function
-        //             // delegate(array[i]);
-        //             this.props.updateTrains(
-        //               currentSelections[i].value,
-        //               value,
-        //               stations
-        //             );
-        //             // stagger the timeout for each loop by the index
-        //           }, i * 300);
-        //         });
-        //       }
-        //       return { etas: value, update: (prev.update += 1) };
-        //     }
-        //   });
-        // });
       }
     }, 15000);
   }
@@ -475,48 +224,6 @@ class MainPage extends Component {
     this.interval = null;
     this.timer = 0;
   }
-
-  // update(t) {
-  //   console.log(this.state);
-  //   let refs = this.state.refs;
-  //   console.log(refs);
-  //   refs.map(component => {
-  //     const dur =
-  //       component.current.time.lastUpdate + component.current.time.duration;
-  //     const min = component.current.props.minutes;
-  //     var MsecPerFrame = 10,
-  //       MsecPerAnim = 2000;
-  //     console.log(dur, min, component);
-  //     if (!this.time) {
-  //       this.time = t;
-  //     }
-  //     var progress = t - this.time;
-  //     if (progress < MsecPerAnim) {
-  //       requestAnimationFrame(this.Step);
-  //     } else if (min !== "Leaving" && t > dur) {
-  //       component.current.touched(t);
-  //       this.resolve();
-  //     }
-  //   });
-
-  //   this.animate(this.update);
-  // }
-
-  // animate(AnimStep) {
-  //   // const rafID = new Promise(resolve => requestAnimationFrame(resolve));
-  //   // const timestamp = await rafID;
-  //   // console.log(timestamp);
-  //   // this.update(timestamp);
-  //   let o = {};
-
-  //   return new Promise(function(resolve, reject) {
-  //     // Remember some local variables
-  //     o.Step = AnimStep.bind(o); // Bind "this" in o.Step() to "o"
-  //     o.resolve = resolve;
-  //     o.time = 0;
-  //     o.id = requestAnimationFrame(o.Step);
-  //   });
-  // }
 
   handleUpdate() {
     this.handleTimer();
@@ -538,11 +245,6 @@ class MainPage extends Component {
     const etas = this.props.etas;
     const stations = stations2;
 
-    // difference = this.state.currentSelections
-    //   .slice()
-    //   .filter(x => !value.includes(x)); // calculates diff
-    // console.log("Removed: ", difference);
-
     console.log(value, "vlad");
 
     this.setState((prev) => {
@@ -554,12 +256,6 @@ class MainPage extends Component {
         let color = route.hexcolor;
         this.props.createTrains(route, etas, stations);
         return { currentSelections: value, hexcolors: [color] };
-
-        // this.handleTimer();
-        // let num = value[0].value;
-        // let route = routes[num];
-        // this.props.createTrains(route, etas);
-        // return { currentSelections: value };
       } else if (value && value.length > prev.currentSelections.length) {
         let difference = value
           .slice()
@@ -663,18 +359,7 @@ class MainPage extends Component {
     console.log(trains);
     console.log(uniques, hexcolors);
     console.log(this.zoom);
-    // console.count();
-    // console.log(this.props.routes);
 
-    // console.log(allStations);
-    // console.log(this.state);
-
-    // const waypoints = jsonObject;
-
-    // console.log(waypoints);
-
-    // console.log(this.props);
-    // const customMarker = L.icon({ iconUrl: require('../../assets/images/iss.png')})
     if (Object.values(etas).length === 0) {
       return (
         <div>
