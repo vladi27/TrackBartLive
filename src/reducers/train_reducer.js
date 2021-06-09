@@ -1,9 +1,5 @@
 import merge from "lodash/merge";
 import {
-  RECEIVE_ROUTES,
-  RECEIVE_ROUTE_STATIONS,
-  routes,
-  RECEIVE_CURRENT_ETAS,
   CREATE_TRAINS,
   UPDATE_TRAINS,
   ADD_TRAINS,
@@ -14,14 +10,10 @@ import {
   REMOVE_TRACKING,
   REMOVE_ALL_TRAINS,
 } from "../actions/station_actions";
-import routes2 from "../waypoints/new_routes.json";
-
+import allRoutes from "../waypoints/new_routes.json";
 import findIndex from "lodash/findIndex";
-
-import stationsData from "../waypoints/new_stations.json";
-
+import allStations from "../waypoints/new_stations.json";
 import find from "lodash/find";
-
 import uniqBy from "lodash/uniqBy";
 import uniqWith from "lodash/uniqWith";
 
@@ -72,16 +64,14 @@ export const ROUTES = {
   6: {
     color: "Green",
     hexcolor: "#339933",
-    destination: ["Berryessa/North San Jose"],
-    abbreviation: "BERY",
-
+    destination: "Berryessa/North San Jose",
+    abbreviation: ["BERY"],
     direction: "North",
   },
 
   7: {
     color: "Red",
     hexcolor: "#ff0000",
-
     destination: "Daly City",
     direction: "South",
     abbreviation: ["DALY", "MLBR"],
@@ -90,9 +80,7 @@ export const ROUTES = {
   8: {
     color: "Red",
     hexcolor: "#ff0000",
-
     direction: "North",
-
     destination: "Richmond",
     abbreviation: ["RICH"],
   },
@@ -100,56 +88,43 @@ export const ROUTES = {
 const trainsReducer = (state = [], action) => {
   //Object.freeze(state);
   switch (action.type) {
-    case CREATE_TRAINS:
+    case CREATE_TRAINS: {
       const route = action.route;
       const currentEtas = action.etas;
       const curr = [...state];
-
       const newTrains = [];
-
       const routeDestination = ROUTES[route.number].abbreviation;
       const routeDirection = ROUTES[route.number].direction;
       const routeHexcolor = route.hexcolor.toLowerCase();
-      let routeStations = route.stations;
-      let currentTrains = [];
-      const allStat = stationsData;
-
-      let sub = action.sub;
-
-      console.log(routeStations);
-      console.log(currentEtas);
-      console.log(route);
-      console.log(routeHexcolor);
+      const routeStations = route.stations;
+      const allStat = allStations;
 
       routeStations.map((station, idx) => {
         let stationName = station.stationName;
-        let order = station.order;
         let stationETAs = currentEtas[stationName];
         let prevStation = routeStations[idx - 1];
         if (stationETAs) {
           stationETAs.etd.map((departure) => {
             let dest = departure.abbreviation;
-            console.log(dest);
+
             if (routeDestination.includes(dest)) {
               let estimates = departure.estimate;
-              console.log(estimates);
+
               let currentEstimate = find(estimates, function (o) {
                 return o.hexcolor === routeHexcolor;
               });
 
-              console.log(currentEstimate, station);
               if (currentEstimate) {
                 let minutes = currentEstimate.minutes;
                 let hexcolor = currentEstimate.hexcolor;
                 let direction = currentEstimate.direction;
                 let cars = currentEstimate.length;
-                //let platfrom = currentEstimate.plarf;
+
                 if (minutes === "Leaving" && idx !== routeStations.length - 1) {
                   let id = uuidv4();
                   let train = {
                     dest,
                     hexcolor,
-                    //platform: platform,
                     direction: direction,
                     minutes,
                     cars,
@@ -164,17 +139,7 @@ const trainsReducer = (state = [], action) => {
                   };
                   return newTrains.push(train);
                 } else if (minutes !== "Leaving" && prevStation) {
-                  // let count = 0;
-                  // estimates.forEach(ele => {
-                  //   if (
-                  //     ele.hexcolor === routeHexcolor &&
-                  //     ele.direction === routeDirection
-                  //   ) {
-                  //     count++;
-                  //   }
-                  // });
                   let prevName = prevStation.stationName;
-                  console.log(prevName);
                   let prevETAs = currentEtas[prevName];
 
                   if (prevETAs && prevETAs.etd) {
@@ -182,70 +147,73 @@ const trainsReducer = (state = [], action) => {
                     let prevEstimates = find(prevDepartures, function (o) {
                       return o.abbreviation === dest;
                     });
-                    console.log(prevEstimates, station);
                     if (prevEstimates) {
                       let prevTimes = prevEstimates.estimate;
-                      let nextInfo = allStat[prevName];
-                      let num = route.number;
-                      let placeholder = "ROUTE" + " " + num;
-                      console.log(placeholder, nextInfo);
-                      let dir2;
-                      let prevCurrentTime = null;
+                      // let nextInfo = allStat[prevName];
+                      // let num = route.number;
+                      // let placeholder = "ROUTE" + " " + num;
+                      // let dir2 = routeDirection;
+                      // let prevCurrentTime = null;
+                      let prevCurrentTime = find(prevTimes, function (o) {
+                        return (
+                          o.hexcolor === routeHexcolor &&
+                          o.direction === routeDirection
+                        );
+                      });
 
-                      let northRoutes = nextInfo.north_routes.route;
-                      let southRoutes = nextInfo.south_routes.route;
-                      if (!northRoutes && !southRoutes) {
-                        prevCurrentTime = find(prevTimes, function (o) {
-                          return o.hexcolor === routeHexcolor;
-                        });
-                      } else if (northRoutes && !southRoutes) {
-                        dir2 = "North";
-                        prevCurrentTime = find(prevTimes, function (o) {
-                          return (
-                            o.hexcolor === routeHexcolor && o.direction === dir2
-                          );
-                        });
-                      } else if (!northRoutes && southRoutes) {
-                        dir2 = "South";
-                        prevCurrentTime = find(prevTimes, function (o) {
-                          return (
-                            o.hexcolor === routeHexcolor && o.direction === dir2
-                          );
-                        });
-                      } else if (northRoutes && southRoutes) {
-                        console.log(northRoutes, southRoutes);
-                        if (northRoutes.includes(placeholder)) {
-                          dir2 = "North";
-                        } else if (southRoutes.includes(placeholder)) {
-                          dir2 = "South";
-                        }
-                        prevCurrentTime = find(prevTimes, function (o) {
-                          return (
-                            o.hexcolor === routeHexcolor && o.direction === dir2
-                          );
-                        });
-                      }
-                      console.log(prevTimes, station);
+                      // let northRoutes = nextInfo.north_routes.route;
+                      // let southRoutes = nextInfo.south_routes.route;
+                      // if (!northRoutes && !southRoutes) {
+                      //   prevCurrentTime = find(prevTimes, function (o) {
+                      //     return o.hexcolor === routeHexcolor;
+                      //   });
+                      // } else if (northRoutes && !southRoutes) {
+                      //   dir2 = "North";
+                      //   prevCurrentTime = find(prevTimes, function (o) {
+                      //     return (
+                      //       o.hexcolor === routeHexcolor && o.direction === dir2
+                      //     );
+                      //   });
+                      // } else if (!northRoutes && southRoutes) {
+                      //   dir2 = "South";
+                      //   prevCurrentTime = find(prevTimes, function (o) {
+                      //     return (
+                      //       o.hexcolor === routeHexcolor && o.direction === dir2
+                      //     );
+                      //   });
+                      // } else if (northRoutes && southRoutes) {
+                      //   console.log(northRoutes, southRoutes);
+                      //   // if (northRoutes.includes(placeholder)) {
+                      //   //   dir2 = "North";
+                      //   // } else if (southRoutes.includes(placeholder)) {
+                      //   //   dir2 = "South";
+                      //   // }
+                      //   dir2 = routeDirection;
+                      //   prevCurrentTime = find(prevTimes, function (o) {
+                      //     return (
+                      //       o.hexcolor === routeHexcolor && o.direction === dir2
+                      //     );
+                      //   });
+                      // }
+
                       let prevMinutes = null;
                       if (prevCurrentTime) {
                         {
                           prevMinutes = prevCurrentTime.minutes;
                         }
 
-                        console.log(prevMinutes, station, minutes);
                         let diff;
                         if (prevMinutes) {
                           diff = Number(minutes) - Number(prevMinutes);
                         }
                         if (diff <= 0 || !prevMinutes) {
-                          let id2 = uuidv4();
+                          let id = uuidv4();
                           let lastTrain = false;
-                          //let dir3 = prevCurrentTime.direction;
 
                           if (idx === routeStations.length - 1) {
                             lastTrain = true;
                           }
-                          console.log(prevStation);
+
                           let train = {
                             dest,
                             hexcolor,
@@ -261,7 +229,7 @@ const trainsReducer = (state = [], action) => {
                             // waypoints: results,
                             stationIdx: idx,
                             initialPosition: true,
-                            id: id2,
+                            id: id,
                             pos: station.location,
                           };
                           return newTrains.push(train);
@@ -276,27 +244,23 @@ const trainsReducer = (state = [], action) => {
         }
       });
 
-      let trains2 = newTrains.sort((a, b) =>
+      let sortedTrains = newTrains.sort((a, b) =>
         a.stationIdx > b.stationIdx ? 1 : -1
       );
 
-      let trains3 = [];
-      trains2.map((ele, idx) => {
+      let finalTrains = [];
+      sortedTrains.map((ele, idx) => {
         if (idx === 0) {
           ele["firstTrain"] = true;
         } else {
           ele["firstTrain"] = false;
         }
-        trains3.push(ele);
+        finalTrains.push(ele);
       });
 
-      // const routeTrains = Object.assign({}, { [route.number]: trains3 });
-      console.log(curr, trains3);
-      const newState = [...curr, ...trains3];
-      console.log(newState);
-
+      const newState = [...curr, ...finalTrains];
       return newState;
-
+    }
     case REMOVE_TRAINS:
       const routeNum4 = action.routeNum;
       const allUpdatedTrains = [];
@@ -358,11 +322,11 @@ const trainsReducer = (state = [], action) => {
     // const newTrainsforRoute = { [routeNum4]: curTrains };
 
     case ADD_TRAINS:
-      const currentTrains5 = [...state];
-      const curFirstTrains = currentTrains5.filter((train) => train.firstTrain);
+      const currentTrains = [...state];
+      const curFirstTrains = currentTrains.filter((train) => train.firstTrain);
       const currentRoutes12 = [];
 
-      currentTrains5.map((train) => {
+      currentTrains.map((train) => {
         let num = train.route;
         if (!currentRoutes12.includes(num)) {
           currentRoutes12.push(num);
@@ -375,14 +339,14 @@ const trainsReducer = (state = [], action) => {
           (route) => !firstRoutes.includes(route)
         );
         const trains55 = routes.map((route) => {
-          let trains2 = currentTrains5.filter((train) => train.route === route);
+          let trains2 = currentTrains.filter((train) => train.route === route);
           let trains24 = trains2.sort((a, b) =>
             a.stationIdx > b.stationIdx ? 1 : -1
           );
           let first = trains24[0];
           curFirstTrains.push(first);
           let id = first.id;
-          let train90 = find(currentTrains5, function (o) {
+          let train90 = find(currentTrains, function (o) {
             return o.id === id;
           });
           train90["firstTrain"] = true;
@@ -390,25 +354,20 @@ const trainsReducer = (state = [], action) => {
       }
       const currentEtas2 = action.etas;
       const newTrain5 = [];
-      const currentRoutes = routes2;
+      const currentRoutes = allRoutes;
       console.log(curFirstTrains);
 
       curFirstTrains.map((train, idx) => {
         let num = train.route;
         let stations = currentRoutes[num].stations;
-        let trainDest = train.destination;
-
         let trainID = train.id;
         let trainHexcolor = train.hexcolor;
-        let trainDir = train.direction;
-        let mins2 = train.minutes;
         let stationIndex = train.stationIdx;
         //let minutes = train.minutes;
         let routeDestination2 = ROUTES[num].abbreviation;
         let routeDir = ROUTES[num].direction;
         let stationSlice = stations.slice(0, stationIndex);
 
-        console.log(stationSlice);
         if (stationSlice.length > 0) {
           return stationSlice.map((station, idx4) => {
             let stationName2 = station.stationName;
@@ -441,7 +400,7 @@ const trainsReducer = (state = [], action) => {
                     let id = uuidv4();
                     let id2 = `${num + stationName2}`;
                     let id3 = `${num + stationName2 + "Leaving"}`;
-                    let duplicate = find(currentTrains5, function (o) {
+                    let duplicate = find(currentTrains, function (o) {
                       return (
                         o.route === num &&
                         o.stationName === stationName2 &&
@@ -467,10 +426,10 @@ const trainsReducer = (state = [], action) => {
                         initialPosition: true,
                       };
 
-                      let index = findIndex(currentTrains5, function (o) {
+                      let index = findIndex(currentTrains, function (o) {
                         return o.id === trainID;
                       });
-                      currentTrains5[index].firstTrain = false;
+                      currentTrains[index].firstTrain = false;
                       //  train["firstTrain"] = false;
 
                       return newTrain5.push(newTrain);
@@ -486,7 +445,6 @@ const trainsReducer = (state = [], action) => {
                     //   }
                     // });
                     let prevName = prevStation.stationName;
-                    console.log(prevName);
                     let prevETAs = currentEtas2[prevName];
 
                     if (prevETAs && prevETAs.etd) {
@@ -494,53 +452,60 @@ const trainsReducer = (state = [], action) => {
                       let prevEstimates = find(prevDepartures, function (o) {
                         return o.abbreviation === dest;
                       });
-                      console.log(prevEstimates, station);
+
                       if (prevEstimates) {
                         let prevTimes = prevEstimates.estimate;
-                        let nextInfo = stationsData[prevName];
+                        // let nextInfo = stationsData[prevName];
 
-                        let placeholder = "ROUTE" + " " + num;
-                        console.log(placeholder, nextInfo);
-                        let dir2;
-                        let prevCurrentTime = null;
+                        // let placeholder = "ROUTE" + " " + num;
+                        // console.log(placeholder, nextInfo);
+                        // let dir2;
+                        // let prevCurrentTime = null;
+                        let prevCurrentTime = find(prevTimes, function (o) {
+                          return (
+                            o.hexcolor === trainHexcolor &&
+                            o.direction === routeDir
+                          );
+                        });
 
-                        let northRoutes = nextInfo.north_routes.route;
-                        let southRoutes = nextInfo.south_routes.route;
-                        if (!northRoutes && !southRoutes) {
-                          prevCurrentTime = find(prevTimes, function (o) {
-                            return o.hexcolor === trainHexcolor;
-                          });
-                        } else if (northRoutes && !southRoutes) {
-                          dir2 = "North";
-                          prevCurrentTime = find(prevTimes, function (o) {
-                            return (
-                              o.hexcolor === trainHexcolor &&
-                              o.direction === dir2
-                            );
-                          });
-                        } else if (!northRoutes && southRoutes) {
-                          dir2 = "South";
-                          prevCurrentTime = find(prevTimes, function (o) {
-                            return (
-                              o.hexcolor === trainHexcolor &&
-                              o.direction === dir2
-                            );
-                          });
-                        } else if (northRoutes && southRoutes) {
-                          console.log(northRoutes, southRoutes);
-                          if (northRoutes.includes(placeholder)) {
-                            dir2 = "North";
-                          } else if (southRoutes.includes(placeholder)) {
-                            dir2 = "South";
-                          }
-                          prevCurrentTime = find(prevTimes, function (o) {
-                            return (
-                              o.hexcolor === trainHexcolor &&
-                              o.direction === dir2
-                            );
-                          });
-                        }
-                        console.log(prevTimes, station);
+                        // let northRoutes = nextInfo.north_routes.route;
+                        // let southRoutes = nextInfo.south_routes.route;
+                        // if (!northRoutes && !southRoutes) {
+                        //   prevCurrentTime = find(prevTimes, function (o) {
+                        //     return o.hexcolor === trainHexcolor;
+                        //   });
+                        // } else if (northRoutes && !southRoutes) {
+                        //   dir2 = "North";
+                        //   prevCurrentTime = find(prevTimes, function (o) {
+                        //     return (
+                        //       o.hexcolor === trainHexcolor &&
+                        //       o.direction === dir2
+                        //     );
+                        //   });
+                        // } else if (!northRoutes && southRoutes) {
+                        //   dir2 = "South";
+                        //   prevCurrentTime = find(prevTimes, function (o) {
+                        //     return (
+                        //       o.hexcolor === trainHexcolor &&
+                        //       o.direction === dir2
+                        //     );
+                        //   });
+                        // } else if (northRoutes && southRoutes) {
+                        //   dir2 = routeDir;
+                        //   // console.log(northRoutes, southRoutes);
+                        //   // if (northRoutes.includes(placeholder)) {
+                        //   //   dir2 = "North";
+                        //   // } else if (southRoutes.includes(placeholder)) {
+                        //   //   dir2 = "South";
+                        //   // }
+                        //   // prevCurrentTime = find(prevTimes, function (o) {
+                        //   //   return (
+                        //   //     o.hexcolor === trainHexcolor &&
+                        //   //     o.direction === dir2
+                        //   //   );
+                        //   // });
+                        // }
+                        // console.log(prevTimes, station);
 
                         if (prevCurrentTime) {
                           let prevMinutes = prevCurrentTime.minutes;
@@ -550,7 +515,7 @@ const trainsReducer = (state = [], action) => {
                           if (diff <= 0) {
                             let id = uuidv4();
                             let id2 = `${num + stationName2}`;
-                            let duplicate = find(currentTrains5, function (o) {
+                            let duplicate = find(currentTrains, function (o) {
                               return (
                                 o.route === num &&
                                 o.stationName === stationName2 &&
@@ -579,12 +544,12 @@ const trainsReducer = (state = [], action) => {
                                 pos: station.location,
                               };
                               let index = findIndex(
-                                currentTrains5,
+                                currentTrains,
                                 function (o) {
                                   return o.id === trainID;
                                 }
                               );
-                              currentTrains5[index].firstTrain = false;
+                              currentTrains[index].firstTrain = false;
                               //  train["firstTrain"] = false;
 
                               return newTrain5.push(newTrain);
@@ -600,53 +565,32 @@ const trainsReducer = (state = [], action) => {
           });
         }
       });
-      console.log(newTrain5);
 
-      const newT6 = [...newTrain5, ...currentTrains5];
+      const newT6 = [...newTrain5, ...currentTrains];
 
-      const df = newT6.map((train) => {
+      const newTrainArray = newT6.map((train) => {
         let id2 = train.route + train.stationName;
         train["id2"] = id2;
         return train;
       });
 
-      const uniques = uniqBy(df, "id2");
-      console.log(uniques, currentTrains5);
+      const uniques = uniqBy(newTrainArray, "id2");
 
-      // const uniques = uniqWith(
-      //   newT6,
-      //   (trainA, trainB) =>
-      //     (trainA.route === trainB.route &&
-      //       trainA.stationName !== trainB.stationName) ||
-      //     trainA.route !== trainB.route
-      // );
       return uniques;
 
-    case UPDATE_TRAINS:
+    case UPDATE_TRAINS: {
       const etas = action.etas;
-
       let allTrains = [...state];
-
-      let routes = routes2;
-      const allStations = stationsData;
-      // if (action.routeNum === "2") {
-      //   stations = action.stations.slice(0, -3);
-      // } else if (action.routeNum === "1") {
-      //   stations = action.stations.slice(2, -2);
-      // } else {
-      //   stations = action.stations.slice(0, -1);
-      // }
-
       const updatedTrains = [];
       const selectedIDs = [];
       let secs = 30000;
 
       allTrains.map((train, idx) => {
-        console.log(train);
         let routeNum = train.route;
-        let stations = routes[routeNum].stations;
+        let stations = allRoutes[routeNum].stations;
         let stationLength = stations.length - 1;
         let lastMinutes = train.minutes;
+        let routeDir = allRoutes[routeNum].direction;
         let trainDestination = train.dest;
         let trainDirection = train.direction;
         let hexcolor = train.hexcolor;
@@ -666,33 +610,34 @@ const trainsReducer = (state = [], action) => {
           let nextDepartures = find(nextStationEstimates, function (o) {
             return o.abbreviation === trainDestination;
           });
-          let nextInfo = allStations[nextStationName];
-          let placeholder = "ROUTE" + " " + routeNum;
-          console.log(placeholder, nextInfo);
-          let dir2;
+          // let nextInfo = allStations[nextStationName];
+          // let placeholder = "ROUTE" + " " + routeNum;
+          // console.log(placeholder, nextInfo);
+          // let dir2 = routeDir;
 
-          let northRoutes = nextInfo.north_routes.route;
-          let southRoutes = nextInfo.south_routes.route;
-          console.log(northRoutes, southRoutes);
+          // let northRoutes = nextInfo.north_routes.route;
+          // let southRoutes = nextInfo.south_routes.route;
+          // console.log(northRoutes, southRoutes);
 
-          if (northRoutes && southRoutes) {
-            if (northRoutes.includes(placeholder)) {
-              dir2 = "North";
-            } else if (southRoutes.includes(placeholder)) {
-              dir2 = "South";
-            }
-          } else if (northRoutes && !southRoutes) {
-            dir2 = "North";
-          } else if (!northRoutes && southRoutes) {
-            dir2 = "South";
-          }
+          // if (northRoutes && southRoutes) {
+          //   // if (northRoutes.includes(placeholder)) {
+          //   //   dir2 = "North";
+          //   // } else if (southRoutes.includes(placeholder)) {
+          //   //   dir2 = "South";
+          //   // }
+          //   dir2 = routeDir;
+          // } else if (northRoutes && !southRoutes) {
+          //   dir2 = "North";
+          // } else if (!northRoutes && southRoutes) {
+          //   dir2 = "South";
+          // }
 
-          console.log(nextDepartures, train, dir2);
+          // console.log(nextDepartures, train, dir2);
           let mins;
           //let totalMins;
 
           let nextEst = find(nextDepartures.estimate, function (o) {
-            return o.hexcolor === hexcolor && o.direction === dir2;
+            return o.hexcolor === hexcolor && o.direction === routeDir;
           });
           if (!nextEst) {
             nextEst = find(nextDepartures.estimate, function (o) {
@@ -712,7 +657,6 @@ const trainsReducer = (state = [], action) => {
             lastTrain = true;
           }
 
-          let id2 = `${routeNum + nextStationName}`;
           let id4 = `${routeNum + nextStationName + mins}`;
           const allTrainsDuplicate = allTrains.slice().map((train) => {
             let id3 = `${train.route + train.stationName + train.minutes}`;
@@ -725,8 +669,6 @@ const trainsReducer = (state = [], action) => {
           let duplicate = find(allTrainsDuplicate, function (o) {
             return o.id3 === id4;
           });
-
-          console.log(duplicate);
 
           if (!duplicate) {
             let newObj = {
@@ -761,40 +703,40 @@ const trainsReducer = (state = [], action) => {
             let nextDepartures = find(nextStationEstimates, function (o) {
               return o.abbreviation === trainDestination;
             });
-            let nextInfo = allStations[nextStationName];
-            let placeholder = "ROUTE" + " " + routeNum;
-            console.log(placeholder, nextInfo);
-            let dir2;
+            // let nextInfo = allStations[nextStationName];
+            // let placeholder = "ROUTE" + " " + routeNum;
+            // console.log(placeholder, nextInfo);
+            // let dir2;
 
-            let northRoutes = nextInfo.north_routes.route;
-            let southRoutes = nextInfo.south_routes.route;
-            console.log(northRoutes, southRoutes);
+            // let northRoutes = nextInfo.north_routes.route;
+            // let southRoutes = nextInfo.south_routes.route;
+            // console.log(northRoutes, southRoutes);
 
-            if (northRoutes && southRoutes) {
-              if (northRoutes.includes(placeholder)) {
-                dir2 = "North";
-              } else if (southRoutes.includes(placeholder)) {
-                dir2 = "South";
-              }
-            } else if (northRoutes && !southRoutes) {
-              dir2 = "North";
-            } else if (!northRoutes && southRoutes) {
-              dir2 = "South";
-            }
+            // if (northRoutes && southRoutes) {
+            //   if (northRoutes.includes(placeholder)) {
+            //     dir2 = "North";
+            //   } else if (southRoutes.includes(placeholder)) {
+            //     dir2 = "South";
+            //   }
+            // } else if (northRoutes && !southRoutes) {
+            //   dir2 = "North";
+            // } else if (!northRoutes && southRoutes) {
+            //   dir2 = "South";
+            // }
 
-            console.log(nextDepartures, train, dir2);
+            // console.log(nextDepartures, train, dir2);
             let mins;
             //let totalMins;
 
             let nextEst = find(nextDepartures.estimate, function (o) {
-              return o.hexcolor === hexcolor && o.direction === dir2;
+              return o.hexcolor === hexcolor && o.direction === routeDir;
             });
             if (!nextEst) {
               nextEst = find(nextDepartures.estimate, function (o) {
                 return o.hexcolor === hexcolor;
               });
             }
-            console.log(nextEst);
+
             mins = nextEst.minutes;
             let direc = nextEst.direction;
 
@@ -807,15 +749,12 @@ const trainsReducer = (state = [], action) => {
               lastTrain = true;
             }
 
-            let id2 = `${routeNum + nextStationName}`;
             let id4 = `${routeNum + nextStationName + mins}`;
             const allTrainsDuplicate = allTrains.slice().map((train) => {
               let id3 = `${train.route + train.stationName + train.minutes}`;
               train["id3"] = id3;
               return train;
             });
-
-            console.log(allTrainsDuplicate);
 
             let duplicate = find(allTrainsDuplicate, function (o) {
               return o.id3 === id4;
@@ -833,13 +772,10 @@ const trainsReducer = (state = [], action) => {
                 // segments,
                 totalMinutes: Number(mins),
                 direction: direc,
-                //departures: nextStationEstimates[index3].estimate[0],
                 lastTrain,
-                //waypoints: results,
                 pos: stations[train.stationIdx + 1].location,
                 initialPosition: false,
               };
-              console.log(newObj);
 
               let updatedTrain = Object.assign({}, train, newObj);
               return updatedTrains.push(updatedTrain);
@@ -849,45 +785,44 @@ const trainsReducer = (state = [], action) => {
             let currentEst = find(currentDepartures.estimate, function (o) {
               return o.hexcolor === hexcolor && o.direction === trainDirection;
             });
-            console.log(currentEst, train);
             if (!currentEst && lastMinutes === "Leaving") {
               let nextDepartures = find(nextStationEstimates, function (o) {
                 return o.abbreviation === trainDestination;
               });
-              let nextInfo = allStations[nextStationName];
-              let placeholder = "ROUTE" + " " + routeNum;
-              console.log(placeholder, nextInfo);
-              let dir2;
+              // let nextInfo = allStations[nextStationName];
+              // let placeholder = "ROUTE" + " " + routeNum;
+              // console.log(placeholder, nextInfo);
+              // let dir2;
 
-              let northRoutes = nextInfo.north_routes.route;
-              let southRoutes = nextInfo.south_routes.route;
-              console.log(northRoutes, southRoutes);
+              // let northRoutes = nextInfo.north_routes.route;
+              // let southRoutes = nextInfo.south_routes.route;
+              // console.log(northRoutes, southRoutes);
 
-              if (northRoutes && southRoutes) {
-                if (northRoutes.includes(placeholder)) {
-                  dir2 = "North";
-                } else if (southRoutes.includes(placeholder)) {
-                  dir2 = "South";
-                }
-              } else if (northRoutes && !southRoutes) {
-                dir2 = "North";
-              } else if (!northRoutes && southRoutes) {
-                dir2 = "South";
-              }
+              // if (northRoutes && southRoutes) {
+              //   if (northRoutes.includes(placeholder)) {
+              //     dir2 = "North";
+              //   } else if (southRoutes.includes(placeholder)) {
+              //     dir2 = "South";
+              //   }
+              // } else if (northRoutes && !southRoutes) {
+              //   dir2 = "North";
+              // } else if (!northRoutes && southRoutes) {
+              //   dir2 = "South";
+              // }
 
-              console.log(nextDepartures, train, dir2);
-              let mins;
+              // console.log(nextDepartures, train, dir2);
+              // let mins;
               //let totalMins;
 
               let nextEst = find(nextDepartures.estimate, function (o) {
-                return o.hexcolor === hexcolor && o.direction === dir2;
+                return o.hexcolor === hexcolor && o.direction === routeDir;
               });
               if (!nextEst) {
                 nextEst = find(nextDepartures.estimate, function (o) {
                   return o.hexcolor === hexcolor;
                 });
               }
-              console.log(nextEst);
+
               mins = nextEst.minutes;
               let direc = nextEst.direction;
 
@@ -900,7 +835,6 @@ const trainsReducer = (state = [], action) => {
                 lastTrain = true;
               }
 
-              let id2 = `${routeNum + nextStationName}`;
               let id4 = `${routeNum + nextStationName + mins}`;
               const allTrainsDuplicate = allTrains.slice().map((train) => {
                 let id3 = `${train.route + train.stationName + train.minutes}`;
@@ -908,13 +842,9 @@ const trainsReducer = (state = [], action) => {
                 return train;
               });
 
-              console.log(allTrainsDuplicate);
-
               let duplicate = find(allTrainsDuplicate, function (o) {
                 return o.id3 === id4;
               });
-
-              console.log(duplicate);
 
               if (!duplicate) {
                 let newObj = {
@@ -922,13 +852,9 @@ const trainsReducer = (state = [], action) => {
 
                   stationIdx: train.stationIdx + 1,
                   minutes: mins,
-                  //id2,
-                  // segments,
                   totalMinutes: Number(mins),
                   direction: direc,
-                  //departures: nextStationEstimates[index3].estimate[0],
                   lastTrain,
-                  //waypoints: results,
                   pos: stations[train.stationIdx + 1].location,
                   initialPosition: false,
                 };
@@ -948,33 +874,33 @@ const trainsReducer = (state = [], action) => {
                   return o.abbreviation === trainDestination;
                 });
 
-                let nextInfo = allStations[nextStationName];
-                let placeholder = "ROUTE" + " " + routeNum;
-                console.log(placeholder, nextInfo);
-                let dir2;
+                // let nextInfo = allStations[nextStationName];
+                // let placeholder = "ROUTE" + " " + routeNum;
+                // console.log(placeholder, nextInfo);
+                // let dir2;
 
-                let northRoutes = nextInfo.north_routes.route;
-                let southRoutes = nextInfo.south_routes.route;
-                console.log(northRoutes, southRoutes);
+                // let northRoutes = nextInfo.north_routes.route;
+                // let southRoutes = nextInfo.south_routes.route;
+                // console.log(northRoutes, southRoutes);
 
-                if (northRoutes && southRoutes) {
-                  if (northRoutes.includes(placeholder)) {
-                    dir2 = "North";
-                  } else if (southRoutes.includes(placeholder)) {
-                    dir2 = "South";
-                  }
-                } else if (northRoutes && !southRoutes) {
-                  dir2 = "North";
-                } else if (!northRoutes && southRoutes) {
-                  dir2 = "South";
-                }
+                // if (northRoutes && southRoutes) {
+                //   if (northRoutes.includes(placeholder)) {
+                //     dir2 = "North";
+                //   } else if (southRoutes.includes(placeholder)) {
+                //     dir2 = "South";
+                //   }
+                // } else if (northRoutes && !southRoutes) {
+                //   dir2 = "North";
+                // } else if (!northRoutes && southRoutes) {
+                //   dir2 = "South";
+                // }
 
-                console.log(nextDepartures, train, dir2);
+                // console.log(nextDepartures, train, dir2);
                 let mins;
                 //let totalMins;
 
                 let nextEst = find(nextDepartures.estimate, function (o) {
-                  return o.hexcolor === hexcolor && o.direction === dir2;
+                  return o.hexcolor === hexcolor && o.direction === routeDir;
                 });
                 if (!nextEst) {
                   nextEst = find(nextDepartures.estimate, function (o) {
@@ -994,7 +920,6 @@ const trainsReducer = (state = [], action) => {
                   lastTrain = true;
                 }
 
-                let id2 = `${routeNum + nextStationName}`;
                 let id4 = `${routeNum + nextStationName + mins}`;
                 const allTrainsDuplicate = allTrains.slice().map((train) => {
                   let id3 = `${
@@ -1004,31 +929,21 @@ const trainsReducer = (state = [], action) => {
                   return train;
                 });
 
-                console.log(allTrainsDuplicate);
-
                 let duplicate = find(allTrainsDuplicate, function (o) {
                   return o.id3 === id4;
                 });
 
-                console.log(duplicate);
-
                 if (!duplicate) {
                   let newObj = {
                     stationName: nextStationName,
-
                     stationIdx: train.stationIdx + 1,
                     minutes: mins,
-                    //id2,
-                    // segments,
                     totalMinutes: Number(mins),
                     direction: direc,
-                    //departures: nextStationEstimates[index3].estimate[0],
                     lastTrain,
-                    //waypoints: results,
                     pos: stations[train.stationIdx + 1].location,
                     initialPosition: false,
                   };
-                  console.log(newObj);
 
                   let updatedTrain = Object.assign({}, train, newObj);
                   return updatedTrains.push(updatedTrain);
@@ -1049,22 +964,19 @@ const trainsReducer = (state = [], action) => {
                 };
 
                 let updatedTrain = Object.assign({}, train, updObj);
-                console.log(updatedTrain);
+
                 return updatedTrains.push(updatedTrain);
               } else if (Number(currentMinutes) < Number(lastMinutes)) {
                 let updObj = {
                   minutes: currentMinutes,
                   initialPosition: false,
-                  //departures: currentStationEstimates[index].estimate[0]
                 };
                 let updatedTrain = Object.assign({}, train, updObj);
-                console.log(updatedTrain);
                 return updatedTrains.push(updatedTrain);
               } else {
                 let updatedTrain = Object.assign({}, train, {
                   initialPosition: false,
                 });
-                console.log(updatedTrain);
                 return updatedTrains.push(updatedTrain);
               }
             }
@@ -1072,29 +984,8 @@ const trainsReducer = (state = [], action) => {
         }
       });
 
-      // let sorted = updatedTrains.sort((a, b) =>
-      //   a.stationIdx > b.stationIdx ? 1 : -1
-      // );
-      // let updatedSorted = [];
-      // console.log(allTrains, updatedTrains);
-
-      // sorted.map((ele, idx) => {
-      //   if (idx === 0) {
-      //     ele["firstTrain"] = true;
-      //   } else {
-      //     ele["firstTrain"] = false;
-      //   }
-      //   updatedSorted.push(ele);
-      // });
-      //console.log(allTrains, updatedSorted);
-      // let abc = uniqBy(updatedSorted, "stationName");
-      //console.log(abc);
-      // const newObj = Object.assign({}, { [action.routeNum]: abc });
-
-      console.log(updatedTrains);
-      //const uniques2 = uniqBy(updatedTrains, "id2");
       const interval = Math.round(secs / selectedIDs.length);
-      const newTrains2 = updatedTrains.map((train) => {
+      const newTrains = updatedTrains.map((train) => {
         let id = train.id;
 
         if (selectedIDs.includes(id)) {
@@ -1106,15 +997,15 @@ const trainsReducer = (state = [], action) => {
           return train;
         }
       });
-      const df2 = newTrains2.map((train) => {
+      const cleanTrains = newTrains.map((train) => {
         let id4 = train.route + train.stationName + train.minutes;
         train["id4"] = id4;
         return train;
       });
 
-      const uniques2 = uniqBy(df2, "id4");
-
-      return uniques2;
+      const uniques = uniqBy(cleanTrains, "id4");
+      return uniques;
+    }
 
     default:
       return state;

@@ -14,6 +14,7 @@ import {
   addTrains,
   removeTrains,
   fetchStations,
+  fetchStation,
   removeTrain,
   removeTracking,
   removeAllTrains,
@@ -34,11 +35,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchRoutes: () => dispatch(fetchRoutes()),
+    fetchStations: () => dispatch(fetchStations()),
+    fetchStation: (abbr) => dispatch(fetchStation(abbr)),
     getCurrentEtas: (routes, route) => dispatch(getCurrentEtas(routes, route)),
 
     removeTrains: (routeNum) => dispatch(removeTrains(routeNum)),
     removeTrain: (id) => dispatch(removeTrain(id)),
     removeTracking: () => dispatch(removeTracking()),
+
     removeAllTrains: () => dispatch(removeAllTrains()),
     receiveWayPoints: (data) => dispatch(receiveWayPoints(data)),
     createTrains: (route, etas, stations) =>

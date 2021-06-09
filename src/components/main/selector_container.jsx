@@ -147,7 +147,7 @@ const SelectorContainer = React.memo(
             // Fixes the overlapping problem of the component
             customStyles
           }
-          placeholder={"Select a single or multiple BART lines"}
+          placeholder={"Select a single or multiple BART lines to track"}
           className="basic-multi-select"
           classNamePrefix="select"
           //filterOption={customFilter}

@@ -8,6 +8,7 @@ import L from "leaflet";
 import Select from "react-select";
 import jsonObject from "../../waypoints/all_shapes.json";
 import routes2 from "../../waypoints/new_routes.json";
+import oldRoutes from "../../waypoints/routes.json";
 import stations2 from "../../waypoints/new_stations.json";
 import allWayPoints from "../../waypoints/new_all_waypoints.json";
 import { throws } from "assert";
@@ -230,6 +231,7 @@ class MainPage extends Component {
     const routes = this.props.routes;
 
     console.log(routes2);
+    console.log(oldRoutes);
 
     // this.props.receiveWayPoints(jsonObject);
     // this.props.fetchSpaceStation();
@@ -250,6 +252,9 @@ class MainPage extends Component {
     // routeIds.map(id => this.props.fetchRouteStations(id));
     console.log("hello");
     this.props.getCurrentEtas();
+    const r = this.props.fetchRoutes();
+    console.log(r);
+
     // this.props.fetchStations();
     //   .then(response => this.setState({ etas: this.props.etas }));
 
