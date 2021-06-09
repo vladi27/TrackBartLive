@@ -54,6 +54,13 @@
   background-color: tomato;
   cursor: pointer;
   padding: 10px;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 0 #3f6f21;
+  font-size: 20px;
+  padding: 10px;
+  /* background: #61bd4f; */
+  color: white;
 }
 
 .custom-div-iconffff33 i {
