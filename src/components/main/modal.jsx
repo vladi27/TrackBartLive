@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Modal";
-import logo from "../../../bart_logo.png";
+import logo from "../../../dist/a236b50006a999f8a84d5a9de2c56740.png";
 
 function WelcomeModal() {
   const [show, setShow] = useState(true);
