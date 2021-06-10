@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
       // publicPath: "/dist",
       // publicPath: "/",
       filename: "bundle.js",
-      publicPath: argv.mode === "production" ? "/dist" : "/",
+      publicPath: argv.mode === "production" ? "" : "/dist",
     },
     //devServer: { contentBase: "dist" },
     module: {
