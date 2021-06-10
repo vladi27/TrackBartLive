@@ -98,6 +98,7 @@ const SelectorContainer = React.memo(
         ...styles,
         color: "silver",
         fontFamily: "Roboto,Arial,sans-serif",
+        fontSize: "15px",
       }),
       multiValueRemove: (styles, { data }) => ({
         ...styles,
