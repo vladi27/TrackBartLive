@@ -77,24 +77,18 @@ const ROUTES4 = {
   },
 };
 const RouteStations = React.memo(({ currentRoutes, routes }) => {
-  console.log(routes);
   const colors = currentRoutes.map((ele) => {
     return ROUTES4[ele.value].hexcolor;
   });
-  console.log(colors);
 
   const uniques = uniq(colors);
-  console.log(uniques);
 
   const routes2 = uniques.map((ele) => routes[RouteColors2[ele]]);
-  console.log(routes2);
 
   return routes2.map((route) => {
     let hexcolor = route.hexcolor;
     return route.allStations.map((ele2) => {
-      console.log(ele2);
       let station = ele2.location;
-      console.log(station);
       let abbr = ele2.stationName;
       return (
         <Station

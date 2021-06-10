@@ -1,5 +1,5 @@
-import React, { Component, PureComponent } from "react";
-import { Map, TileLayer, CircleMarker, Polyline } from "react-leaflet";
+import React from "react";
+import { Polyline } from "react-leaflet";
 import uniq from "lodash/uniq";
 const RouteColors2 = {
   "#ffff33": 1,
@@ -77,24 +77,19 @@ const ROUTES4 = {
   },
 };
 const Polylines = React.memo(({ currentRoutes, routes, waypoints }) => {
-  console.log(waypoints);
   const colors = currentRoutes.map((ele) => {
     return ROUTES4[ele.value].hexcolor;
   });
-  console.log(colors);
 
   const uniques = uniq(colors);
-  console.log(uniques);
 
   const routes2 = uniques.map((ele) => routes[RouteColors2[ele]]);
-  console.log(routes2);
 
   return routes2.map((route) => {
     let hexcolor = route.hexcolor;
-    console.log(hexcolor);
+
     let waypoints3 = [waypoints[Number(route.number) - 1]];
     return waypoints3.map((ele) => {
-      console.log(ele);
       return <Polyline positions={ele.waypoints} key={hexcolor} />;
     });
   });

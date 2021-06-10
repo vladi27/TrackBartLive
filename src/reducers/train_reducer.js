@@ -351,7 +351,6 @@ const trainsReducer = (state = [], action) => {
       const currentEtas2 = action.etas;
       const newTrain5 = [];
       const currentRoutes = allRoutes;
-      console.log(curFirstTrains);
 
       curFirstTrains.map((train, idx) => {
         let num = train.route;
@@ -373,10 +372,8 @@ const trainsReducer = (state = [], action) => {
             if (currents) {
               departures = currents.etd;
             }
-            //let previousStation = currentStationsSlice[idx4 - 1];
-            console.log(departures);
+
             return departures.map((departure) => {
-              console.log(departure);
               let dest = departure.abbreviation;
 
               if (routeDestination2.includes(dest)) {
@@ -386,7 +383,6 @@ const trainsReducer = (state = [], action) => {
                   return o.hexcolor === trainHexcolor;
                 });
 
-                console.log(currentEstimate, station);
                 if (currentEstimate) {
                   let minutes = currentEstimate.minutes;
                   let hexcolor = currentEstimate.hexcolor;
@@ -506,7 +502,6 @@ const trainsReducer = (state = [], action) => {
                         if (prevCurrentTime) {
                           let prevMinutes = prevCurrentTime.minutes;
 
-                          console.log(prevMinutes, station, minutes);
                           let diff = Number(minutes) - Number(prevMinutes);
                           if (diff <= 0) {
                             let id = uuidv4();
@@ -640,7 +635,7 @@ const trainsReducer = (state = [], action) => {
               return o.hexcolor === hexcolor;
             });
           }
-          console.log(nextEst);
+
           mins = nextEst.minutes;
           let direc = nextEst.direction;
 
@@ -659,8 +654,6 @@ const trainsReducer = (state = [], action) => {
             train["id3"] = id3;
             return train;
           });
-
-          console.log(allTrainsDuplicate);
 
           let duplicate = find(allTrainsDuplicate, function (o) {
             return o.id3 === id4;
@@ -682,7 +675,6 @@ const trainsReducer = (state = [], action) => {
               pos: stations[train.stationIdx + 1].location,
               initialPosition: false,
             };
-            console.log(newObj);
 
             let updatedTrain = Object.assign({}, train, newObj);
             return updatedTrains.push(updatedTrain);
@@ -692,8 +684,6 @@ const trainsReducer = (state = [], action) => {
           let currentDepartures = find(currentStationEstimates, function (o) {
             return o.abbreviation === trainDestination;
           });
-          console.log(currentDepartures);
-          console.log(lastMinutes);
 
           if (!currentDepartures && lastMinutes === "Leaving") {
             let nextDepartures = find(nextStationEstimates, function (o) {
@@ -755,8 +745,6 @@ const trainsReducer = (state = [], action) => {
             let duplicate = find(allTrainsDuplicate, function (o) {
               return o.id3 === id4;
             });
-
-            console.log(duplicate);
 
             if (!duplicate) {
               let newObj = {
@@ -854,14 +842,12 @@ const trainsReducer = (state = [], action) => {
                   pos: stations[train.stationIdx + 1].location,
                   initialPosition: false,
                 };
-                console.log(newObj);
 
                 let updatedTrain = Object.assign({}, train, newObj);
                 return updatedTrains.push(updatedTrain);
               }
             }
             if (currentEst) {
-              console.log(currentEst, train);
               let currentMinutes = currentEst.minutes;
               let currentDirection = currentEst.direction;
               let currentHexcolor = currentEst.hexcolor;
@@ -903,7 +889,6 @@ const trainsReducer = (state = [], action) => {
                     return o.hexcolor === hexcolor;
                   });
                 }
-                console.log(nextEst);
                 mins = nextEst.minutes;
                 let direc = nextEst.direction;
 

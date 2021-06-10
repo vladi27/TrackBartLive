@@ -1,9 +1,6 @@
-//import WindowedSelect from "react-windowed-select";
 import React, { Component, PureComponent } from "react";
-//import { components, createFilter } from "react-windowed-select";
 import Select from "react-select";
-import { css } from "@emotion/core";
-import { throws } from "assert";
+
 import chroma from "chroma-js";
 const SelectorContainer = React.memo(
   ({ handleSelect, values, customFilter }) => {
@@ -48,14 +45,16 @@ const SelectorContainer = React.memo(
         label: "Antioch - SFIA/Millbrae",
         hexcolor: "#ffd500",
       },
-    ];
+    ].reverse();
     function handleChange(value) {
-      console.log(value);
       handleSelect(value);
     }
-    console.log(options);
+
     const customStyles = {
-      control: (styles) => ({ ...styles, backgroundColor: "black" }),
+      control: (styles) => ({
+        ...styles,
+        backgroundColor: "black",
+      }),
       option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         const color = chroma(data.hexcolor);
         return {
@@ -108,32 +107,13 @@ const SelectorContainer = React.memo(
           color: "white",
         },
       }),
-      // option: (provided, state) => ({
-      //   ...provided,
-      //   borderBottom: "1px dotted pink",
-      //   color: state.isSelected ? "red" : "blue"
-      //   //padding: 20
-      // }),
-      // control: () => ({
-      //   // none of react-select's styles are passed to <Control />
-      //   width: 200
-      // }),
+
       menu: (provided) => ({
         ...provided,
         zIndex: 9999,
         backgroundColor: "black",
       }),
-      // singleValue: (provided, state) => {
-      //   const opacity = state.isDisabled ? 0.5 : 1;
-      //   const transition = "opacity 300ms";
-
-      //   return { ...provided, opacity, transition };
-      // }
     };
-
-    //   function customFilter() {
-    //     createFilter({ ignoreAccents: false });
-    //   }
 
     return (
       <div className="react-select__menu">
@@ -142,15 +122,10 @@ const SelectorContainer = React.memo(
           isMulti
           autosize={true}
           values={values}
-          // styles={{ marginBottom: "200px" }}
-          styles={
-            // Fixes the overlapping problem of the component
-            customStyles
-          }
+          styles={customStyles}
           placeholder={"Select a single or multiple BART lines to track"}
           className="basic-multi-select"
           classNamePrefix="select"
-          //filterOption={customFilter}
           onChange={(val) => handleChange(val)}
         />
       </div>

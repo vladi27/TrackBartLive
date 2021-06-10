@@ -42,6 +42,7 @@
   width: 99%;
   margin-top: 10px;
   position: absolute;
+  line-height: 26px !important;
   /* //height: fit-content; */
 }
 .leaflet-container {

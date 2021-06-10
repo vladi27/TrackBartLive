@@ -6,9 +6,6 @@ import etas from "./current_etas_reducer";
 
 const RootReducer = combineReducers({
   trains,
-  waypoints,
-  //schedules,
-
   etas,
 });
 

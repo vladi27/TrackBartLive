@@ -82,8 +82,8 @@ The trains are being passed as props to the React functional component where thi
 useLayoutEffect(() => {
   let frameId = null;
 
-  const animate = timestamp => {
-    refs.current.map(child => {
+  const animate = (timestamp) => {
+    refs.current.map((child) => {
       if (child && !zoomRef.current) {
       }
     });
@@ -93,7 +93,7 @@ useLayoutEffect(() => {
     }, 1000 / 10);
   };
 
-  frameId = window.requestAnimationFrame(t => {
+  frameId = window.requestAnimationFrame((t) => {
     animate(t);
   });
 
@@ -140,7 +140,6 @@ useImperativeHandle(ref, () => ({
       );
       if (pos) {
         const { latLng } = pos;
-        console.log(latLng, props.stataton, props.minutes);
         initRef.current = latLng;
         markerRef.current.leafletElement.setLatLng(latLng);
 
@@ -155,12 +154,11 @@ useImperativeHandle(ref, () => ({
 
       if (pos) {
         const { latLng } = pos;
-
         initRef.current = latLng;
         markerRef.current.leafletElement.setLatLng(latLng);
       }
     }
-  }
+  },
 }));
 ```
 

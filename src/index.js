@@ -5,18 +5,8 @@ import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
-  // const preloadedState = {
-  //   stations: {},
-  //   session: { isAuthenticated: true },
-  //   space_station: {},
-  //   routes: {},
-  //   etas: {},
-  //   trains: []
-  // };
-  store = configureStore();
-  window.getState = store.getState;
 
-  window.store = store;
+  store = configureStore();
 
   const root = document.getElementById("root");
 

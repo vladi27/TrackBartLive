@@ -122,26 +122,21 @@ const receiveStations = (stations) => {
   };
 };
 export const receiveStation = (station) => {
-  console.log(station);
   return {
     type: RECEIVE_STATION,
     station: station.data.root.stations.station,
   };
 };
-const receiveCurrentEtas = (etas, routes, route) => {
+const receiveCurrentEtas = (etas) => {
   return {
     type: RECEIVE_CURRENT_ETAS,
     etas: etas.data.root.station,
-    routes,
-    route,
   };
 };
-const updateCurrentEtas = (etas, routes, route) => {
+const updateCurrentEtas = (etas) => {
   return {
     type: UPDATE_CURRENT_ETAS,
     etas: etas.data.root.station,
-    routes,
-    route,
   };
 };
 
@@ -252,7 +247,6 @@ export const fetchStations = () => (dispatch) =>
     .then((stations) => dispatch(receiveStations(stations)))
     .catch((err) => console.log(err));
 export const fetchStation = (abbr) => (dispatch) => {
-  console.log(abbr);
   return getStation(abbr)
     .then((station) => dispatch(receiveStation(station)))
     .catch((err) => console.log(err));

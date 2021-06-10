@@ -56,16 +56,11 @@ function WelcomeModal() {
             station, the map will auto-pan for you. It's like putting the app
             into an auto-pilot mode :)
           </p>
-          <p>Please let me know if you have any questions and happy BARTing!</p>
+          <p>
+            Please let me know if you have any questions and never miss your
+            train!
+          </p>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer> */}
       </Modal>
     </>
   );

@@ -154,6 +154,7 @@ class MainPage extends Component {
       trains: [],
       zoom: 11,
       stopTracking: false,
+      height: 0,
     };
     this.timer = 0;
     this.interval = null;
@@ -234,25 +235,18 @@ class MainPage extends Component {
 
   getMap() {
     let panes = this.mapRef.current.leafletElement.getPanes();
-    console.log(panes);
     return this.mapRef;
   }
 
   handleSelect(value) {
-    let difference = [];
-
     const routes = routes2;
     const etas = this.props.etas;
     const stations = stations2;
 
-    console.log(value, "vlad");
-
     this.setState((prev) => {
-      console.log(prev);
       if (!prev.currentSelections || prev.currentSelections.length === 0) {
         let num = value[0].value;
         let route = routes[num];
-        console.log(route);
         let color = route.hexcolor;
         this.props.createTrains(route, etas, stations);
         return { currentSelections: value, hexcolors: [color] };
@@ -260,11 +254,9 @@ class MainPage extends Component {
         let difference = value
           .slice()
           .filter((x) => !prev.currentSelections.includes(x));
-        console.log(difference);
         let num = difference[0].value;
         let color = ROUTES4[num].hexcolor;
         let newColor = [...prev.hexcolors, color];
-
         let route = routes[num];
         this.props.createTrains(route, etas, stations);
         return { currentSelections: value, hexcolors: newColor };
@@ -276,37 +268,23 @@ class MainPage extends Component {
         let difference = this.state.currentSelections
           .slice()
           .filter((x) => !value.includes(x));
-        console.log(difference);
-        console.log("vlad");
-        // let colorToRemove = console.log(difference);
         let num = difference[0].value;
         let hexcolors = prev.hexcolors;
         let colorToRemove = ROUTES4[num].hexcolor;
         let index = hexcolors.indexOf(colorToRemove);
         hexcolors.splice(index, 1);
-        //  let route = routes[num];
         this.props.removeTrains(num);
         return { currentSelections: value, hexcolors };
       } else if (
         (prev.currentSelections.length > 0 && !value) ||
         (prev.currentSelections.length > 0 && value.length === 0)
       ) {
-        console.log(value);
         this.props.removeAllTrains();
         {
-          //this.stopTimer();
           return { currentSelections: value, seconds: 0, hexcolors: [] };
         }
       }
-
-      console.count();
-      //return { currentSelections: value };
     });
-
-    console.log(this.state);
-    // if (!this.state.currentSelections) {
-    //   return this.setState({ fetchData: false });
-    // }
   }
 
   handleZoomStart() {
@@ -329,36 +307,19 @@ class MainPage extends Component {
   }
 
   render() {
-    const allRoutes = routes;
-    const customFilter = createFilter({ ignoreAccents: false });
-
     const currentSelections = this.state.currentSelections;
-    // const options = this.props.allRoutes.map(ele => ele.title);
-
     const position = [37.844443, -122.252341];
-    const { loading } = this.props;
-    //let trains;
-
-    // if (this.props.trains) {
-    //   trains = this.props.trains;
-    // }
-
     const trains = this.props.trains;
     const etas = this.props.etas;
     const selected = find(trains, ["selected", true]);
     const routes = routes2;
     const hexcolors = this.state.hexcolors || [];
-    const uniques = uniq(hexcolors);
     const update = String(this.state.update);
-    const bounds = this.bounds;
-    console.log(bounds);
+    let topMargin = "60px";
 
-    // console.log(jsonObject);
-
-    console.log(this.state);
-    console.log(trains);
-    console.log(uniques, hexcolors);
-    console.log(this.zoom);
+    if (currentSelections && currentSelections.length >= 6) {
+      topMargin = "90px";
+    }
 
     if (Object.values(etas).length === 0) {
       return (
@@ -374,39 +335,16 @@ class MainPage extends Component {
         </div>
       );
     } else {
-      //this.mapRef.current.leafletElement.setMaxBounds
       return (
         <div id="all">
           <WelcomeModal></WelcomeModal>
-          {/* <div className="react-select__menu">
-            <WindowedSelect
-              options={options}
-              isMulti
-              values={this.state.currentSelections}
-              styles={{ marginBottom: "200px" }}
-              placeholder={"hello"}
-              handleDropdown={this.handleDropdown}
-              className="basic-multi-select"
-              classNamePrefix="select"
-              filterOption={customFilter}
-              onChange={this.handleChange.bind(this)}
-            /> */}
+
           <SelectorContainer
             handleSelect={this.handleSelect}
             values={this.state.currentSelections}
             customFilter={this.customFilter}
             options={options}
           ></SelectorContainer>
-          {/* <div className="test">
-            <DropdownMultiple
-              titleHelper="Routes"
-              title="Select routes"
-              list={this.state.routes}
-              toggleItem={this.toggleSelected}
-              onClick={e => this.handleChange}
-              // toggleItem={this.handleChange}
-            />
-          </div> */}
 
           <Map
             //watch={true}
@@ -421,7 +359,7 @@ class MainPage extends Component {
             markerZoomAnimation={true}
             maxZoom={16}
             //minZoom={11}
-            style={{ width: "100%", height: "100%", marginTop: "60px" }}
+            style={{ width: "100%", height: "100%", marginTop: topMargin }}
             //maxBounds={bounds}
 
             preferCanvas={true}
@@ -464,12 +402,7 @@ class MainPage extends Component {
                 ) : null}
               </React.Fragment>
             ) : null}
-            {/* {currentSelections ? (
-              <div>
-                {this.renderStops()}
-                {this.drawPolyline()}
-              </div>
-            ) : null} */}
+
             <TileLayer url="https://mt1.google.com/vt/lyrs=m@121,transit|vm:1&hl=en&opts=r&x={x}&y={y}&z={z}" />
           </Map>
         </div>
