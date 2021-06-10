@@ -56,8 +56,8 @@ function WelcomeModal() {
             into an auto-pilot mode :)
           </p>
           <p>
-            Please let me know if you have any questions and never miss your
-            train!
+            Please let me know if you have any questions and I hope you'll never
+            miss your train!
           </p>
         </Modal.Body>
       </Modal>
