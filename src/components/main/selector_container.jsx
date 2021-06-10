@@ -54,6 +54,7 @@ const SelectorContainer = React.memo(
       control: (styles) => ({
         ...styles,
         backgroundColor: "black",
+        textOverflow: "ellipsis",
       }),
       option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         const color = chroma(data.hexcolor);
@@ -99,6 +100,7 @@ const SelectorContainer = React.memo(
         color: "silver",
         fontFamily: "Roboto,Arial,sans-serif",
         fontSize: "15px",
+        whiteSpace: "nowrap",
       }),
       multiValueRemove: (styles, { data }) => ({
         ...styles,
