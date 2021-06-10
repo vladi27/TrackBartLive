@@ -24,13 +24,21 @@
   flex-flow: column wrap;
 }
 .my-modal {
-  height: 1500px !important;
+  /* height: 1500px !important; */
   color: #0064a8;
+  width: auto !important;
 }
 .custom-modal-style {
   background-color: white !important;
   /* justify-content: center !important; */
-  height: 480px !important;
+  height: 450px !important;
+  /* min-width: 100px !important; */
+  position: relative;
+  display: table; /* <-- This makes the trick */
+  overflow-y: auto;
+  overflow-x: auto;
+  width: auto;
+  min-width: 300px;
 }
 
 .react-select__menu {
