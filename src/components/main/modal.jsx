@@ -16,7 +16,6 @@ function WelcomeModal() {
       </Button>
 
       <Modal
-        // size="lg"
         show={show}
         onHide={handleClose}
         dialogClassName="my-modal"
