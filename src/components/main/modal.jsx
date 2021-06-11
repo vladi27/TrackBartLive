@@ -36,7 +36,7 @@ function WelcomeModal() {
                 fontWeight: 700,
               }}
             >
-              Track Bart Live
+              Where is my Bart?
             </span>
           </Modal.Title>
         </Modal.Header>
