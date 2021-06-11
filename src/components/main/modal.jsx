@@ -43,8 +43,8 @@ function WelcomeModal() {
         <Modal.Body>
           <p>
             Hey there and thanks for checking out my BART project! This app
-            leverages BART API, React and Redux to allow users to track BART
-            trains in real-time.
+            leverages BART API, Leaflet, React and Redux to allow users to track
+            BART trains in real-time.
           </p>
           <p>
             To start tracking, please select BART lines from the dropdown menu.
