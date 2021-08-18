@@ -30,7 +30,7 @@ function WelcomeModal() {
             />
             <span
               style={{
-                marginLeft: "50px",
+                marginLeft: "80px",
                 textAlign: "center",
                 fontFamily: "Hind Arial sans-serif",
                 fontWeight: 700,
