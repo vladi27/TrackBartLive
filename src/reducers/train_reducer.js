@@ -103,7 +103,6 @@ const trainsReducer = (state = [], action) => {
         let stationName = station.stationName;
         let stationETAs = currentEtas[stationName];
         let prevStation = routeStations[idx - 1];
-        console.log(stationName, prevStation);
         if (stationETAs) {
           stationETAs.etd.map((departure) => {
             let dest = departure.destination;
@@ -150,7 +149,7 @@ const trainsReducer = (state = [], action) => {
                     let prevEstimates = find(prevDepartures, function (o) {
                       return o.destination === dest;
                     });
-                    console.log(prevEstimates);
+
                     if (prevEstimates) {
                       let prevTimes = prevEstimates.estimate;
                       // let nextInfo = allStat[prevName];
@@ -207,7 +206,7 @@ const trainsReducer = (state = [], action) => {
                         }
 
                         let diff;
-                        console.log(stationName, diff);
+
                         if (prevMinutes) {
                           diff = Number(minutes) - Number(prevMinutes);
                         }
@@ -692,15 +691,9 @@ const trainsReducer = (state = [], action) => {
         } else if (lastEtas) {
           let currentStationEstimates = lastEtas.etd;
 
-          console.log(currentStationEstimates, "currentEstimates");
           let currentDepartures = find(currentStationEstimates, function (o) {
             return o.destination === trainDestination;
           });
-          console.log(
-            currentDepartures,
-            nextStationName,
-            " next station departures"
-          );
 
           if (!currentDepartures && lastMinutes === "Leaving") {
             let nextDepartures = find(nextStationEstimates, function (o) {
@@ -791,7 +784,6 @@ const trainsReducer = (state = [], action) => {
                 return o.destination === trainDestination;
               });
 
-              console.log(nextDepartures);
               // let nextInfo = allStations[nextStationName];
               // let placeholder = "ROUTE" + " " + routeNum;
               // console.log(placeholder, nextInfo);
@@ -825,8 +817,6 @@ const trainsReducer = (state = [], action) => {
                   return o.hexcolor === hexcolor;
                 });
               }
-
-              console.log(nextEst, "hello");
 
               mins = nextEst.minutes;
               let direc = nextEst.direction;
@@ -901,7 +891,7 @@ const trainsReducer = (state = [], action) => {
                 // console.log(nextDepartures, train, dir2);
                 let mins;
                 //let totalMins;
-                console.log(nextEst, nextDepartures, "next Estimate");
+
                 let nextEst = find(nextDepartures.estimate, function (o) {
                   return o.hexcolor === hexcolor && o.direction === routeDir;
                 });
