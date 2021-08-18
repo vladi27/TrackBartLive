@@ -72,6 +72,7 @@ const Trains = React.forwardRef(function Trains(props, ref) {
             minutes={train.minutes}
             lastTrain={train.lastTrain}
             destination={train.dest}
+            finalStation={train.finalStation}
             cars={train.cars}
             index={train.index}
             removeTrain={props.removeTrain}

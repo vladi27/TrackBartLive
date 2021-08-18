@@ -46,6 +46,7 @@ const NewMarker = React.forwardRef((props, ref) => {
     lastTrain,
     id,
     totalTime,
+    finalStation,
     destination,
     stationIndex,
     routeStations,
@@ -394,7 +395,7 @@ const NewMarker = React.forwardRef((props, ref) => {
           {" "}
           Station: <strong>{props.station}</strong> <br />
           Minutes: <strong>{props.minutes}</strong> <br />
-          Destination: <strong>{destination}</strong>
+          Destination: <strong>{finalStation}</strong>
           <br />
           Cars: <strong>{props.cars}</strong>
         </span>

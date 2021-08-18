@@ -49,11 +49,10 @@ function WelcomeModal() {
           <p>
             To start tracking, please select BART lines from the dropdown menu.
             All trains are animated and their respective positions are
-            calculated based on their estimated arrival time to the next
-            station. You can also start tracking an individual train/trains by
-            clicking on them, and every time these trains depart or arrive at a
-            station, the map will auto-pan for you. It's like putting the app
-            into an auto-pilot mode :)
+            calculated based upon their ETA to the next station. You can also
+            start tracking an individual train by clicking on it, and every time
+            the train departs or arrives at a station, the map will auto-pan for
+            you. It's like putting the app into an auto-pilot mode :)
           </p>
           <p>
             Please let me know if you have any questions and I hope you'll never

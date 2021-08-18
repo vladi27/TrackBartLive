@@ -320,6 +320,7 @@ class MainPage extends Component {
     if (currentSelections && currentSelections.length >= 6) {
       topMargin = "90px";
     }
+    console.log(routes2);
 
     if (Object.values(etas).length === 0) {
       return (
