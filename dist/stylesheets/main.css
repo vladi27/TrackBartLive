@@ -31,7 +31,7 @@
 .custom-modal-style {
   background-color: white !important;
   /* justify-content: center !important; */
-  height: 450px !important;
+  /* height: 450px !important; */
   /* min-width: 100px !important; */
   position: relative;
   display: table; /* <-- This makes the trick */
