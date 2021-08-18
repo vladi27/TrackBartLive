@@ -58,7 +58,7 @@ const configureStore = (preloadedState = {}) =>
   createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(thunk, persistenceMiddleware, createDebounce(), logger)
+    applyMiddleware(thunk, persistenceMiddleware, createDebounce())
   );
 
 export default configureStore;
