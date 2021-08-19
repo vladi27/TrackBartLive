@@ -42,7 +42,7 @@ function WelcomeModal() {
         </Modal.Header>
         <Modal.Body>
           <p>
-            Hey there and thanks for checking out my BART project! This app
+            Hey there and thank you for checking out my BART project! This app
             leverages BART API, Leaflet, React and Redux to allow users to track
             BART trains in real-time.
           </p>

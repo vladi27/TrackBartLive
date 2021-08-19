@@ -16,6 +16,7 @@ import allStations from "../waypoints/new_stations.json";
 import find from "lodash/find";
 import uniqBy from "lodash/uniqBy";
 import uniqWith from "lodash/uniqWith";
+import { last } from "lodash";
 
 const uuidv4 = require("uuid/v4");
 const OPTIONS = { units: "kilometers" };
@@ -862,7 +863,13 @@ const trainsReducer = (state = [], action) => {
               let currentMinutes = currentEst.minutes;
               let currentDirection = currentEst.direction;
               let currentHexcolor = currentEst.hexcolor;
-              if (lastMinutes === "Leaving" && currentMinutes !== "Leaving") {
+
+              if (
+                (lastMinutes === "Leaving" && currentMinutes !== "Leaving") ||
+                (Number(lastMinutes) === 1 &&
+                  Number(currentMinutes) > 1 &&
+                  !train.lastTrain)
+              ) {
                 let nextDepartures = find(nextStationEstimates, function (o) {
                   return o.destination === trainDestination;
                 });
